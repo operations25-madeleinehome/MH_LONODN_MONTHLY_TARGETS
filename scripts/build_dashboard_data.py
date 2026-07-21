@@ -1,8 +1,10 @@
 """
-Reads the current month's channel sales files + the two Targets files from
-Google Drive (via a service account) and produces data.json: a single file
-the dashboard site can fetch and render, with target-vs-actual numbers per
-channel and per SKU.
+Reads every month folder that exists under Monthly Targets in Google Drive
+(e.g. 2026/June, 2026/July) plus the Targets files inside each one, and
+produces one data/<year>-<month>.json per month for the dashboard site to
+fetch and render, with target-vs-actual numbers per channel and per SKU.
+Each month's numbers always come from that month's own Drive folder --
+nothing is cached or carried over from a previous run.
 
 This script only ever READS from Drive -- it never writes back. The channel
 "actual" numbers come from the same "Sales - <Month> <Year>" sheets that
@@ -359,6 +361,29 @@ def build_dashboard_data(service, month, year, today=None, sku_images=None):
         "channels": channels_out,
     }
 
+def discover_month_folders(service):
+    """Find every (year, month) folder that actually exists under the
+    Monthly Targets root -- e.g. 2026/June, 2026/July -- so each month's
+    numbers always come from that month's own folder rather than being
+    guessed or left stale. Returns (year, month) tuples, oldest first."""
+    month_name_to_num = {name: i for i, name in enumerate(calendar.month_name) if name}
+    results = []
+    for year_folder in list_children(service, MONTHLY_TARGETS_FOLDER_ID):
+        if year_folder["mimeType"] != "application/vnd.google-apps.folder":
+            continue
+        if not year_folder["name"].isdigit():
+            continue
+        year = int(year_folder["name"])
+        for month_folder in list_children(service, year_folder["id"]):
+            if month_folder["mimeType"] != "application/vnd.google-apps.folder":
+                continue
+            month_num = month_name_to_num.get(month_folder["name"])
+            if month_num is None:
+                continue
+            results.append((year, month_num))
+    results.sort()
+    return results
+
 def update_manifest(month, year, month_label):
     """Merge this month's entry into data/manifest.json, preserving whatever
     other months are already listed (past months aren't regenerated every
@@ -380,27 +405,40 @@ def main():
     key_file = sys.argv[1] if len(sys.argv) > 1 else KEY_FILE
     today = SIMULATED_TODAY or dt.date.today()
 
-    print(f"Building dashboard data for {today.strftime('%B %Y')} ...")
     service = get_drive_service(key_file)
     sku_images = load_sku_images()
-    print(f"  -> loaded {len(sku_images)} SKU image link(s) from {SKU_IMAGES_PATH}"
-          if sku_images else f"  -> no {SKU_IMAGES_PATH} found; SKU images will be blank")
+    print(f"Loaded {len(sku_images)} SKU image link(s) from {SKU_IMAGES_PATH}"
+          if sku_images else f"No {SKU_IMAGES_PATH} found; SKU images will be blank")
 
-    data = build_dashboard_data(service, today.month, today.year, today=today, sku_images=sku_images)
+    month_folders = discover_month_folders(service)
+    if not month_folders:
+        print("No year/month folders found under Monthly Targets; nothing to build.")
+        return
+    labels = ", ".join(dt.date(y, m, 1).strftime("%B %Y") for y, m in month_folders)
+    print(f"Found {len(month_folders)} month folder(s) in Drive: {labels}")
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    out_path = OUTPUT_DIR / f"{data['year']:04d}-{data['month']:02d}.json"
-    with open(out_path, "w") as f:
-        json.dump(data, f, indent=2)
-    update_manifest(data["month"], data["year"], data["month_label"])
+    for year, month in month_folders:
+        label = dt.date(year, month, 1).strftime("%B %Y")
+        print(f"\nBuilding dashboard data for {label} (from its own Drive folder) ...")
+        try:
+            data = build_dashboard_data(service, month, year, today=today, sku_images=sku_images)
+        except RuntimeError as exc:
+            print(f"  -> skipped: {exc}")
+            continue
 
-    print(f"Wrote {out_path}: {len(data['channels'])} channel(s).")
-    for r in data["regions"]:
-        print(f"  [{r['region']} total] target ${r['target_revenue']:,.2f} / actual ${r['actual_revenue']:,.2f}")
-    for c in data["channels"]:
-        flag = "" if c["has_actual_file"] else " (no actual file yet)"
-        flag += "" if c["has_target_data"] else " (no target data yet)"
-        print(f"  [{c['name']}] target ${c['target_revenue']:,.2f} / actual ${c['actual_revenue']:,.2f}{flag}")
+        out_path = OUTPUT_DIR / f"{data['year']:04d}-{data['month']:02d}.json"
+        with open(out_path, "w") as f:
+            json.dump(data, f, indent=2)
+        update_manifest(data["month"], data["year"], data["month_label"])
+
+        print(f"Wrote {out_path}: {len(data['channels'])} channel(s).")
+        for r in data["regions"]:
+            print(f"  [{r['region']} total] target ${r['target_revenue']:,.2f} / actual ${r['actual_revenue']:,.2f}")
+        for c in data["channels"]:
+            flag = "" if c["has_actual_file"] else " (no actual file yet)"
+            flag += "" if c["has_target_data"] else " (no target data yet)"
+            print(f"  [{c['name']}] target ${c['target_revenue']:,.2f} / actual ${c['actual_revenue']:,.2f}{flag}")
 
 if __name__ == "__main__":
     main()
