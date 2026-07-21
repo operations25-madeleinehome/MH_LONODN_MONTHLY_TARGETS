@@ -94,10 +94,10 @@
   .badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #fdf1e6; color: var(--warn); }
   .badge-info { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
   .channel-only-note { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
-  .pace-badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; }
-  .pace-good { background: #e5f6ec; color: var(--good); }
-  .pace-warn { background: #fdf1e0; color: var(--warn); }
-  .pace-bad { background: #fbe9e7; color: var(--bad); }
+  .status-badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 600; }
+  .status-ahead { background: #e5f6ec; color: var(--good); }
+  .status-ontrack { background: #fdf1e0; color: var(--warn); }
+  .status-behind { background: #fbe9e7; color: var(--bad); }
 
   .progress-block { flex: 1; min-width: 220px; }
   .progress-track { background: var(--track); border-radius: 999px; height: 8px; overflow: hidden; }
@@ -183,12 +183,20 @@ function pctClass(p) {
   return "warn";
 }
 
-function paceInfo(projected, target) {
-  const p = pct(projected, target);
-  if (p === null) return { label: "no target", cls: "" };
-  if (p >= 100) return { label: "on track (" + p.toFixed(0) + "% of target projected)", cls: "pace-good" };
-  if (p >= 80) return { label: "close (" + p.toFixed(0) + "% of target projected)", cls: "pace-warn" };
-  return { label: "behind (" + p.toFixed(0) + "% of target projected)", cls: "pace-bad" };
+// Variance vs where the channel SHOULD be by the end of yesterday
+// (target pro-rated by days completed). Positive = ahead of pace.
+function statusInfo(actual, target, daysCompleted, daysInMonth) {
+  if (!target || target <= 0) return null;              // no target set
+  if (!daysCompleted || daysCompleted <= 0) return null; // month hasn't really started
+  if (!daysInMonth || daysInMonth <= 0) return null;
+  const expected = target * (daysCompleted / daysInMonth);
+  if (expected <= 0) return null;
+  const variance = ((actual - expected) / expected) * 100;
+  const sign = variance >= 0 ? "+" : "";
+  const label = sign + variance.toFixed(0) + "%";
+  if (variance < -5) return { text: "Behind (" + label + ")", cls: "status-behind" };
+  if (variance > 5) return { text: "Ahead (" + label + ")", cls: "status-ahead" };
+  return { text: "On track (" + label + ")", cls: "status-ontrack" };
 }
 
 function computeOverall(channels) {
@@ -198,9 +206,8 @@ function computeOverall(channels) {
     acc.actual_revenue += c.actual_revenue || 0;
     acc.target_units += c.target_units || 0;
     acc.actual_units += c.actual_units || 0;
-    acc.projected_revenue += c.projected_revenue || 0;
     return acc;
-  }, { target_revenue: 0, actual_revenue: 0, target_units: 0, actual_units: 0, projected_revenue: 0 });
+  }, { target_revenue: 0, actual_revenue: 0, target_units: 0, actual_units: 0 });
   totals.overall_pct = pct(totals.actual_revenue, totals.target_revenue);
   totals.channels_with_targets = targetableChannels.length;
   totals.channels_total = channels.length;
@@ -230,7 +237,7 @@ function skuThumbHtml(url) {
   return `<img class="sku-thumb" src="${encodeURI(url)}" loading="lazy" onerror="this.outerHTML='<span class=&quot;sku-thumb-empty&quot;></span>'">`;
 }
 
-function channelCardHtml(c, idx) {
+function channelCardHtml(c, idx, daysCompleted, daysInMonth) {
   const p = pct(c.actual_revenue, c.target_revenue);
   const pctLabel = p === null ? "no target" : p.toFixed(0) + "%";
   const barWidth = p === null ? 0 : Math.min(p, 100);
@@ -239,8 +246,8 @@ function channelCardHtml(c, idx) {
   if (!c.has_actual_file) badges.push('<span class="badge">no actual data yet</span>');
   if (!c.has_target_data) badges.push('<span class="badge">no target set</span>');
   if (isChannelOnly) badges.push('<span class="badge-info">channel-level target only</span>');
-  const pace = c.has_target_data ? paceInfo(c.projected_revenue, c.target_revenue) : null;
-  const paceBadge = pace && pace.cls ? `<span class="pace-badge ${pace.cls}">${pace.label}</span>` : "";
+  const status = c.has_target_data ? statusInfo(c.actual_revenue, c.target_revenue, daysCompleted, daysInMonth) : null;
+  const statusBadge = status ? `<span class="status-badge ${status.cls}">${status.text}</span>` : "";
 
   const skuRows = sortByAchievement(c.skus || []);
 
@@ -271,7 +278,7 @@ function channelCardHtml(c, idx) {
           <span class="channel-name">${c.name}</span>
           <span class="region-tag">${c.region || ""}</span>
           ${badges.join("")}
-          ${paceBadge}
+          ${statusBadge}
         </div>
         <div class="progress-block">
           <div class="progress-track"><div class="progress-fill ${pctClass(p)}" style="width:${barWidth}%"></div></div>
@@ -300,7 +307,6 @@ function overallHtml(totals) {
     <div class="stat-card"><div class="label">Target Revenue</div><div class="value">${fmtMoney(totals.target_revenue)}</div></div>
     <div class="stat-card"><div class="label">Actual Revenue</div><div class="value">${fmtMoney(totals.actual_revenue)}</div></div>
     <div class="stat-card"><div class="label">% to Target</div><div class="value">${totals.overall_pct === null ? "—" : totals.overall_pct.toFixed(0) + "%"}</div></div>
-    <div class="stat-card"><div class="label">Projected Revenue</div><div class="value">${fmtMoney(totals.projected_revenue)}</div></div>
     <div class="stat-card"><div class="label">Target Units</div><div class="value">${fmtNum(totals.target_units)}</div></div>
     <div class="stat-card"><div class="label">Actual Units</div><div class="value">${fmtNum(totals.actual_units)}</div></div>
   `;
@@ -318,7 +324,7 @@ function regionCardHtml(r) {
         <span>${fmtMoney(r.target_revenue)} target</span>
       </div>
       <div style="font-size:12px; color:var(--text-muted); margin-top:6px;">
-        ${fmtNum(r.actual_units)} / ${fmtNum(r.target_units)} units · projected ${fmtMoney(r.projected_revenue)}
+        ${fmtNum(r.actual_units)} / ${fmtNum(r.target_units)} units
       </div>
     </div>`;
 }
@@ -366,7 +372,9 @@ async function loadMonth(year, month) {
     document.getElementById("overall").innerHTML = overallHtml(totals);
     document.getElementById("overallSection").style.display = "block";
 
-    document.getElementById("channels").innerHTML = channels.map(channelCardHtml).join("");
+    const daysCompleted = data.days_completed != null ? data.days_completed : data.days_elapsed;
+    document.getElementById("channels").innerHTML =
+      channels.map((c, i) => channelCardHtml(c, i, daysCompleted, data.days_in_month)).join("");
     document.getElementById("channelSection").style.display = "block";
 
     statusEl.style.display = "none";

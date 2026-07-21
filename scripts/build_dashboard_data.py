@@ -304,6 +304,18 @@ def project_revenue(actual_revenue, days_elapsed, days_in_month):
         return 0.0
     return actual_revenue / days_elapsed * days_in_month
 
+def days_completed_through_yesterday(month, year, today):
+    """Days of the month fully completed as of the end of yesterday. Today is
+    excluded because the current day's sales are still coming in. A past month
+    is fully completed; a future month is zero; the current month counts up to
+    (today - 1). Used for the On Track / Behind / Ahead pace comparison."""
+    days_in_month = calendar.monthrange(year, month)[1]
+    if (year, month) < (today.year, today.month):
+        return days_in_month
+    if (year, month) > (today.year, today.month):
+        return 0
+    return max(0, min(today.day - 1, days_in_month))
+
 # =============================================================================
 # SKU IMAGES
 # =============================================================================
@@ -322,6 +334,7 @@ def build_dashboard_data(service, month, year, today=None, sku_images=None):
     today = today or dt.date.today()
     sku_images = sku_images if sku_images is not None else {}
     days_elapsed, days_in_month = days_elapsed_and_total(month, year, today)
+    days_completed = days_completed_through_yesterday(month, year, today)
 
     year_folder = find_child_by_name(service, MONTHLY_TARGETS_FOLDER_ID, str(year))
     if year_folder is None:
@@ -442,6 +455,7 @@ def build_dashboard_data(service, month, year, today=None, sku_images=None):
         "year": year,
         "month_label": f"{month_name} {year}",
         "days_elapsed": days_elapsed,
+        "days_completed": days_completed,
         "days_in_month": days_in_month,
         "regions": sorted(regions.values(), key=lambda r: r["region"]),
         "channels": channels_out,
