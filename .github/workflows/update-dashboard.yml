@@ -28,6 +28,12 @@ jobs:
       - name: Write service account key from secret
         run: echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > service-account.json
 
+      - name: Sync Sales Master into channel files
+        env:
+          MONTHLY_TARGET_EMAIL_FROM: ${{ secrets.MONTHLY_TARGET_EMAIL_FROM }}
+          MONTHLY_TARGET_EMAIL_APP_PASSWORD: ${{ secrets.MONTHLY_TARGET_EMAIL_APP_PASSWORD }}
+        run: python scripts/sync_sales_to_channels.py service-account.json
+
       - name: Build dashboard data
         env:
           MONTHLY_TARGET_EMAIL_FROM: ${{ secrets.MONTHLY_TARGET_EMAIL_FROM }}

@@ -9,13 +9,43 @@ automatically every day from the Monthly Targets and Sales Master files in Googl
 - `sku_images.json` — SKU → product image lookup
 - `data/` — one JSON file per month (`YYYY-MM.json`) plus `manifest.json` listing
   available months. The site reads these with `fetch()`.
-- `scripts/build_dashboard_data.py` — pulls the Targets/Sales Master files from
-  Google Drive and regenerates the `data/` files
-- `.github/workflows/update-dashboard.yml` — runs the script once a day and
-  commits any changes automatically
-- `local/` — the local sync script (`Monthly_Target_Update_Code.py`) and a Drive
-  access sanity check (`check_drive_access.py`). These run on your own machine,
-  not in GitHub Actions — they're included here just for safekeeping.
+- `scripts/sync_sales_to_channels.py` — reads Sales Master and appends new
+  sales rows into each channel's own workbook in Drive (cloud version of what
+  `local/Monthly_Target_Update_Code.py` used to do on your PC)
+- `scripts/build_dashboard_data.py` — reads the (now up to date) Targets and
+  channel files from Drive and regenerates the `data/` files
+- `.github/workflows/update-dashboard.yml` — runs both scripts once a day, in
+  that order, and commits any changed `data/` files automatically
+- `local/` — the original local scripts (`Monthly_Target_Update_Code.py`,
+  `check_drive_access.py`). **No longer run automatically** — kept here for
+  reference/backup only, now that everything runs in GitHub Actions instead.
+
+## IMPORTANT: this repo now WRITES to your Drive files
+
+Previously, everything here only *read* from Drive. As of the
+`sync_sales_to_channels.py` script, the daily run now also *writes* new sales
+rows into your channel workbooks (the same append-only, dedupe-by-PO+SKU
+behavior your local script always used — it never clears or overwrites
+existing rows, only adds new ones).
+
+Because of this:
+
+1. **The service account needs Editor access on the "Monthly Targets" folder
+   only** — that's where the per-channel workbooks it writes new rows into
+   live. Re-share that folder with
+   `targets-dashboard-reader@madeleine-targets-dashboard.iam.gserviceaccount.com`
+   and change its permission from Viewer to **Editor**. Without this, every
+   write will fail with a permission error (you'll get an email about it).
+   **Leave the "Sales Master - New" folder at Viewer** — the sync script only
+   ever reads Sales Master (opened read-only, never saved back to), so it
+   never needs write access there, and keeping it at Viewer means the
+   credentials themselves can't touch Sales Master even if a bug existed.
+2. **Run the workflow manually once first** (Actions tab → Run workflow) and
+   open the affected files in Drive afterward to confirm the new rows look
+   right, before fully trusting the daily 12 PM IST run unattended.
+3. Google Drive keeps automatic version history on every file. If a run ever
+   writes something wrong, open the affected file → File → Version history →
+   See version history, and restore the version from just before the bad run.
 
 ## One-time setup
 
@@ -62,9 +92,11 @@ The service account email is:
 targets-dashboard-reader@madeleine-targets-dashboard.iam.gserviceaccount.com
 ```
 
-Both the **Monthly Targets** folder and the **Sales Master** folder in Google
-Drive need to be shared with this email (Viewer access is enough). You already
-confirmed this works locally via `check_drive_access.py`.
+The **Monthly Targets** folder needs to be shared with this email at
+**Editor** access (the sync step writes new rows into your channel files —
+see the warning above). The **Sales Master** folder only needs **Viewer**
+access — it's never written to. You already confirmed read access to both
+works via `check_drive_access.py`; just bump Monthly Targets up to Editor.
 
 ### 5. Run the workflow once manually
 
