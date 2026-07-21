@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madeleine Home — Monthly Targets</title>
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --card-bg: #ffffff;
+    --border: #e2e5ea;
+    --text: #1c1f26;
+    --text-muted: #6b7280;
+    --accent: #1f3a5f;
+    --accent-soft: #e8edf3;
+    --good: #1a9c5c;
+    --warn: #b45309;
+    --bad: #c0392b;
+    --track: #edeff2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  header {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 24px 32px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  header h1 { font-size: 21px; margin: 0 0 4px; }
+  header .sub { color: var(--text-muted); font-size: 13px; }
+  .logo { flex-shrink: 0; opacity: 0.85; }
+  .controls {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 32px 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  select {
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+  }
+  main { max-width: 1150px; margin: 0 auto; padding: 0 32px 60px; }
+  #status { color: var(--text-muted); font-size: 14px; padding: 40px 0; }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--text-muted);
+    margin: 24px 0 8px;
+  }
+  .section-label:first-child { margin-top: 4px; }
+
+  .region-grid, .overall-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .region-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .region-card .name { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .stat-card .label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .03em; }
+  .stat-card .value { font-size: 20px; font-weight: 600; margin-top: 4px; }
+
+  .channel-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+  .channel-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px; cursor: pointer; gap: 16px; flex-wrap: wrap;
+  }
+  .channel-name-block { display: flex; align-items: center; gap: 10px; min-width: 200px; }
+  .channel-name { font-weight: 600; font-size: 15px; }
+  .region-tag { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--track); color: var(--text-muted); }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #fdf1e6; color: var(--warn); }
+  .pace-badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; }
+  .pace-good { background: #e5f6ec; color: var(--good); }
+  .pace-warn { background: #fdf1e0; color: var(--warn); }
+  .pace-bad { background: #fbe9e7; color: var(--bad); }
+
+  .progress-block { flex: 1; min-width: 220px; }
+  .progress-track { background: var(--track); border-radius: 999px; height: 8px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+  .progress-fill.good { background: var(--good); }
+  .progress-fill.warn { background: var(--warn); }
+  .progress-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .pct-block { text-align: right; min-width: 70px; font-weight: 600; }
+  .toggle-icon { transition: transform .15s ease; color: var(--text-muted); }
+  .channel-card.open .toggle-icon { transform: rotate(90deg); }
+
+  .sku-table-wrap { display: none; border-top: 1px solid var(--border); padding: 8px 18px 16px; }
+  .channel-card.open .sku-table-wrap { display: block; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 6px 8px; vertical-align: middle; }
+  th { color: var(--text-muted); font-weight: 500; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: #fafbfc; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .no-data-row td { color: var(--text-muted); font-style: italic; }
+  .sku-thumb { width: 32px; height: 32px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); vertical-align: middle; background: #fff; }
+  .sku-thumb-empty { width: 32px; height: 32px; border-radius: 4px; background: var(--track); display: inline-block; }
+
+  footer { text-align: center; color: var(--text-muted); font-size: 12px; padding: 20px 0 40px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Madeleine Home — Monthly Targets</h1>
+    <div class="sub" id="subheader">Loading...</div>
+  </div>
+  <div class="logo">
+    <svg width="72" height="52" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="10" width="180" height="108" fill="none" stroke="#8a8a8a" stroke-width="1.5"/>
+      <text x="100" y="76" font-size="40" font-family="Georgia, 'Times New Roman', serif" letter-spacing="18" text-anchor="middle" fill="#8a8a8a">M H</text>
+      <line x1="32" y1="118" x2="58" y2="118" stroke="#8a8a8a" stroke-width="1"/>
+      <text x="100" y="124" font-size="13" letter-spacing="4" font-family="Arial, sans-serif" text-anchor="middle" fill="#8a8a8a">LONDON</text>
+      <line x1="142" y1="118" x2="168" y2="118" stroke="#8a8a8a" stroke-width="1"/>
+    </svg>
+  </div>
+</header>
+<div class="controls">
+  <select id="monthSelect" onchange="onMonthChange()"></select>
+</div>
+<main>
+  <div id="status">Loading dashboard data...</div>
+  <div id="regionSection" style="display:none;">
+    <div class="section-label">By region</div>
+    <div id="regions" class="region-grid"></div>
+  </div>
+  <div id="overallSection" style="display:none;">
+    <div class="section-label">Overall</div>
+    <div id="overall" class="overall-grid"></div>
+  </div>
+  <div id="channelSection" style="display:none;">
+    <div class="section-label">By channel</div>
+    <div id="channels"></div>
+  </div>
+</main>
+<footer id="footer"></footer>
+
+<script>
+// ---------------------------------------------------------------------
+// Pure helper functions (no DOM) -- kept separate so they're unit-testable.
+// ---------------------------------------------------------------------
+function pct(actual, target) {
+  if (!target || target <= 0) return null;
+  return (actual / target) * 100;
+}
+
+function fmtMoney(n) {
+  return "$" + Number(n || 0).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}
+
+function fmtNum(n) {
+  return Number(n || 0).toLocaleString();
+}
+
+function pctClass(p) {
+  if (p === null) return "";
+  if (p >= 90) return "good";
+  if (p >= 50) return "";
+  return "warn";
+}
+
+function paceInfo(projected, target) {
+  const p = pct(projected, target);
+  if (p === null) return { label: "no target", cls: "" };
+  if (p >= 100) return { label: "on track (" + p.toFixed(0) + "% of target projected)", cls: "pace-good" };
+  if (p >= 80) return { label: "close (" + p.toFixed(0) + "% of target projected)", cls: "pace-warn" };
+  return { label: "behind (" + p.toFixed(0) + "% of target projected)", cls: "pace-bad" };
+}
+
+function computeOverall(channels) {
+  const targetableChannels = channels.filter(c => c.has_target_data);
+  const totals = channels.reduce((acc, c) => {
+    acc.target_revenue += c.target_revenue || 0;
+    acc.actual_revenue += c.actual_revenue || 0;
+    acc.target_units += c.target_units || 0;
+    acc.actual_units += c.actual_units || 0;
+    acc.projected_revenue += c.projected_revenue || 0;
+    return acc;
+  }, { target_revenue: 0, actual_revenue: 0, target_units: 0, actual_units: 0, projected_revenue: 0 });
+  totals.overall_pct = pct(totals.actual_revenue, totals.target_revenue);
+  totals.channels_with_targets = targetableChannels.length;
+  totals.channels_total = channels.length;
+  return totals;
+}
+
+function sortByAchievement(items) {
+  return items.slice().sort((a, b) => {
+    const pa = pct(a.actual_revenue, a.target_revenue);
+    const pb = pct(b.actual_revenue, b.target_revenue);
+    if (pa === null && pb === null) {
+      const labelA = a.name || a.region || a.sku || "";
+      const labelB = b.name || b.region || b.sku || "";
+      return labelA.localeCompare(labelB);
+    }
+    if (pa === null) return 1;
+    if (pb === null) return -1;
+    return pa - pb;
+  });
+}
+
+// ---------------------------------------------------------------------
+// Rendering
+// ---------------------------------------------------------------------
+function skuThumbHtml(url) {
+  if (!url) return '<span class="sku-thumb-empty"></span>';
+  return `<img class="sku-thumb" src="${encodeURI(url)}" loading="lazy" onerror="this.outerHTML='<span class=&quot;sku-thumb-empty&quot;></span>'">`;
+}
+
+function channelCardHtml(c, idx) {
+  const p = pct(c.actual_revenue, c.target_revenue);
+  const pctLabel = p === null ? "no target" : p.toFixed(0) + "%";
+  const barWidth = p === null ? 0 : Math.min(p, 100);
+  const badges = [];
+  if (!c.has_actual_file) badges.push('<span class="badge">no actual data yet</span>');
+  if (!c.has_target_data) badges.push('<span class="badge">no target set</span>');
+  const pace = c.has_target_data ? paceInfo(c.projected_revenue, c.target_revenue) : null;
+  const paceBadge = pace && pace.cls ? `<span class="pace-badge ${pace.cls}">${pace.label}</span>` : "";
+
+  const skuRows = sortByAchievement(c.skus || []);
+
+  const rowsHtml = skuRows.length
+    ? skuRows.map(s => {
+        const sp = pct(s.actual_revenue, s.target_revenue);
+        return `<tr>
+          <td>${skuThumbHtml(s.image_url)}</td>
+          <td>${s.sku}</td>
+          <td class="num">${fmtNum(s.target_units)}</td>
+          <td class="num">${fmtNum(s.actual_units)}</td>
+          <td class="num">${fmtMoney(s.target_revenue)}</td>
+          <td class="num">${fmtMoney(s.actual_revenue)}</td>
+          <td class="num">${sp === null ? "—" : sp.toFixed(0) + "%"}</td>
+        </tr>`;
+      }).join("")
+    : `<tr class="no-data-row"><td colspan="7">No SKU-level data for this channel yet.</td></tr>`;
+
+  return `
+    <div class="channel-card" id="card-${idx}">
+      <div class="channel-header" onclick="toggleCard(${idx})">
+        <div class="channel-name-block">
+          <span class="toggle-icon">▶</span>
+          <span class="channel-name">${c.name}</span>
+          <span class="region-tag">${c.region || ""}</span>
+          ${badges.join("")}
+          ${paceBadge}
+        </div>
+        <div class="progress-block">
+          <div class="progress-track"><div class="progress-fill ${pctClass(p)}" style="width:${barWidth}%"></div></div>
+          <div class="progress-labels">
+            <span>${fmtMoney(c.actual_revenue)} actual</span>
+            <span>${fmtMoney(c.target_revenue)} target</span>
+          </div>
+        </div>
+        <div class="pct-block">${pctLabel}</div>
+      </div>
+      <div class="sku-table-wrap">
+        <table>
+          <thead><tr>
+            <th></th><th>SKU</th><th class="num">Target Units</th><th class="num">Actual Units</th>
+            <th class="num">Target Revenue</th><th class="num">Actual Revenue</th><th class="num">%</th>
+          </tr></thead>
+          <tbody>${rowsHtml}</tbody>
+        </table>
+      </div>
+    </div>`;
+}
+
+function overallHtml(totals) {
+  return `
+    <div class="stat-card"><div class="label">Target Revenue</div><div class="value">${fmtMoney(totals.target_revenue)}</div></div>
+    <div class="stat-card"><div class="label">Actual Revenue</div><div class="value">${fmtMoney(totals.actual_revenue)}</div></div>
+    <div class="stat-card"><div class="label">% to Target</div><div class="value">${totals.overall_pct === null ? "—" : totals.overall_pct.toFixed(0) + "%"}</div></div>
+    <div class="stat-card"><div class="label">Projected Revenue</div><div class="value">${fmtMoney(totals.projected_revenue)}</div></div>
+    <div class="stat-card"><div class="label">Target Units</div><div class="value">${fmtNum(totals.target_units)}</div></div>
+    <div class="stat-card"><div class="label">Actual Units</div><div class="value">${fmtNum(totals.actual_units)}</div></div>
+  `;
+}
+
+function regionCardHtml(r) {
+  const p = pct(r.actual_revenue, r.target_revenue);
+  const width = p === null ? 0 : Math.min(p, 100);
+  return `
+    <div class="region-card">
+      <div class="name">${r.region}</div>
+      <div class="progress-track"><div class="progress-fill ${pctClass(p)}" style="width:${width}%"></div></div>
+      <div class="progress-labels" style="margin-top:6px;">
+        <span>${fmtMoney(r.actual_revenue)} actual</span>
+        <span>${fmtMoney(r.target_revenue)} target</span>
+      </div>
+      <div style="font-size:12px; color:var(--text-muted); margin-top:6px;">
+        ${fmtNum(r.actual_units)} / ${fmtNum(r.target_units)} units · projected ${fmtMoney(r.projected_revenue)}
+      </div>
+    </div>`;
+}
+
+function toggleCard(idx) {
+  document.getElementById("card-" + idx).classList.toggle("open");
+}
+
+let CURRENT_MANIFEST = null;
+
+async function populateMonthSelect() {
+  const resp = await fetch("data/manifest.json", { cache: "no-store" });
+  if (!resp.ok) throw new Error("HTTP " + resp.status + " loading manifest.json");
+  const manifest = await resp.json();
+  CURRENT_MANIFEST = manifest;
+  const sel = document.getElementById("monthSelect");
+  sel.innerHTML = manifest.months.map(m =>
+    `<option value="${m.year}-${String(m.month).padStart(2, "0")}">${m.label}</option>`
+  ).join("");
+  return manifest.months[0];
+}
+
+function onMonthChange() {
+  const val = document.getElementById("monthSelect").value;
+  const [year, month] = val.split("-");
+  loadMonth(year, month);
+}
+
+async function loadMonth(year, month) {
+  const statusEl = document.getElementById("status");
+  try {
+    const resp = await fetch(`data/${year}-${month}.json`, { cache: "no-store" });
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    const data = await resp.json();
+
+    document.getElementById("subheader").textContent =
+      `${data.month_label} — updated ${new Date(data.generated_at).toLocaleString()} · day ${data.days_elapsed} of ${data.days_in_month}`;
+
+    const channels = sortByAchievement(data.channels || []);
+    const totals = computeOverall(channels);
+
+    document.getElementById("regions").innerHTML = (data.regions || []).map(regionCardHtml).join("");
+    document.getElementById("regionSection").style.display = "block";
+
+    document.getElementById("overall").innerHTML = overallHtml(totals);
+    document.getElementById("overallSection").style.display = "block";
+
+    document.getElementById("channels").innerHTML = channels.map(channelCardHtml).join("");
+    document.getElementById("channelSection").style.display = "block";
+
+    statusEl.style.display = "none";
+  } catch (err) {
+    statusEl.style.display = "block";
+    statusEl.textContent = "Couldn't load data for this month (" + err.message + ").";
+  }
+}
+
+async function loadDashboard() {
+  const statusEl = document.getElementById("status");
+  try {
+    const first = await populateMonthSelect();
+    await loadMonth(first.year, String(first.month).padStart(2, "0"));
+  } catch (err) {
+    statusEl.textContent = "Couldn't load data/manifest.json (" + err.message + "). Make sure the dashboard workflow has run at least once.";
+  }
+}
+
+loadDashboard();
+</script>
+</body>
+</html>

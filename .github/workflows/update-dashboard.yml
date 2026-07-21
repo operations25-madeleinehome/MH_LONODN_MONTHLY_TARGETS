@@ -1,0 +1,45 @@
+name: Update dashboard data
+
+on:
+  schedule:
+    # 12:00 UTC daily. Adjust to run after your local sync script has updated
+    # the Drive files for the day. Times are always UTC in GitHub Actions.
+    - cron: "0 12 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Write service account key from secret
+        run: echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > service-account.json
+
+      - name: Build dashboard data
+        env:
+          MONTHLY_TARGET_EMAIL_FROM: ${{ secrets.MONTHLY_TARGET_EMAIL_FROM }}
+          MONTHLY_TARGET_EMAIL_APP_PASSWORD: ${{ secrets.MONTHLY_TARGET_EMAIL_APP_PASSWORD }}
+        run: python scripts/build_dashboard_data.py service-account.json
+
+      - name: Remove service account key
+        if: always()
+        run: rm -f service-account.json
+
+      - name: Commit and push updated data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update dashboard data"
+          file_pattern: "data/*.json"

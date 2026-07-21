@@ -1,0 +1,14 @@
+# NEVER commit the Google service account key. It must only ever live in the
+# GitHub repository Secret named GOOGLE_SERVICE_ACCOUNT_JSON.
+*service-account*.json
+madeleine-targets-dashboard-*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS junk
+.DS_Store
+Thumbs.db
