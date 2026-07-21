@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T07:20:33",
+  "generated_at": "2026-07-21T07:39:58",
   "month": 7,
   "year": 2026,
   "month_label": "July 2026",
@@ -34,6 +34,7 @@
       "projected_revenue": 340536.96,
       "has_actual_file": true,
       "has_target_data": true,
+      "target_source": "sku",
       "skus": [
         {
           "sku": "MH- ST-107",
@@ -2687,6 +2688,7 @@
       "projected_revenue": 23921.08,
       "has_actual_file": true,
       "has_target_data": true,
+      "target_source": "sku",
       "skus": [
         {
           "sku": "MH-MD-13007WT",
@@ -2932,6 +2934,7 @@
       "projected_revenue": 5788.42,
       "has_actual_file": true,
       "has_target_data": true,
+      "target_source": "sku",
       "skus": [
         {
           "sku": "MH- ST-107",
@@ -3657,6 +3660,7 @@
       "projected_revenue": 10819.27,
       "has_actual_file": true,
       "has_target_data": true,
+      "target_source": "sku",
       "skus": [
         {
           "sku": "MH-BS-901A",
@@ -4358,6 +4362,7 @@
       "projected_revenue": 0.0,
       "has_actual_file": false,
       "has_target_data": true,
+      "target_source": "sku",
       "skus": [
         {
           "sku": "MH-BS-901A",
@@ -5083,6 +5088,7 @@
       "projected_revenue": 13476.91,
       "has_actual_file": true,
       "has_target_data": true,
+      "target_source": "sku",
       "skus": [
         {
           "sku": "MH- ST-107",
