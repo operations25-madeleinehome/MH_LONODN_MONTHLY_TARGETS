@@ -2,9 +2,9 @@ name: Update dashboard data
 
 on:
   schedule:
-    # 12:00 UTC daily. Adjust to run after your local sync script has updated
-    # the Drive files for the day. Times are always UTC in GitHub Actions.
-    - cron: "0 12 * * *"
+    # 6:30 UTC daily = 12:00 PM IST (India does not observe daylight saving,
+    # so this stays correct year-round). Times are always UTC in GitHub Actions.
+    - cron: "30 6 * * *"
   workflow_dispatch: {}
 
 permissions:
