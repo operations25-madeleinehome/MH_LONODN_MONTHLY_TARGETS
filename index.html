@@ -92,6 +92,8 @@
   .channel-name { font-weight: 600; font-size: 15px; }
   .region-tag { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--track); color: var(--text-muted); }
   .badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #fdf1e6; color: var(--warn); }
+  .badge-info { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+  .channel-only-note { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
   .pace-badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; }
   .pace-good { background: #e5f6ec; color: var(--good); }
   .pace-warn { background: #fdf1e0; color: var(--warn); }
@@ -232,23 +234,29 @@ function channelCardHtml(c, idx) {
   const p = pct(c.actual_revenue, c.target_revenue);
   const pctLabel = p === null ? "no target" : p.toFixed(0) + "%";
   const barWidth = p === null ? 0 : Math.min(p, 100);
+  const isChannelOnly = c.target_source === "channel_only";
   const badges = [];
   if (!c.has_actual_file) badges.push('<span class="badge">no actual data yet</span>');
   if (!c.has_target_data) badges.push('<span class="badge">no target set</span>');
+  if (isChannelOnly) badges.push('<span class="badge-info">channel-level target only</span>');
   const pace = c.has_target_data ? paceInfo(c.projected_revenue, c.target_revenue) : null;
   const paceBadge = pace && pace.cls ? `<span class="pace-badge ${pace.cls}">${pace.label}</span>` : "";
 
   const skuRows = sortByAchievement(c.skus || []);
 
+  const channelOnlyNote = isChannelOnly
+    ? `<div class="channel-only-note">Target of ${fmtMoney(c.target_revenue)} is set at the channel level, not per SKU. Rows below show actuals only — per-SKU target/% columns aren't tracked for this channel.</div>`
+    : "";
+
   const rowsHtml = skuRows.length
     ? skuRows.map(s => {
-        const sp = pct(s.actual_revenue, s.target_revenue);
+        const sp = isChannelOnly ? null : pct(s.actual_revenue, s.target_revenue);
         return `<tr>
           <td>${skuThumbHtml(s.image_url)}</td>
           <td>${s.sku}</td>
-          <td class="num">${fmtNum(s.target_units)}</td>
+          <td class="num">${isChannelOnly ? "—" : fmtNum(s.target_units)}</td>
           <td class="num">${fmtNum(s.actual_units)}</td>
-          <td class="num">${fmtMoney(s.target_revenue)}</td>
+          <td class="num">${isChannelOnly ? "—" : fmtMoney(s.target_revenue)}</td>
           <td class="num">${fmtMoney(s.actual_revenue)}</td>
           <td class="num">${sp === null ? "—" : sp.toFixed(0) + "%"}</td>
         </tr>`;
@@ -275,6 +283,7 @@ function channelCardHtml(c, idx) {
         <div class="pct-block">${pctLabel}</div>
       </div>
       <div class="sku-table-wrap">
+        ${channelOnlyNote}
         <table>
           <thead><tr>
             <th></th><th>SKU</th><th class="num">Target Units</th><th class="num">Actual Units</th>

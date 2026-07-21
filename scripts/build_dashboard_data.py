@@ -97,6 +97,13 @@ TARGET_WORKBOOK_STUBS = {
     "MH US": "MH US - Wayfair & Amazon Monthly Targets",
 }
 
+# Optional sheet inside either Targets workbook for channels that only get a
+# single monthly total (e.g. Walmart, Home Depot) rather than a per-SKU
+# breakdown. Columns: Channel | Month | Year | Revenue Target | Units Target
+# ("Units Target" may be left blank). Add a row per channel per month as
+# needed -- the sheet doesn't need to exist at all if unused.
+CHANNEL_ONLY_SHEET_NAME = "Channel-Only Targets"
+
 # =============================================================================
 # DRIVE HELPERS
 # =============================================================================
@@ -212,6 +219,57 @@ def parse_target_sheet(file_bytes, sheet_name):
     finally:
         wb.close()
 
+def parse_channel_only_targets(file_bytes):
+    """Returns {(year, month, channel_name_lower): {"revenue": float, "units": int}}
+    from the optional 'Channel-Only Targets' sheet, if present. Used as a
+    fallback for channels that don't have a per-SKU target breakdown."""
+    wb = openpyxl.load_workbook(file_bytes, data_only=True)
+    try:
+        match = next((s for s in wb.sheetnames if s.strip().lower() == CHANNEL_ONLY_SHEET_NAME.lower()), None)
+        if match is None:
+            return {}
+        ws = wb[match]
+        rows = ws.iter_rows(values_only=True)
+        headers = [str(h).strip() if h else h for h in next(rows)]
+        col_idx = {name: i for i, name in enumerate(headers) if name is not None}
+        channel_col = next((c for c in col_idx if c.lower() == "channel"), None)
+        month_col = next((c for c in col_idx if c.lower() == "month"), None)
+        year_col = next((c for c in col_idx if c.lower() == "year"), None)
+        revenue_col = next((c for c in col_idx if c.lower() == "revenue target"), None)
+        units_col = next((c for c in col_idx if c.lower() == "units target"), None)
+        if channel_col is None or month_col is None or year_col is None or revenue_col is None:
+            return {}
+
+        month_name_to_num = {name.lower(): i for i, name in enumerate(calendar.month_name) if name}
+
+        totals = {}
+        for values in rows:
+            if not values or all(v is None for v in values):
+                continue
+            channel = values[col_idx[channel_col]]
+            month_raw = values[col_idx[month_col]]
+            year_raw = values[col_idx[year_col]]
+            if channel in (None, "") or month_raw in (None, "") or year_raw in (None, ""):
+                continue
+            channel = str(channel).strip()
+            month_num = month_name_to_num.get(str(month_raw).strip().lower())
+            if month_num is None:
+                continue
+            try:
+                year_num = int(year_raw)
+            except (TypeError, ValueError):
+                continue
+            revenue = values[col_idx[revenue_col]] or 0
+            units = (values[col_idx[units_col]] or 0) if units_col else 0
+
+            key = (year_num, month_num, channel.lower())
+            entry = totals.setdefault(key, {"revenue": 0.0, "units": 0})
+            entry["revenue"] += revenue
+            entry["units"] += units
+        return totals
+    finally:
+        wb.close()
+
 # =============================================================================
 # FILE MATCHING (mirrors Monthly_Target_Update_Code.py's convention)
 # =============================================================================
@@ -286,6 +344,13 @@ def build_dashboard_data(service, month, year, today=None, sku_images=None):
         if f:
             target_workbook_bytes[label] = download_bytes(service, f["id"])
 
+    # Channel-only totals (no SKU breakdown), read once per workbook from the
+    # optional "Channel-Only Targets" sheet if it exists.
+    channel_only_by_region = {}
+    for label, wb_bytes in target_workbook_bytes.items():
+        wb_bytes.seek(0)
+        channel_only_by_region[label] = parse_channel_only_targets(wb_bytes)
+
     channels_out = []
     for profile in CHANNEL_REGISTRY:
         actual_file = match_by_stub(files_in_folder, profile["file_stub"])
@@ -300,7 +365,14 @@ def build_dashboard_data(service, month, year, today=None, sku_images=None):
             wb_bytes.seek(0)
             target_by_sku = parse_target_sheet(wb_bytes, profile["target_sheet"])
 
-        if not actual_file and not target_by_sku:
+        # Fallback for channels with no SKU-level breakdown (e.g. Walmart):
+        # a single monthly total from the "Channel-Only Targets" sheet in
+        # this channel's own region's workbook.
+        channel_only = channel_only_by_region.get(profile["region"], {}).get(
+            (year, month, profile["name"].lower())
+        )
+
+        if not actual_file and not target_by_sku and not channel_only:
             continue  # nothing to report for this channel this month
 
         all_skus = sorted(set(actual_by_sku) | set(target_by_sku))
@@ -317,20 +389,34 @@ def build_dashboard_data(service, month, year, today=None, sku_images=None):
                 "image_url": sku_images.get(sku),
             })
 
-        target_revenue = round(sum(r["target_revenue"] for r in sku_rows), 2)
         actual_revenue = round(sum(r["actual_revenue"] for r in sku_rows), 2)
+
+        if target_by_sku:
+            target_revenue = round(sum(r["target_revenue"] for r in sku_rows), 2)
+            target_units = sum(r["target_units"] for r in sku_rows)
+            target_source = "sku"
+        elif channel_only:
+            target_revenue = round(channel_only["revenue"], 2)
+            target_units = channel_only["units"]
+            target_source = "channel_only"
+        else:
+            target_revenue = 0.0
+            target_units = 0
+            target_source = "none"
+
         projected_revenue = round(project_revenue(actual_revenue, days_elapsed, days_in_month), 2)
 
         channels_out.append({
             "name": profile["name"],
             "region": profile["region"],
-            "target_units": sum(r["target_units"] for r in sku_rows),
+            "target_units": target_units,
             "target_revenue": target_revenue,
             "actual_units": sum(r["actual_units"] for r in sku_rows),
             "actual_revenue": actual_revenue,
             "projected_revenue": projected_revenue,
             "has_actual_file": actual_file is not None,
-            "has_target_data": bool(target_by_sku),
+            "has_target_data": target_source != "none",
+            "target_source": target_source,
             "skus": sku_rows,
         })
 

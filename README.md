@@ -76,6 +76,22 @@ in the email step in the local script logic.
 Once that run finishes successfully, open your Pages URL — the dashboard
 should load with real data.
 
+## Channel-only targets (no SKU breakdown)
+
+Some channels only get a single monthly revenue target rather than a per-SKU
+breakdown (e.g. Walmart, Home Depot). To track these, add a sheet named
+exactly **`Channel-Only Targets`** to the relevant Targets workbook (MH US or
+MH EU, matching the channel's region) with these columns:
+
+| Channel | Month | Year | Revenue Target | Units Target |
+|---|---|---|---|---|
+| Walmart | June | 2026 | 4000 | (optional, can leave blank) |
+
+Add one row per channel per month as needed. The sheet is entirely optional —
+if it doesn't exist, nothing changes. The dashboard will show a "channel-level
+target only" badge on that channel's card so it's clear there's no per-SKU
+breakdown behind the number.
+
 ## How it stays up to date
 
 The workflow in `.github/workflows/update-dashboard.yml` runs automatically
