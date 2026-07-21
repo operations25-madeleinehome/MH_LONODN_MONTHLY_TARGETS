@@ -118,6 +118,7 @@ CHANNEL_PROFILES = [
     _simple_profile("Wayfair EU"),
     _simple_profile("Amazon US"),
     _simple_profile("Shopify UK"),
+    _simple_profile("Debenhams"),  # now auto-synced from Sales Master (has its own file)
     _simple_profile("Shopify US"),
     _simple_profile("Home Depot"),
     _simple_profile("Amazon EU"),
