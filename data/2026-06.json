@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T06:53:06",
+  "generated_at": "2026-07-21T07:20:22",
   "month": 6,
   "year": 2026,
   "month_label": "June 2026",
@@ -8,11 +8,11 @@
   "regions": [
     {
       "region": "MH US",
-      "target_revenue": 356990.66,
-      "actual_revenue": 298203.92,
-      "target_units": 4425,
-      "actual_units": 3666,
-      "projected_revenue": 298203.92
+      "target_revenue": 381100.66,
+      "actual_revenue": 329328.79,
+      "target_units": 4705,
+      "actual_units": 4112,
+      "projected_revenue": 329328.79
     }
   ],
   "channels": [
@@ -2650,6 +2650,275 @@
           "actual_units": 0,
           "actual_revenue": 0.0,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/4b/bc/2a/68/682abc4b274356199355107d/MH-VS-31009 - Front Set.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Amazon US",
+      "region": "MH US",
+      "target_units": 280,
+      "target_revenue": 24110.0,
+      "actual_units": 446,
+      "actual_revenue": 31124.87,
+      "projected_revenue": 31124.87,
+      "has_actual_file": true,
+      "has_target_data": true,
+      "skus": [
+        {
+          "sku": "MH-MD-13007WT",
+          "target_units": 10,
+          "target_revenue": 680.0,
+          "actual_units": 3,
+          "actual_revenue": 233.97,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/83/86/94/62/62948683729f3c50497761c5/MH-MD-13007WT - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21065",
+          "target_units": 5,
+          "target_revenue": 375.0,
+          "actual_units": 8,
+          "actual_revenue": 496.59,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/df/c9/33/63/6333c9dfb681bf7b9ec5c19a/MH-TB-21065 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21066",
+          "target_units": 20,
+          "target_revenue": 1500.0,
+          "actual_units": 31,
+          "actual_revenue": 2052.69,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9d/24/8c/65/658c249d8eaab81f922941ea/MH-TB-21066 - All Variation Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21067",
+          "target_units": 2,
+          "target_revenue": 150.0,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/02/cb/33/63/6333cb029545d0ce9653e612/MH-TB-21067 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21068",
+          "target_units": 5,
+          "target_revenue": 415.0,
+          "actual_units": 10,
+          "actual_revenue": 639.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/68/cb/33/63/6333cb68cfa459f71386479f/MH-TB-21068 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21069",
+          "target_units": 15,
+          "target_revenue": 1245.0,
+          "actual_units": 14,
+          "actual_revenue": 1151.86,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/2a/25/8c/65/658c252a5c5552038ac7aeab/MH-TB-21069 - All Variation Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21070",
+          "target_units": 5,
+          "target_revenue": 415.0,
+          "actual_units": 4,
+          "actual_revenue": 331.96,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9f/cc/33/63/6333cc9fcfa459f7138647a4/MH-TB-21070 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21072",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 1,
+          "actual_revenue": 70.99,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/23/c4/67/68/6867c4237d2ae084e18353d1/MH-TB-21072 - Zoomed In Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21073",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 5,
+          "actual_revenue": 297.95,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/1f/c6/67/68/6867c61f7d2ae084e183551f/MH-TB-21073 - Zoomed In Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21077",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 2,
+          "actual_revenue": 169.98,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/a9/2c/55/68/68552ca9675ff7d5ccadf2b1/MH-TB-21077 - Zoomed In Set_t2lmmn.jpg"
+        },
+        {
+          "sku": "MH-TB-21078",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 2,
+          "actual_revenue": 129.98,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/11/40/55/68/68554011675ff7d5ccadf5d0/MH-TB-21078 - Floor_Wall Set_ou24wx.jpg"
+        },
+        {
+          "sku": "MH-TB-21212",
+          "target_units": 15,
+          "target_revenue": 1800.0,
+          "actual_units": 23,
+          "actual_revenue": 2759.77,
+          "image_url": null
+        },
+        {
+          "sku": "MH-TB-21213",
+          "target_units": 10,
+          "target_revenue": 1200.0,
+          "actual_units": 7,
+          "actual_revenue": 778.73,
+          "image_url": null
+        },
+        {
+          "sku": "MH-TB-21214",
+          "target_units": 15,
+          "target_revenue": 1800.0,
+          "actual_units": 13,
+          "actual_revenue": 1559.87,
+          "image_url": null
+        },
+        {
+          "sku": "MH-TB-21268",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 4,
+          "actual_revenue": 179.96,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/96/ed/9b/69/699bed96bc29d1e0dde508f1/MH-TB-21268 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21269",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 17,
+          "actual_revenue": 789.83,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/be/ee/9b/69/699beebec02365eae562ce24/MH-TB-21269 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21270",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 28,
+          "actual_revenue": 1259.72,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/49/3e/a1/69/69a13e49b063cf97b22338c5/MH-TB-21270 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21271",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 74,
+          "actual_revenue": 3239.26,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d0/3e/a1/69/69a13ed07cc6e3c9057b9e5c/MH-TB-21271 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21272",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 2,
+          "actual_revenue": 99.98,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/21/0c/a9/69/69a90c21787fee2350add661/MH-TB-21272 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21273",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 10,
+          "actual_revenue": 449.9,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/36/0d/a9/69/69a90d3611a26afc52e1ef52/MH-TB-21273 - Zoomed Out Set.jpg"
+        },
+        {
+          "sku": "MH-TB-805",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 7,
+          "actual_revenue": 597.93,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/47/d8/e0/62/62e0d847148ec6b71021183a/MH-TB-805 - Color Variations Set.jpg"
+        },
+        {
+          "sku": "MH-TB-819",
+          "target_units": 13,
+          "target_revenue": 975.0,
+          "actual_units": 20,
+          "actual_revenue": 1493.9,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/5c/da/e0/62/62e0da5c530023baaa1249d1/MH-TB-819 - Color Variations Set.jpg"
+        },
+        {
+          "sku": "MH-TB-873",
+          "target_units": 20,
+          "target_revenue": 1600.0,
+          "actual_units": 20,
+          "actual_revenue": 1501.8,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d2/05/7e/63/637e05d22c0c4142ad2d0ae4/MH-TB-873 - Zoomed In Set.jpg"
+        },
+        {
+          "sku": "MH-TB-874",
+          "target_units": 80,
+          "target_revenue": 6265.0,
+          "actual_units": 81,
+          "actual_revenue": 5869.59,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d4/95/82/65/658295d4250e8945cf7ab032/MH-TB-874 - All Variation Set.jpg"
+        },
+        {
+          "sku": "MH-TB-875",
+          "target_units": 5,
+          "target_revenue": 400.0,
+          "actual_units": 1,
+          "actual_revenue": 79.99,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/1b/07/7e/63/637e071b975e79f93764a12c/MH-TB-875 - Front Set.jpg"
+        },
+        {
+          "sku": "MH-TB-876",
+          "target_units": 5,
+          "target_revenue": 450.0,
+          "actual_units": 10,
+          "actual_revenue": 881.9,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/60/07/7e/63/637e0760a43fb3f21e0dd3ce/MH-TB-876 - Front Set.jpg"
+        },
+        {
+          "sku": "MH-TB-877",
+          "target_units": 15,
+          "target_revenue": 1350.0,
+          "actual_units": 7,
+          "actual_revenue": 557.93,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/87/96/82/65/658296875f6223ed7ed2cb41/MH-TB-877 - All Variation Set.jpg"
+        },
+        {
+          "sku": "MH-TB-878",
+          "target_units": 5,
+          "target_revenue": 450.0,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/f7/07/7e/63/637e07f75d80abbd9918da29/MH-TB-878 - Front Set.jpg"
+        },
+        {
+          "sku": "MH-TB-893",
+          "target_units": 2,
+          "target_revenue": 200.0,
+          "actual_units": 3,
+          "actual_revenue": 299.97,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/16/db/e0/62/62e0db16530023baaa1249f6/MH-TB-893 - Color Variations Set.jpg"
+        },
+        {
+          "sku": "MH-TB-894",
+          "target_units": 10,
+          "target_revenue": 1000.0,
+          "actual_units": 18,
+          "actual_revenue": 1579.82,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/51/92/82/65/658292515f6223ed7ed2c981/MH-TB-894 - All Variations Set.jpg"
+        },
+        {
+          "sku": "MH-TB-895",
+          "target_units": 8,
+          "target_revenue": 640.0,
+          "actual_units": 9,
+          "actual_revenue": 706.17,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/35/dd/e0/62/62e0dd3533927e49dbf351da/MH-TB-895 - Color Variations Set.jpg"
+        },
+        {
+          "sku": "MH-TB-896",
+          "target_units": 15,
+          "target_revenue": 1200.0,
+          "actual_units": 12,
+          "actual_revenue": 863.88,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9e/27/81/65/6581279e89f59f74cfc1daac/MH-TB-896 - All Variation Set.jpg"
         }
       ]
     }
