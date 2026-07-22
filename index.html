@@ -117,8 +117,20 @@
   tr:nth-child(even) td { background: #fafbfc; }
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   .no-data-row td { color: var(--text-muted); font-style: italic; }
-  .sku-thumb { width: 32px; height: 32px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); vertical-align: middle; background: #fff; }
+  .sku-thumb { width: 32px; height: 32px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); vertical-align: middle; background: #fff; cursor: zoom-in; }
   .sku-thumb-empty { width: 32px; height: 32px; border-radius: 4px; background: var(--track); display: inline-block; }
+
+  /* Click-to-enlarge image lightbox */
+  #lightbox {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0, 0, 0, 0.75); cursor: zoom-out;
+    align-items: center; justify-content: center; padding: 24px;
+  }
+  #lightbox.open { display: flex; }
+  #lightbox img {
+    max-width: 90vw; max-height: 90vh; border-radius: 8px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5); background: #fff;
+  }
 
   /* Category > listing > SKU drill-down rows */
   .tree-row .caret-cell { width: 44px; color: var(--text-muted); font-size: 10px; }
@@ -169,6 +181,10 @@
   </div>
 </main>
 <footer id="footer"></footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightboxImg" alt="">
+</div>
 
 <script>
 // ---------------------------------------------------------------------
@@ -251,7 +267,17 @@ function escapeHtml(s) {
 
 function skuThumbHtml(url) {
   if (!url) return '<span class="sku-thumb-empty"></span>';
-  return `<img class="sku-thumb" src="${encodeURI(url)}" loading="lazy" onerror="this.outerHTML='<span class=&quot;sku-thumb-empty&quot;></span>'">`;
+  return `<img class="sku-thumb" src="${encodeURI(url)}" loading="lazy" onclick="event.stopPropagation(); openLightbox(this.src)" onerror="this.outerHTML='<span class=&quot;sku-thumb-empty&quot;></span>'">`;
+}
+
+function openLightbox(url) {
+  const box = document.getElementById("lightbox");
+  document.getElementById("lightboxImg").src = url;
+  box.classList.add("open");
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("open");
 }
 
 const DETAILS_MISSING = "Details not provided";
@@ -315,9 +341,11 @@ function treeRowsHtml(idx) {
   const rows = [];
   tree.forEach((cat, ci) => {
     const catOpen = openCat[idx] === ci;
+    const cst = statusInfo(cat.actual_revenue, cat.target_revenue, CH_STATE.daysCompleted, CH_STATE.daysInMonth);
+    const catStatusBadge = cst ? ` <span class="status-badge ${cst.cls}">${cst.text}</span>` : "";
     rows.push(`<tr class="tree-row lvl-cat expandable ${catOpen ? "is-open" : ""}" onclick="toggleCat(${idx},${ci})">
       <td class="caret-cell">${catOpen ? "▼" : "▶"}</td>
-      <td class="name-cell">${escapeHtml(cat.name)}</td>
+      <td class="name-cell">${escapeHtml(cat.name)}${catStatusBadge}</td>
       ${metricCells(cat)}
     </tr>`);
     if (!catOpen) return;
@@ -524,6 +552,8 @@ async function loadDashboard() {
     statusEl.textContent = "Couldn't load data/manifest.json (" + err.message + "). Make sure the dashboard workflow has run at least once.";
   }
 }
+
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
 
 loadDashboard();
 </script>
