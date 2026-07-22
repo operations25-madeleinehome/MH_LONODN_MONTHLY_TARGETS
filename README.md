@@ -7,10 +7,12 @@ automatically every day from the Monthly Targets and Sales Master files in Googl
 
 - `index.html` — the dashboard itself (static page, no build step)
 - `sku_images.json` — SKU → product image lookup
-- `sku_details.json` — SKU → category and listing name (built from "SKU Details
-  and Priority"). Drives the category → listing → SKU drill-down on each channel.
-  Refresh it if categories/listings change; SKUs not found here show as
-  "Details not provided".
+- `sku_details.json` — **fallback** SKU → category/listing map. The live values
+  are read each run from the "SKU Details and Priority" file in every month
+  folder in Drive, so category/listing changes flow through automatically; this
+  bundled file is only used for a month whose folder is missing that file. SKUs
+  found in neither show as "Details not provided". Drives the category → listing
+  → SKU drill-down on each channel.
 - `data/` — one JSON file per month (`YYYY-MM.json`) plus `manifest.json` listing
   available months. The site reads these with `fetch()`.
 - `scripts/sync_sales_to_channels.py` — reads Sales Master and appends new

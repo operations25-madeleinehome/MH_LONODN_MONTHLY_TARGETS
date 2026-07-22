@@ -53,11 +53,14 @@ OUTPUT_DIR = Path("data")
 # bundled in the repo (see SKU Images.xlsx) rather than pulled from Drive.
 SKU_IMAGES_PATH = Path("sku_images.json")
 
-# SKU -> {category, listing_name}, built from "SKU Details and Priority".
-# Bundled in the repo (like the images) so the site can group SKUs by category
-# and listing without a live Drive read. Refresh it when the details file
-# changes. SKUs not found here fall back to "Details not provided".
-SKU_DETAILS_PATH = Path("sku_details.json")
+# SKU -> {category, listing_name}. Read LIVE each run from the "SKU Details
+# and Priority" workbook that sits in every month folder, so category/listing
+# changes flow through automatically. The bundled sku_details.json below is
+# only a fallback, used for a month whose folder happens to be missing that
+# file. SKUs found in neither fall back to "Details not provided".
+SKU_DETAILS_PATH = Path("sku_details.json")            # bundled fallback
+SKU_DETAILS_FILE_STUB = "SKU Details and Priority"     # live file in each month folder
+SKU_DETAILS_SHEET = "Sheet1"
 
 # Set to a specific date, e.g. dt.date(2026, 8, 5), to build the dashboard for
 # a past month. Leave as None to use the real current month.
@@ -276,6 +279,43 @@ def parse_channel_only_targets(file_bytes):
     finally:
         wb.close()
 
+def parse_sku_details_sheet(file_bytes):
+    """Reads the 'Sheet1' tab of a 'SKU Details and Priority' workbook and
+    returns {normalized_sku: {"category":..., "listing_name":...}}. Matches
+    the SKU / Category / Listing Name columns case-insensitively."""
+    wb = openpyxl.load_workbook(file_bytes, data_only=True, read_only=True)
+    try:
+        sheet = SKU_DETAILS_SHEET if SKU_DETAILS_SHEET in wb.sheetnames else wb.sheetnames[0]
+        ws = wb[sheet]
+        rows = ws.iter_rows(values_only=True)
+        try:
+            headers = [str(h).strip().lower() if h is not None else h for h in next(rows)]
+        except StopIteration:
+            return {}
+        idx = {h: i for i, h in enumerate(headers) if h}
+        sku_i = idx.get("sku")
+        cat_i = idx.get("category")
+        ln_i = idx.get("listing name")
+        if sku_i is None or (cat_i is None and ln_i is None):
+            return {}
+
+        out = {}
+        for values in rows:
+            if not values or sku_i >= len(values) or values[sku_i] in (None, ""):
+                continue
+            key = normalize_sku(values[sku_i])
+            if not key:
+                continue
+            cat = values[cat_i] if (cat_i is not None and cat_i < len(values)) else None
+            ln = values[ln_i] if (ln_i is not None and ln_i < len(values)) else None
+            out[key] = {
+                "category": str(cat).strip() if cat not in (None, "") else None,
+                "listing_name": str(ln).strip() if ln not in (None, "") else None,
+            }
+        return out
+    finally:
+        wb.close()
+
 # =============================================================================
 # FILE MATCHING (mirrors Monthly_Target_Update_Code.py's convention)
 # =============================================================================
@@ -367,6 +407,25 @@ def build_dashboard_data(service, month, year, today=None, sku_images=None, sku_
     files_in_folder = list_children(service, month_folder["id"])
     sheet_name = sheet_name_for(month, year)
 
+    # SKU category/listing map: start from the bundled fallback, then overlay
+    # whatever the live "SKU Details and Priority" file in this month's folder
+    # says (live wins). If the live file is missing or unreadable, we silently
+    # keep the bundled fallback rather than failing the whole build.
+    effective_details = dict(sku_details)
+    details_file = match_by_stub(files_in_folder, SKU_DETAILS_FILE_STUB) or next(
+        (x for x in files_in_folder
+         if Path(x["name"]).stem.lower().startswith(SKU_DETAILS_FILE_STUB.lower())), None)
+    if details_file:
+        try:
+            live_details = parse_sku_details_sheet(download_bytes(service, details_file["id"]))
+            if live_details:
+                effective_details.update(live_details)
+                print(f"  -> read {len(live_details)} SKU detail record(s) live from "
+                      f"'{details_file['name']}'")
+        except Exception as exc:
+            print(f"  -> couldn't read live SKU details ('{details_file['name']}'): {exc}; "
+                  f"using bundled fallback")
+
     # Download + parse the two Targets workbooks once (only sheets we need,
     # looked up lazily per channel below).
     target_workbook_bytes = {}
@@ -413,7 +472,7 @@ def build_dashboard_data(service, month, year, today=None, sku_images=None, sku_
         for sku in all_skus:
             a = actual_by_sku.get(sku, {"units": 0, "revenue": 0.0})
             t = target_by_sku.get(sku, {"units": 0, "revenue": 0.0})
-            det = sku_details.get(normalize_sku(sku))
+            det = effective_details.get(normalize_sku(sku))
             sku_rows.append({
                 "sku": sku,
                 "category": (det or {}).get("category") or None,
@@ -533,8 +592,10 @@ def main():
     print(f"Loaded {len(sku_images)} SKU image link(s) from {SKU_IMAGES_PATH}"
           if sku_images else f"No {SKU_IMAGES_PATH} found; SKU images will be blank")
     sku_details = load_sku_details()
-    print(f"Loaded {len(sku_details)} SKU detail record(s) from {SKU_DETAILS_PATH}"
-          if sku_details else f"No {SKU_DETAILS_PATH} found; categories will show 'Details not provided'")
+    print(f"Loaded {len(sku_details)} bundled SKU detail fallback record(s) from {SKU_DETAILS_PATH} "
+          f"(live '{SKU_DETAILS_FILE_STUB}' file per month folder takes precedence)"
+          if sku_details else f"No bundled {SKU_DETAILS_PATH}; relying on the live "
+          f"'{SKU_DETAILS_FILE_STUB}' file in each month folder")
 
     month_folders = discover_month_folders(service)
     if not month_folders:
