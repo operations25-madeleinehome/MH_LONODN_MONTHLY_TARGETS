@@ -120,6 +120,17 @@
   .sku-thumb { width: 32px; height: 32px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); vertical-align: middle; background: #fff; }
   .sku-thumb-empty { width: 32px; height: 32px; border-radius: 4px; background: var(--track); display: inline-block; }
 
+  /* Category > listing > SKU drill-down rows */
+  .tree-row .caret-cell { width: 44px; color: var(--text-muted); font-size: 10px; }
+  .tree-row.expandable { cursor: pointer; }
+  .tree-row.expandable:hover td { background: var(--accent-soft); }
+  .tree-row.lvl-cat .name-cell { font-weight: 600; }
+  .tree-row.lvl-cat.is-open td { background: #eef2f7; }
+  .tree-row.lvl-listing .name-cell { font-weight: 500; padding-left: 22px; }
+  .tree-row.lvl-listing .caret-cell { padding-left: 14px; }
+  .tree-row.lvl-listing.is-open td { background: #f2f5f9; }
+  .tree-row.lvl-sku .name-cell { padding-left: 40px; color: var(--text-muted); }
+
   footer { text-align: center; color: var(--text-muted); font-size: 12px; padding: 20px 0 40px; }
 </style>
 </head>
@@ -232,51 +243,140 @@ function sortByAchievement(items) {
 // ---------------------------------------------------------------------
 // Rendering
 // ---------------------------------------------------------------------
+function escapeHtml(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
 function skuThumbHtml(url) {
   if (!url) return '<span class="sku-thumb-empty"></span>';
   return `<img class="sku-thumb" src="${encodeURI(url)}" loading="lazy" onerror="this.outerHTML='<span class=&quot;sku-thumb-empty&quot;></span>'">`;
 }
 
-function channelCardHtml(c, idx, daysCompleted, daysInMonth) {
+const DETAILS_MISSING = "Details not provided";
+
+// Only SKUs that are part of the target plan appear in the drill-down.
+function presentInTargets(s) {
+  return (s.target_revenue || 0) > 0 || (s.target_units || 0) > 0;
+}
+
+// Group a channel's target SKUs into category -> listing -> SKUs, each level
+// carrying summed target/actual units & revenue, all sorted by target revenue
+// descending.
+function buildCategoryTree(skus) {
+  const cats = {};
+  (skus || []).filter(presentInTargets).forEach(s => {
+    const catName = s.category || DETAILS_MISSING;
+    const listingName = s.listing_name || DETAILS_MISSING;
+    const cat = cats[catName] || (cats[catName] =
+      { name: catName, target_units: 0, actual_units: 0, target_revenue: 0, actual_revenue: 0, listings: {} });
+    const lst = cat.listings[listingName] || (cat.listings[listingName] =
+      { name: listingName, target_units: 0, actual_units: 0, target_revenue: 0, actual_revenue: 0, skus: [] });
+    for (const bucket of [cat, lst]) {
+      bucket.target_units += s.target_units || 0;
+      bucket.actual_units += s.actual_units || 0;
+      bucket.target_revenue += s.target_revenue || 0;
+      bucket.actual_revenue += s.actual_revenue || 0;
+    }
+    lst.skus.push(s);
+  });
+  const byTargetRev = (a, b) => (b.target_revenue || 0) - (a.target_revenue || 0);
+  return Object.values(cats).map(cat => ({
+    ...cat,
+    listings: Object.values(cat.listings).map(lst => ({
+      ...lst, skus: lst.skus.slice().sort(byTargetRev),
+    })).sort(byTargetRev),
+  })).sort(byTargetRev);
+}
+
+// State: which channels are expanded, and (per channel) which category and
+// which listing are open. Category/listing tracked by index into the sorted
+// tree, which is stable across re-renders.
+let CH_STATE = { channels: [], trees: [], daysCompleted: 0, daysInMonth: 0 };
+const openChannels = new Set();
+const openCat = {};      // channelIdx -> categoryIdx
+const openListing = {};  // channelIdx -> listingIdx (within the open category)
+
+function metricCells(item) {
+  const p = pct(item.actual_revenue, item.target_revenue);
+  return `<td class="num">${fmtNum(item.target_units)}</td>
+          <td class="num">${fmtNum(item.actual_units)}</td>
+          <td class="num">${fmtMoney(item.target_revenue)}</td>
+          <td class="num">${fmtMoney(item.actual_revenue)}</td>
+          <td class="num">${p === null ? "—" : p.toFixed(0) + "%"}</td>`;
+}
+
+function treeRowsHtml(idx) {
+  const tree = CH_STATE.trees[idx] || [];
+  if (!tree.length) {
+    return `<tr class="no-data-row"><td colspan="7">No category breakdown available for this channel.</td></tr>`;
+  }
+  const rows = [];
+  tree.forEach((cat, ci) => {
+    const catOpen = openCat[idx] === ci;
+    rows.push(`<tr class="tree-row lvl-cat expandable ${catOpen ? "is-open" : ""}" onclick="toggleCat(${idx},${ci})">
+      <td class="caret-cell">${catOpen ? "▼" : "▶"}</td>
+      <td class="name-cell">${escapeHtml(cat.name)}</td>
+      ${metricCells(cat)}
+    </tr>`);
+    if (!catOpen) return;
+    cat.listings.forEach((lst, li) => {
+      const lstOpen = openListing[idx] === li;
+      rows.push(`<tr class="tree-row lvl-listing expandable ${lstOpen ? "is-open" : ""}" onclick="toggleListing(${idx},${li})">
+        <td class="caret-cell">${lstOpen ? "▼" : "▶"}</td>
+        <td class="name-cell">${escapeHtml(lst.name)}</td>
+        ${metricCells(lst)}
+      </tr>`);
+      if (!lstOpen) return;
+      lst.skus.forEach(s => {
+        rows.push(`<tr class="tree-row lvl-sku">
+          <td>${skuThumbHtml(s.image_url)}</td>
+          <td class="name-cell">${escapeHtml(s.sku)}</td>
+          ${metricCells(s)}
+        </tr>`);
+      });
+    });
+  });
+  return rows.join("");
+}
+
+function channelCardHtml(c, idx) {
   const p = pct(c.actual_revenue, c.target_revenue);
   const pctLabel = p === null ? "no target" : p.toFixed(0) + "%";
   const barWidth = p === null ? 0 : Math.min(p, 100);
   const isChannelOnly = c.target_source === "channel_only";
+  const isOpen = openChannels.has(idx);
   const badges = [];
   if (!c.has_actual_file) badges.push('<span class="badge">no actual data yet</span>');
   if (!c.has_target_data) badges.push('<span class="badge">no target set</span>');
   if (isChannelOnly) badges.push('<span class="badge-info">channel-level target only</span>');
-  const status = c.has_target_data ? statusInfo(c.actual_revenue, c.target_revenue, daysCompleted, daysInMonth) : null;
+  const status = c.has_target_data ? statusInfo(c.actual_revenue, c.target_revenue, CH_STATE.daysCompleted, CH_STATE.daysInMonth) : null;
   const statusBadge = status ? `<span class="status-badge ${status.cls}">${status.text}</span>` : "";
 
-  const skuRows = sortByAchievement(c.skus || []);
-
   const channelOnlyNote = isChannelOnly
-    ? `<div class="channel-only-note">Target of ${fmtMoney(c.target_revenue)} is set at the channel level, not per SKU. Rows below show actuals only — per-SKU target/% columns aren't tracked for this channel.</div>`
+    ? `<div class="channel-only-note">Target of ${fmtMoney(c.target_revenue)} is set at the channel level, not per SKU, so there's no category breakdown for this channel.</div>`
     : "";
 
-  const rowsHtml = skuRows.length
-    ? skuRows.map(s => {
-        const sp = isChannelOnly ? null : pct(s.actual_revenue, s.target_revenue);
-        return `<tr>
-          <td>${skuThumbHtml(s.image_url)}</td>
-          <td>${s.sku}</td>
-          <td class="num">${isChannelOnly ? "—" : fmtNum(s.target_units)}</td>
-          <td class="num">${fmtNum(s.actual_units)}</td>
-          <td class="num">${isChannelOnly ? "—" : fmtMoney(s.target_revenue)}</td>
-          <td class="num">${fmtMoney(s.actual_revenue)}</td>
-          <td class="num">${sp === null ? "—" : sp.toFixed(0) + "%"}</td>
-        </tr>`;
-      }).join("")
-    : `<tr class="no-data-row"><td colspan="7">No SKU-level data for this channel yet.</td></tr>`;
+  const tableHtml = isOpen ? `
+      <div class="sku-table-wrap" style="display:block;">
+        ${channelOnlyNote}
+        <table>
+          <thead><tr>
+            <th></th><th>Category / Listing / SKU</th><th class="num">Target Units</th><th class="num">Actual Units</th>
+            <th class="num">Target Revenue</th><th class="num">Actual Revenue</th><th class="num">%</th>
+          </tr></thead>
+          <tbody>${treeRowsHtml(idx)}</tbody>
+        </table>
+      </div>` : "";
 
   return `
-    <div class="channel-card" id="card-${idx}">
-      <div class="channel-header" onclick="toggleCard(${idx})">
+    <div class="channel-card ${isOpen ? "open" : ""}" id="card-${idx}">
+      <div class="channel-header" onclick="toggleChannel(${idx})">
         <div class="channel-name-block">
           <span class="toggle-icon">▶</span>
-          <span class="channel-name">${c.name}</span>
-          <span class="region-tag">${c.region || ""}</span>
+          <span class="channel-name">${escapeHtml(c.name)}</span>
+          <span class="region-tag">${escapeHtml(c.region || "")}</span>
           ${badges.join("")}
           ${statusBadge}
         </div>
@@ -289,17 +389,44 @@ function channelCardHtml(c, idx, daysCompleted, daysInMonth) {
         </div>
         <div class="pct-block">${pctLabel}</div>
       </div>
-      <div class="sku-table-wrap">
-        ${channelOnlyNote}
-        <table>
-          <thead><tr>
-            <th></th><th>SKU</th><th class="num">Target Units</th><th class="num">Actual Units</th>
-            <th class="num">Target Revenue</th><th class="num">Actual Revenue</th><th class="num">%</th>
-          </tr></thead>
-          <tbody>${rowsHtml}</tbody>
-        </table>
-      </div>
+      ${tableHtml}
     </div>`;
+}
+
+function renderChannels() {
+  document.getElementById("channels").innerHTML =
+    CH_STATE.channels.map((c, i) => channelCardHtml(c, i)).join("");
+}
+
+function toggleChannel(idx) {
+  if (openChannels.has(idx)) {
+    openChannels.delete(idx);
+    delete openCat[idx];
+    delete openListing[idx];
+  } else {
+    openChannels.add(idx);
+  }
+  renderChannels();
+}
+
+function toggleCat(idx, ci) {
+  // Opening a different category auto-closes the previous one (and its listing).
+  if (openCat[idx] === ci) {
+    delete openCat[idx];
+  } else {
+    openCat[idx] = ci;
+  }
+  delete openListing[idx];
+  renderChannels();
+}
+
+function toggleListing(idx, li) {
+  if (openListing[idx] === li) {
+    delete openListing[idx];
+  } else {
+    openListing[idx] = li;
+  }
+  renderChannels();
 }
 
 function overallHtml(totals) {
@@ -327,10 +454,6 @@ function regionCardHtml(r) {
         ${fmtNum(r.actual_units)} / ${fmtNum(r.target_units)} units
       </div>
     </div>`;
-}
-
-function toggleCard(idx) {
-  document.getElementById("card-" + idx).classList.toggle("open");
 }
 
 let CURRENT_MANIFEST = null;
@@ -372,9 +495,17 @@ async function loadMonth(year, month) {
     document.getElementById("overall").innerHTML = overallHtml(totals);
     document.getElementById("overallSection").style.display = "block";
 
-    const daysCompleted = data.days_completed != null ? data.days_completed : data.days_elapsed;
-    document.getElementById("channels").innerHTML =
-      channels.map((c, i) => channelCardHtml(c, i, daysCompleted, data.days_in_month)).join("");
+    // Reset drill-down state for the newly loaded month, then render.
+    CH_STATE = {
+      channels: channels,
+      trees: channels.map(c => buildCategoryTree(c.skus || [])),
+      daysCompleted: data.days_completed != null ? data.days_completed : data.days_elapsed,
+      daysInMonth: data.days_in_month,
+    };
+    openChannels.clear();
+    for (const k in openCat) delete openCat[k];
+    for (const k in openListing) delete openListing[k];
+    renderChannels();
     document.getElementById("channelSection").style.display = "block";
 
     statusEl.style.display = "none";

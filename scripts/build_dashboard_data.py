@@ -53,6 +53,12 @@ OUTPUT_DIR = Path("data")
 # bundled in the repo (see SKU Images.xlsx) rather than pulled from Drive.
 SKU_IMAGES_PATH = Path("sku_images.json")
 
+# SKU -> {category, listing_name}, built from "SKU Details and Priority".
+# Bundled in the repo (like the images) so the site can group SKUs by category
+# and listing without a live Drive read. Refresh it when the details file
+# changes. SKUs not found here fall back to "Details not provided".
+SKU_DETAILS_PATH = Path("sku_details.json")
+
 # Set to a specific date, e.g. dt.date(2026, 8, 5), to build the dashboard for
 # a past month. Leave as None to use the real current month.
 SIMULATED_TODAY = None
@@ -317,7 +323,7 @@ def days_completed_through_yesterday(month, year, today):
     return max(0, min(today.day - 1, days_in_month))
 
 # =============================================================================
-# SKU IMAGES
+# SKU IMAGES + DETAILS (category / listing name)
 # =============================================================================
 
 def load_sku_images():
@@ -326,13 +332,27 @@ def load_sku_images():
     with open(SKU_IMAGES_PATH) as f:
         return json.load(f)
 
+def normalize_sku(s):
+    """SKUs are written inconsistently across files (stray spaces, casing),
+    so match them on a normalized key: uppercase, no spaces."""
+    return str(s).strip().upper().replace(" ", "") if s is not None else ""
+
+def load_sku_details():
+    """Returns {normalized_sku: {"category":..., "listing_name":...}}."""
+    if not SKU_DETAILS_PATH.exists():
+        return {}
+    with open(SKU_DETAILS_PATH) as f:
+        raw = json.load(f)
+    return {normalize_sku(k): v for k, v in raw.items()}
+
 # =============================================================================
 # MAIN BUILD
 # =============================================================================
 
-def build_dashboard_data(service, month, year, today=None, sku_images=None):
+def build_dashboard_data(service, month, year, today=None, sku_images=None, sku_details=None):
     today = today or dt.date.today()
     sku_images = sku_images if sku_images is not None else {}
+    sku_details = sku_details if sku_details is not None else {}
     days_elapsed, days_in_month = days_elapsed_and_total(month, year, today)
     days_completed = days_completed_through_yesterday(month, year, today)
 
@@ -393,8 +413,11 @@ def build_dashboard_data(service, month, year, today=None, sku_images=None):
         for sku in all_skus:
             a = actual_by_sku.get(sku, {"units": 0, "revenue": 0.0})
             t = target_by_sku.get(sku, {"units": 0, "revenue": 0.0})
+            det = sku_details.get(normalize_sku(sku))
             sku_rows.append({
                 "sku": sku,
+                "category": (det or {}).get("category") or None,
+                "listing_name": (det or {}).get("listing_name") or None,
                 "target_units": t["units"],
                 "target_revenue": round(t["revenue"], 2),
                 "actual_units": a["units"],
@@ -509,6 +532,9 @@ def main():
     sku_images = load_sku_images()
     print(f"Loaded {len(sku_images)} SKU image link(s) from {SKU_IMAGES_PATH}"
           if sku_images else f"No {SKU_IMAGES_PATH} found; SKU images will be blank")
+    sku_details = load_sku_details()
+    print(f"Loaded {len(sku_details)} SKU detail record(s) from {SKU_DETAILS_PATH}"
+          if sku_details else f"No {SKU_DETAILS_PATH} found; categories will show 'Details not provided'")
 
     month_folders = discover_month_folders(service)
     if not month_folders:
@@ -522,7 +548,7 @@ def main():
         label = dt.date(year, month, 1).strftime("%B %Y")
         print(f"\nBuilding dashboard data for {label} (from its own Drive folder) ...")
         try:
-            data = build_dashboard_data(service, month, year, today=today, sku_images=sku_images)
+            data = build_dashboard_data(service, month, year, today=today, sku_images=sku_images, sku_details=sku_details)
         except RuntimeError as exc:
             print(f"  -> skipped: {exc}")
             continue
