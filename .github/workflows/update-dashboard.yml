@@ -2,13 +2,32 @@ name: Update dashboard data
 
 on:
   schedule:
-    # 6:30 UTC daily = 12:00 PM IST (India does not observe daylight saving,
-    # so this stays correct year-round). Times are always UTC in GitHub Actions.
+    # Several slots around 12:00 PM IST for redundancy. GitHub's scheduler
+    # frequently delays, and occasionally drops, any single slot -- so we fire
+    # a few times. The job is safe to run repeatedly: the Sales Master sync is
+    # append-only + dedupe-by-PO+SKU, and the dashboard rebuild is
+    # deterministic, so a run that finds nothing new simply makes no changes
+    # (the auto-commit step then commits nothing). India has no daylight
+    # saving, so these stay correct year-round. Times are always UTC.
+    #   06:30 UTC = 12:00 PM IST
+    #   06:45 UTC = 12:15 PM IST
+    #   07:00 UTC = 12:30 PM IST
+    #   07:30 UTC = 01:00 PM IST  (extra safety net if the earlier slots drop)
     - cron: "30 6 * * *"
+    - cron: "45 6 * * *"
+    - cron: "0 7 * * *"
+    - cron: "30 7 * * *"
   workflow_dispatch: {}
 
 permissions:
   contents: write
+
+# Only ever one run at a time. If a later redundant slot fires while a run is
+# still going, it waits its turn instead of writing to Drive concurrently.
+# cancel-in-progress is false so an in-flight run is never interrupted mid-write.
+concurrency:
+  group: update-dashboard
+  cancel-in-progress: false
 
 jobs:
   update-data:
