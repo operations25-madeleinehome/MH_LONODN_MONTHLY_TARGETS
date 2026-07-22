@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T09:46:20",
+  "generated_at": "2026-07-22T18:42:47",
   "month": 6,
   "year": 2026,
   "month_label": "June 2026",
@@ -31,6 +31,8 @@
       "skus": [
         {
           "sku": "MH- ST-107",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Marly Wall Mounted Shelf",
           "target_units": 44,
           "target_revenue": 1389.47,
           "actual_units": 35,
@@ -39,6 +41,8 @@
         },
         {
           "sku": "MH-BD-11500",
+          "category": "Beds",
+          "listing_name": "Rhonda Bed",
           "target_units": 11,
           "target_revenue": 3632.73,
           "actual_units": 12,
@@ -47,6 +51,8 @@
         },
         {
           "sku": "MH-BD-11514",
+          "category": "Beds",
+          "listing_name": "Rhonda Bed",
           "target_units": 12,
           "target_revenue": 4426.49,
           "actual_units": 9,
@@ -55,6 +61,8 @@
         },
         {
           "sku": "MH-BD-11519",
+          "category": "Beds",
+          "listing_name": "Marina Bed",
           "target_units": 5,
           "target_revenue": 1377.07,
           "actual_units": 5,
@@ -63,6 +71,8 @@
         },
         {
           "sku": "MH-BD-11520",
+          "category": "Beds",
+          "listing_name": "Marina Bed",
           "target_units": 4,
           "target_revenue": 1085.53,
           "actual_units": 1,
@@ -71,6 +81,8 @@
         },
         {
           "sku": "MH-BD-11528",
+          "category": "Beds",
+          "listing_name": "Oslo Bed",
           "target_units": 2,
           "target_revenue": 1102.1,
           "actual_units": 4,
@@ -79,6 +91,8 @@
         },
         {
           "sku": "MH-BD-11529",
+          "category": "Beds",
+          "listing_name": "Oslo Bed",
           "target_units": 2,
           "target_revenue": 1082.06,
           "actual_units": 5,
@@ -87,6 +101,8 @@
         },
         {
           "sku": "MH-BD-11531",
+          "category": "Beds",
+          "listing_name": "Rhonda Bed",
           "target_units": 5,
           "target_revenue": 2272.86,
           "actual_units": 4,
@@ -95,6 +111,8 @@
         },
         {
           "sku": "MH-BD-11532",
+          "category": "Beds",
+          "listing_name": "Rhonda Bed",
           "target_units": 9,
           "target_revenue": 3489.99,
           "actual_units": 7,
@@ -103,6 +121,8 @@
         },
         {
           "sku": "MH-BD-11533",
+          "category": "Beds",
+          "listing_name": "Clayton Bed",
           "target_units": 5,
           "target_revenue": 1479.59,
           "actual_units": 0,
@@ -111,6 +131,8 @@
         },
         {
           "sku": "MH-BN-18008",
+          "category": "Bench",
+          "listing_name": "Naya Upholstery Bench",
           "target_units": 5,
           "target_revenue": 546.0,
           "actual_units": 5,
@@ -119,6 +141,8 @@
         },
         {
           "sku": "MH-BS-901A",
+          "category": "Bar Stools",
+          "listing_name": "Rombass Bar Stool",
           "target_units": 39,
           "target_revenue": 2816.33,
           "actual_units": 38,
@@ -127,6 +151,8 @@
         },
         {
           "sku": "MH-BS-940",
+          "category": "Bar Stools",
+          "listing_name": "Rombass Bar Stool",
           "target_units": 80,
           "target_revenue": 5280.93,
           "actual_units": 58,
@@ -135,6 +161,8 @@
         },
         {
           "sku": "MH-BS-941",
+          "category": "Bar Stools",
+          "listing_name": "Rombass Bar Stool",
           "target_units": 29,
           "target_revenue": 1818.93,
           "actual_units": 24,
@@ -143,6 +171,8 @@
         },
         {
           "sku": "MH-BS-942",
+          "category": "Bar Stools",
+          "listing_name": "Rombass Bar Stool",
           "target_units": 25,
           "target_revenue": 1559.84,
           "actual_units": 19,
@@ -151,6 +181,8 @@
         },
         {
           "sku": "MH-BS-951",
+          "category": "Bar Stools",
+          "listing_name": "Ember Bar Stool",
           "target_units": 5,
           "target_revenue": 140.0,
           "actual_units": 0,
@@ -159,6 +191,8 @@
         },
         {
           "sku": "MH-CD-20007",
+          "category": "Dressers and Chests",
+          "listing_name": "Rowley Dresser",
           "target_units": 4,
           "target_revenue": 2058.0,
           "actual_units": 0,
@@ -167,6 +201,8 @@
         },
         {
           "sku": "MH-CD-20008",
+          "category": "Dressers and Chests",
+          "listing_name": "Rowley Dresser",
           "target_units": 3,
           "target_revenue": 1344.34,
           "actual_units": 2,
@@ -175,6 +211,8 @@
         },
         {
           "sku": "MH-CD-20021",
+          "category": "Dressers and Chests",
+          "listing_name": "Rita Iron Dresser",
           "target_units": 3,
           "target_revenue": 452.63,
           "actual_units": 4,
@@ -183,6 +221,8 @@
         },
         {
           "sku": "MH-CD-20028",
+          "category": "Dressers and Chests",
+          "listing_name": "Oslo Dresser",
           "target_units": 5,
           "target_revenue": 1604.54,
           "actual_units": 2,
@@ -191,6 +231,8 @@
         },
         {
           "sku": "MH-CD-20029",
+          "category": "Dressers and Chests",
+          "listing_name": "Oslo Dresser",
           "target_units": 5,
           "target_revenue": 1604.54,
           "actual_units": 5,
@@ -199,6 +241,8 @@
         },
         {
           "sku": "MH-CH-727",
+          "category": "Chair",
+          "listing_name": "Naya Upholstery Chair",
           "target_units": 1,
           "target_revenue": 27.64,
           "actual_units": 0,
@@ -207,6 +251,8 @@
         },
         {
           "sku": "MH-CH-728",
+          "category": "Chair",
+          "listing_name": "Zuri Upholstery Chair",
           "target_units": 5,
           "target_revenue": 385.0,
           "actual_units": 3,
@@ -215,6 +261,8 @@
         },
         {
           "sku": "MH-CH-729",
+          "category": "Chair",
+          "listing_name": "Tami Set of 2 Upholstery Chair",
           "target_units": 5,
           "target_revenue": 1015.0,
           "actual_units": 0,
@@ -223,6 +271,8 @@
         },
         {
           "sku": "MH-CH-730",
+          "category": "Chair",
+          "listing_name": "Safi Set of 2 Chairs",
           "target_units": 1,
           "target_revenue": 282.94,
           "actual_units": 2,
@@ -231,6 +281,8 @@
         },
         {
           "sku": "MH-DS-19013",
+          "category": "Desks",
+          "listing_name": "Ancona Desk",
           "target_units": 7,
           "target_revenue": 2061.82,
           "actual_units": 7,
@@ -239,6 +291,8 @@
         },
         {
           "sku": "MH-DS-19014",
+          "category": "Desks",
+          "listing_name": "Ancona Desk",
           "target_units": 8,
           "target_revenue": 2535.24,
           "actual_units": 6,
@@ -247,6 +301,8 @@
         },
         {
           "sku": "MH-DS-19015",
+          "category": "Desks",
+          "listing_name": "Ancona Desk",
           "target_units": 8,
           "target_revenue": 2405.45,
           "actual_units": 4,
@@ -255,6 +311,8 @@
         },
         {
           "sku": "MH-DS-19021",
+          "category": "Desks",
+          "listing_name": "Oslo Desk",
           "target_units": 7,
           "target_revenue": 1811.29,
           "actual_units": 4,
@@ -263,6 +321,8 @@
         },
         {
           "sku": "MH-DS-19024",
+          "category": "Desks",
+          "listing_name": "Savannah Desk",
           "target_units": 2,
           "target_revenue": 181.77,
           "actual_units": 5,
@@ -271,6 +331,8 @@
         },
         {
           "sku": "MH-DS-19025",
+          "category": "Desks",
+          "listing_name": "Hattie Desk",
           "target_units": 6,
           "target_revenue": 1416.85,
           "actual_units": 11,
@@ -279,6 +341,8 @@
         },
         {
           "sku": "MH-DS-19026",
+          "category": "Desks",
+          "listing_name": "Hattie Desk",
           "target_units": 4,
           "target_revenue": 893.83,
           "actual_units": 4,
@@ -287,6 +351,8 @@
         },
         {
           "sku": "MH-DS-19027",
+          "category": "Desks",
+          "listing_name": "Luna Desk",
           "target_units": 8,
           "target_revenue": 2211.43,
           "actual_units": 16,
@@ -295,6 +361,8 @@
         },
         {
           "sku": "MH-DS-19028",
+          "category": "Desks",
+          "listing_name": "Luna Desk",
           "target_units": 4,
           "target_revenue": 1071.94,
           "actual_units": 4,
@@ -303,6 +371,8 @@
         },
         {
           "sku": "MH-DS-19029",
+          "category": "Desks",
+          "listing_name": "Kittie Desk",
           "target_units": 5,
           "target_revenue": 1155.0,
           "actual_units": 2,
@@ -311,6 +381,8 @@
         },
         {
           "sku": "MH-DS-19030",
+          "category": "Desks",
+          "listing_name": "Kittie Desk",
           "target_units": 7,
           "target_revenue": 1944.0,
           "actual_units": 8,
@@ -319,6 +391,8 @@
         },
         {
           "sku": "MH-DS-19031",
+          "category": "Desks",
+          "listing_name": "Rhonda Desk",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 3,
@@ -327,6 +401,8 @@
         },
         {
           "sku": "MH-DS-19035",
+          "category": "Desks",
+          "listing_name": "Rhonda Desk",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -335,6 +411,8 @@
         },
         {
           "sku": "MH-MD-13006WT",
+          "category": "Wall D\u00e9cor",
+          "listing_name": "Bianci Medallion Hand Carved",
           "target_units": 25,
           "target_revenue": 611.52,
           "actual_units": 13,
@@ -343,6 +421,8 @@
         },
         {
           "sku": "MH-MD-13007WT",
+          "category": "Wall D\u00e9cor",
+          "listing_name": "Lassi Medallion Hand Carved",
           "target_units": 75,
           "target_revenue": 2417.16,
           "actual_units": 51,
@@ -351,6 +431,8 @@
         },
         {
           "sku": "MH-MD-13009GR",
+          "category": "Wall D\u00e9cor",
+          "listing_name": "Malito Medallion Hand Carved",
           "target_units": 46,
           "target_revenue": 2745.65,
           "actual_units": 31,
@@ -359,6 +441,8 @@
         },
         {
           "sku": "MH-MD-13009WT",
+          "category": "Wall D\u00e9cor",
+          "listing_name": "Malito Medallion Hand Carved",
           "target_units": 90,
           "target_revenue": 5329.8,
           "actual_units": 58,
@@ -367,6 +451,8 @@
         },
         {
           "sku": "MH-MR-22049",
+          "category": "Wall & Accent Mirrors",
+          "listing_name": "Dante Wall & Accent Mirror",
           "target_units": 2,
           "target_revenue": 204.28,
           "actual_units": 4,
@@ -375,6 +461,8 @@
         },
         {
           "sku": "MH-MR-22054",
+          "category": "Wall & Accent Mirrors",
+          "listing_name": "Celeste Wall & Accent Mirror",
           "target_units": 5,
           "target_revenue": 280.0,
           "actual_units": 5,
@@ -383,6 +471,8 @@
         },
         {
           "sku": "MH-MR-22055",
+          "category": "Wall & Accent Mirrors",
+          "listing_name": "Gatsby Metal Wall & Accent Mirror",
           "target_units": 4,
           "target_revenue": 215.91,
           "actual_units": 1,
@@ -391,6 +481,8 @@
         },
         {
           "sku": "MH-MR-22056",
+          "category": "Wall & Accent Mirrors",
+          "listing_name": "Hope Metal Wall & Accent Mirror",
           "target_units": 5,
           "target_revenue": 212.8,
           "actual_units": 0,
@@ -399,6 +491,8 @@
         },
         {
           "sku": "MH-MR-22057",
+          "category": "Wall & Accent Mirrors",
+          "listing_name": "Harrison Metal Wall & Accent Mirror",
           "target_units": 5,
           "target_revenue": 212.8,
           "actual_units": 0,
@@ -407,6 +501,8 @@
         },
         {
           "sku": "MH-MR-22070",
+          "category": "Wall & Accent Mirrors",
+          "listing_name": "Dora Wall Mounted Accent Mirror (22\" x 0.75\" x 65\") in Grey",
           "target_units": 5,
           "target_revenue": 476.0,
           "actual_units": 0,
@@ -415,6 +511,8 @@
         },
         {
           "sku": "MH-MR-22072",
+          "category": "Wall & Accent Mirrors",
+          "listing_name": "Agon Wall Mounted Accent Mirror",
           "target_units": 5,
           "target_revenue": 152.32,
           "actual_units": 0,
@@ -423,6 +521,8 @@
         },
         {
           "sku": "MH-MR-687",
+          "category": "Wall & Accent Mirrors",
+          "listing_name": "Harriet Accent Mirror",
           "target_units": 31,
           "target_revenue": 3867.09,
           "actual_units": 30,
@@ -431,6 +531,8 @@
         },
         {
           "sku": "MH-MR-688",
+          "category": "Wall & Accent Mirrors",
+          "listing_name": "Harriet Accent Mirror",
           "target_units": 9,
           "target_revenue": 1203.35,
           "actual_units": 61,
@@ -439,6 +541,8 @@
         },
         {
           "sku": "MH-SB-40000",
+          "category": "Sideboard",
+          "listing_name": "Dottie Sideboard",
           "target_units": 16,
           "target_revenue": 5523.71,
           "actual_units": 8,
@@ -447,6 +551,8 @@
         },
         {
           "sku": "MH-SB-40001",
+          "category": "Sideboard",
+          "listing_name": "Dottie Sideboard",
           "target_units": 33,
           "target_revenue": 11037.89,
           "actual_units": 20,
@@ -455,6 +561,8 @@
         },
         {
           "sku": "MH-SB-40002",
+          "category": "Sideboard",
+          "listing_name": "Dottie Sideboard",
           "target_units": 19,
           "target_revenue": 6666.55,
           "actual_units": 7,
@@ -463,6 +571,8 @@
         },
         {
           "sku": "MH-SB-40006",
+          "category": "Sideboard",
+          "listing_name": "Clayton Sideboard",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -471,6 +581,8 @@
         },
         {
           "sku": "MH-SB-40009",
+          "category": "Sideboard",
+          "listing_name": "Bobby Sideboard",
           "target_units": 5,
           "target_revenue": 1777.46,
           "actual_units": 1,
@@ -479,6 +591,8 @@
         },
         {
           "sku": "MH-SB-40010",
+          "category": "Sideboard",
+          "listing_name": "Rufus Sideboard",
           "target_units": 5,
           "target_revenue": 1484.96,
           "actual_units": 2,
@@ -487,6 +601,8 @@
         },
         {
           "sku": "MH-SH-198",
+          "category": "Bookcases",
+          "listing_name": "Oslo Bookcase Large",
           "target_units": 4,
           "target_revenue": 1410.79,
           "actual_units": 9,
@@ -495,6 +611,8 @@
         },
         {
           "sku": "MH-SH-199",
+          "category": "Bookcases",
+          "listing_name": "Oslo Bookcase Large",
           "target_units": 5,
           "target_revenue": 1670.71,
           "actual_units": 3,
@@ -503,6 +621,8 @@
         },
         {
           "sku": "MH-SH-200",
+          "category": "Bookcases",
+          "listing_name": "Oslo Bookcase Small",
           "target_units": 2,
           "target_revenue": 548.15,
           "actual_units": 1,
@@ -511,6 +631,8 @@
         },
         {
           "sku": "MH-SH-201",
+          "category": "Bookcases",
+          "listing_name": "Oslo Bookcase Small",
           "target_units": 4,
           "target_revenue": 944.22,
           "actual_units": 3,
@@ -519,6 +641,8 @@
         },
         {
           "sku": "MH-SH-204",
+          "category": "Bookcases",
+          "listing_name": "Ancona Bookcase",
           "target_units": 11,
           "target_revenue": 3391.4,
           "actual_units": 7,
@@ -527,6 +651,8 @@
         },
         {
           "sku": "MH-SH-209",
+          "category": "Bookcases",
+          "listing_name": "Clayton Bookcase",
           "target_units": 1,
           "target_revenue": 53.11,
           "actual_units": 1,
@@ -535,6 +661,8 @@
         },
         {
           "sku": "MH-SH-213",
+          "category": "Bookcases",
+          "listing_name": "Monty Bookcase",
           "target_units": 10,
           "target_revenue": 1755.17,
           "actual_units": 10,
@@ -543,6 +671,8 @@
         },
         {
           "sku": "MH-SH-214",
+          "category": "Bookcases",
+          "listing_name": "Monty Bookcase",
           "target_units": 8,
           "target_revenue": 1462.64,
           "actual_units": 2,
@@ -551,6 +681,8 @@
         },
         {
           "sku": "MH-SH-217",
+          "category": "Bookcases",
+          "listing_name": "Remi Iron & Glass Bookcase",
           "target_units": 5,
           "target_revenue": 1958.68,
           "actual_units": 9,
@@ -559,6 +691,8 @@
         },
         {
           "sku": "MH-ST-107BZ",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Marly Wall Mounted Shelf",
           "target_units": 17,
           "target_revenue": 550.13,
           "actual_units": 15,
@@ -567,6 +701,8 @@
         },
         {
           "sku": "MH-ST-107GD",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Marly Wall Mounted Shelf",
           "target_units": 25,
           "target_revenue": 792.44,
           "actual_units": 17,
@@ -575,6 +711,8 @@
         },
         {
           "sku": "MH-ST-149",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Phantom Wall Mounted Shelf",
           "target_units": 22,
           "target_revenue": 1538.53,
           "actual_units": 20,
@@ -583,6 +721,8 @@
         },
         {
           "sku": "MH-ST-159",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Jonas Wall Mounted Shelf",
           "target_units": 4,
           "target_revenue": 488.47,
           "actual_units": 3,
@@ -591,6 +731,8 @@
         },
         {
           "sku": "MH-ST-161",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Jonas Wall Mounted Shelf",
           "target_units": 15,
           "target_revenue": 1745.67,
           "actual_units": 17,
@@ -599,6 +741,8 @@
         },
         {
           "sku": "MH-ST-319",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Bailey Wall Mounted Shelf",
           "target_units": 10,
           "target_revenue": 270.41,
           "actual_units": 12,
@@ -607,6 +751,8 @@
         },
         {
           "sku": "MH-ST-320",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Bailey Wall Mounted Shelf",
           "target_units": 5,
           "target_revenue": 135.21,
           "actual_units": 7,
@@ -615,6 +761,8 @@
         },
         {
           "sku": "MH-ST-327",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Billy Wall Mounted Shelf 24\"",
           "target_units": 31,
           "target_revenue": 867.72,
           "actual_units": 14,
@@ -623,6 +771,8 @@
         },
         {
           "sku": "MH-ST-328",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Billy Wall Mounted Shelf 24\"",
           "target_units": 10,
           "target_revenue": 297.35,
           "actual_units": 12,
@@ -631,6 +781,8 @@
         },
         {
           "sku": "MH-ST-329",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Billy Wall Mounted Shelf 24\"",
           "target_units": 10,
           "target_revenue": 218.75,
           "actual_units": 7,
@@ -639,6 +791,8 @@
         },
         {
           "sku": "MH-ST-330",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Billy Wall Mounted Shelf 36\"",
           "target_units": 34,
           "target_revenue": 1237.54,
           "actual_units": 29,
@@ -647,6 +801,8 @@
         },
         {
           "sku": "MH-ST-331",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Billy Wall Mounted Shelf 36\"",
           "target_units": 5,
           "target_revenue": 175.92,
           "actual_units": 12,
@@ -655,6 +811,8 @@
         },
         {
           "sku": "MH-ST-333",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Sammy Wall Mounted Shelf 24\"",
           "target_units": 10,
           "target_revenue": 165.34,
           "actual_units": 5,
@@ -663,6 +821,8 @@
         },
         {
           "sku": "MH-ST-334",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Sammy Wall Mounted Shelf 24\"",
           "target_units": 9,
           "target_revenue": 193.37,
           "actual_units": 6,
@@ -671,6 +831,8 @@
         },
         {
           "sku": "MH-ST-335",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Sammy Wall Mounted Shelf 24\"",
           "target_units": 10,
           "target_revenue": 224.69,
           "actual_units": 1,
@@ -679,6 +841,8 @@
         },
         {
           "sku": "MH-ST-336",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Sammy Wall Mounted Shelf 36\"",
           "target_units": 10,
           "target_revenue": 239.75,
           "actual_units": 4,
@@ -687,6 +851,8 @@
         },
         {
           "sku": "MH-ST-337",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Sammy Wall Mounted Shelf 36\"",
           "target_units": 8,
           "target_revenue": 207.73,
           "actual_units": 5,
@@ -695,6 +861,8 @@
         },
         {
           "sku": "MH-ST-338",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Sammy Wall Mounted Shelf 36\"",
           "target_units": 19,
           "target_revenue": 484.7,
           "actual_units": 18,
@@ -703,6 +871,8 @@
         },
         {
           "sku": "MH-ST-340",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Harry Wall Mounted Shelf",
           "target_units": 1,
           "target_revenue": 5.87,
           "actual_units": 0,
@@ -711,6 +881,8 @@
         },
         {
           "sku": "MH-ST-341",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Harry Wall Mounted Shelf",
           "target_units": 5,
           "target_revenue": 104.72,
           "actual_units": 3,
@@ -719,6 +891,8 @@
         },
         {
           "sku": "MH-ST-342",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Harry Wall Mounted Shelf",
           "target_units": 4,
           "target_revenue": 79.33,
           "actual_units": 4,
@@ -727,6 +901,8 @@
         },
         {
           "sku": "MH-ST-343",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Yung Wall Mounted Shelf",
           "target_units": 5,
           "target_revenue": 85.75,
           "actual_units": 1,
@@ -735,6 +911,8 @@
         },
         {
           "sku": "MH-ST-351",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Hutch set of 2 - 24\"",
           "target_units": 67,
           "target_revenue": 3382.04,
           "actual_units": 53,
@@ -743,6 +921,8 @@
         },
         {
           "sku": "MH-ST-352",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Hutch set of 2 - 24\"",
           "target_units": 60,
           "target_revenue": 3079.62,
           "actual_units": 24,
@@ -751,6 +931,8 @@
         },
         {
           "sku": "MH-ST-353",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Force Set of 3 - 36\"",
           "target_units": 5,
           "target_revenue": 278.26,
           "actual_units": 5,
@@ -759,6 +941,8 @@
         },
         {
           "sku": "MH-ST-354",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Force Set of 3 - 36\"",
           "target_units": 29,
           "target_revenue": 1747.64,
           "actual_units": 35,
@@ -767,6 +951,8 @@
         },
         {
           "sku": "MH-ST-355",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Lonny Wall Mounted Shelf",
           "target_units": 10,
           "target_revenue": 191.8,
           "actual_units": 0,
@@ -775,6 +961,8 @@
         },
         {
           "sku": "MH-ST-356",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Lonny Wall Mounted Shelf",
           "target_units": 10,
           "target_revenue": 239.75,
           "actual_units": 3,
@@ -783,6 +971,8 @@
         },
         {
           "sku": "MH-ST-359",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Venice Wall Mounted Shelf",
           "target_units": 1,
           "target_revenue": 7.41,
           "actual_units": 0,
@@ -791,6 +981,8 @@
         },
         {
           "sku": "MH-ST-361",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Dale set of 4",
           "target_units": 8,
           "target_revenue": 522.4,
           "actual_units": 7,
@@ -799,6 +991,8 @@
         },
         {
           "sku": "MH-ST-362",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Dale set of 4",
           "target_units": 106,
           "target_revenue": 7383.68,
           "actual_units": 82,
@@ -807,6 +1001,8 @@
         },
         {
           "sku": "MH-ST-366",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Norton Wall Mounted Shelf",
           "target_units": 3,
           "target_revenue": 61.76,
           "actual_units": 0,
@@ -815,6 +1011,8 @@
         },
         {
           "sku": "MH-ST-370",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Hamish Wall Mounted Shelf 24\"",
           "target_units": 28,
           "target_revenue": 788.65,
           "actual_units": 37,
@@ -823,6 +1021,8 @@
         },
         {
           "sku": "MH-ST-372",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Hamish Wall Mounted Shelf 36\"",
           "target_units": 40,
           "target_revenue": 1571.88,
           "actual_units": 55,
@@ -831,6 +1031,8 @@
         },
         {
           "sku": "MH-ST-373",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Penny set of 2 - 36\"",
           "target_units": 10,
           "target_revenue": 623.71,
           "actual_units": 8,
@@ -839,6 +1041,8 @@
         },
         {
           "sku": "MH-ST-374",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Penny set of 2 - 36\"",
           "target_units": 47,
           "target_revenue": 2831.34,
           "actual_units": 34,
@@ -847,6 +1051,8 @@
         },
         {
           "sku": "MH-ST-375",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Phantom Wall Mounted Shelf",
           "target_units": 15,
           "target_revenue": 1017.15,
           "actual_units": 10,
@@ -855,6 +1061,8 @@
         },
         {
           "sku": "MH-ST-376",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Phantom Wall Mounted Shelf",
           "target_units": 33,
           "target_revenue": 2298.01,
           "actual_units": 19,
@@ -863,6 +1071,8 @@
         },
         {
           "sku": "MH-ST-391",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Montague Wall Mounted Shelf",
           "target_units": 5,
           "target_revenue": 189.52,
           "actual_units": 3,
@@ -871,6 +1081,8 @@
         },
         {
           "sku": "MH-ST-392",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Montague Wall Mounted Shelf",
           "target_units": 20,
           "target_revenue": 952.03,
           "actual_units": 18,
@@ -879,6 +1091,8 @@
         },
         {
           "sku": "MH-ST-393",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Oliver Wall Mounted Shelf",
           "target_units": 57,
           "target_revenue": 3870.55,
           "actual_units": 50,
@@ -887,6 +1101,8 @@
         },
         {
           "sku": "MH-ST-394",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Oliver Wall Mounted Shelf",
           "target_units": 7,
           "target_revenue": 432.98,
           "actual_units": 3,
@@ -895,6 +1111,8 @@
         },
         {
           "sku": "MH-ST-397",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Force Set of 3 - 36\"",
           "target_units": 10,
           "target_revenue": 584.26,
           "actual_units": 3,
@@ -903,6 +1121,8 @@
         },
         {
           "sku": "MH-ST-398",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Dale set of 4",
           "target_units": 24,
           "target_revenue": 1625.62,
           "actual_units": 9,
@@ -911,6 +1131,8 @@
         },
         {
           "sku": "MH-ST-399",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Dale set of 4",
           "target_units": 2,
           "target_revenue": 134.04,
           "actual_units": 6,
@@ -919,6 +1141,8 @@
         },
         {
           "sku": "MH-ST-400",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Force Set of 3 - 36\"",
           "target_units": 4,
           "target_revenue": 237.88,
           "actual_units": 0,
@@ -927,6 +1151,8 @@
         },
         {
           "sku": "MH-ST-401",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Hamish Wall Mounted Shelf 24\"",
           "target_units": 10,
           "target_revenue": 210.0,
           "actual_units": 3,
@@ -935,6 +1161,8 @@
         },
         {
           "sku": "MH-ST-402",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Hamish Wall Mounted Shelf 36\"",
           "target_units": 5,
           "target_revenue": 140.0,
           "actual_units": 2,
@@ -943,6 +1171,8 @@
         },
         {
           "sku": "MH-ST-403",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Oliver Wall Mounted Shelf",
           "target_units": 15,
           "target_revenue": 1036.82,
           "actual_units": 8,
@@ -951,6 +1181,8 @@
         },
         {
           "sku": "MH-ST-404",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Carmel Iron Shelf 25\"",
           "target_units": 5,
           "target_revenue": 140.0,
           "actual_units": 0,
@@ -959,6 +1191,8 @@
         },
         {
           "sku": "MH-ST-405",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Carmel Iron Shelf 25\"",
           "target_units": 5,
           "target_revenue": 140.0,
           "actual_units": 1,
@@ -967,6 +1201,8 @@
         },
         {
           "sku": "MH-ST-406",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Clifford Iron Wall Mounted Shelves",
           "target_units": 5,
           "target_revenue": 140.0,
           "actual_units": 9,
@@ -975,6 +1211,8 @@
         },
         {
           "sku": "MH-ST-407",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Clifford Iron Wall Mounted Shelves",
           "target_units": 2,
           "target_revenue": 49.23,
           "actual_units": 0,
@@ -983,6 +1221,8 @@
         },
         {
           "sku": "MH-ST-408",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Vincent Wall Shelf 24\"",
           "target_units": 2,
           "target_revenue": 54.15,
           "actual_units": 0,
@@ -991,6 +1231,8 @@
         },
         {
           "sku": "MH-ST-409",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Vincent Wall Shelf 24\"",
           "target_units": 5,
           "target_revenue": 160.99,
           "actual_units": 4,
@@ -999,6 +1241,8 @@
         },
         {
           "sku": "MH-ST-410",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Roddy Iron Shelf - 25\"",
           "target_units": 1,
           "target_revenue": 30.82,
           "actual_units": 1,
@@ -1007,6 +1251,8 @@
         },
         {
           "sku": "MH-ST-412",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Pamela Wall Mounted Shelves",
           "target_units": 5,
           "target_revenue": 122.46,
           "actual_units": 0,
@@ -1015,6 +1261,8 @@
         },
         {
           "sku": "MH-ST-413",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Pamela Wall Mounted Shelves",
           "target_units": 5,
           "target_revenue": 122.46,
           "actual_units": 0,
@@ -1023,6 +1271,8 @@
         },
         {
           "sku": "MH-ST-414",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Pamela Wall Mounted Shelves",
           "target_units": 5,
           "target_revenue": 157.47,
           "actual_units": 0,
@@ -1031,6 +1281,8 @@
         },
         {
           "sku": "MH-ST-415",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Pamela Wall Mounted Shelves",
           "target_units": 5,
           "target_revenue": 157.47,
           "actual_units": 0,
@@ -1039,6 +1291,8 @@
         },
         {
           "sku": "MH-ST-416",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Albert Floating Shelf",
           "target_units": 4,
           "target_revenue": 281.75,
           "actual_units": 11,
@@ -1047,6 +1301,8 @@
         },
         {
           "sku": "MH-ST-417",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Cilo Floating Shelf",
           "target_units": 7,
           "target_revenue": 555.15,
           "actual_units": 3,
@@ -1055,6 +1311,8 @@
         },
         {
           "sku": "MH-ST-418",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Arlo Floating Shelf",
           "target_units": 4,
           "target_revenue": 306.29,
           "actual_units": 2,
@@ -1063,6 +1321,8 @@
         },
         {
           "sku": "MH-ST-419",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Arlo Floating Shelf",
           "target_units": 2,
           "target_revenue": 153.14,
           "actual_units": 4,
@@ -1071,6 +1331,8 @@
         },
         {
           "sku": "MH-ST-420",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Ancona Shelf Single Tier",
           "target_units": 4,
           "target_revenue": 160.96,
           "actual_units": 12,
@@ -1079,6 +1341,8 @@
         },
         {
           "sku": "MH-ST-421",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Ancona Shelf Single Tier",
           "target_units": 49,
           "target_revenue": 2013.62,
           "actual_units": 73,
@@ -1087,6 +1351,8 @@
         },
         {
           "sku": "MH-ST-422",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Ancona Shelf Single Tier",
           "target_units": 8,
           "target_revenue": 240.48,
           "actual_units": 15,
@@ -1095,6 +1361,8 @@
         },
         {
           "sku": "MH-ST-423",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Ancona Shelf Single Tier",
           "target_units": 57,
           "target_revenue": 1787.33,
           "actual_units": 81,
@@ -1103,6 +1371,8 @@
         },
         {
           "sku": "MH-ST-424",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Ancona Shelf Two Tier",
           "target_units": 5,
           "target_revenue": 398.96,
           "actual_units": 4,
@@ -1111,6 +1381,8 @@
         },
         {
           "sku": "MH-ST-425",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Ancona Shelf Two Tier",
           "target_units": 1,
           "target_revenue": 57.08,
           "actual_units": 5,
@@ -1119,6 +1391,8 @@
         },
         {
           "sku": "MH-ST-426",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Deva Shelf 2 Tier",
           "target_units": 1,
           "target_revenue": 52.03,
           "actual_units": 1,
@@ -1127,6 +1401,8 @@
         },
         {
           "sku": "MH-ST-427",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Deva Shelf 2 Tier",
           "target_units": 5,
           "target_revenue": 185.46,
           "actual_units": 6,
@@ -1135,6 +1411,8 @@
         },
         {
           "sku": "MH-ST-428",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Mika - Oval Shaped set of 3 Shelves",
           "target_units": 10,
           "target_revenue": 466.27,
           "actual_units": 2,
@@ -1143,6 +1421,8 @@
         },
         {
           "sku": "MH-ST-429",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Ula - Trapezoid Shaped set of 3 Shelves",
           "target_units": 7,
           "target_revenue": 306.26,
           "actual_units": 2,
@@ -1151,6 +1431,8 @@
         },
         {
           "sku": "MH-ST-430",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Faith - Semi Circle Shaped set of 3 Shelves",
           "target_units": 1,
           "target_revenue": 23.56,
           "actual_units": 0,
@@ -1159,6 +1441,8 @@
         },
         {
           "sku": "MH-ST-431",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Ola 24\" Shelves",
           "target_units": 5,
           "target_revenue": 129.47,
           "actual_units": 3,
@@ -1167,6 +1451,8 @@
         },
         {
           "sku": "MH-ST-432",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Ola 24\" Shelves",
           "target_units": 5,
           "target_revenue": 129.47,
           "actual_units": 1,
@@ -1175,6 +1461,8 @@
         },
         {
           "sku": "MH-ST-433",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Ola 36\" Shelves",
           "target_units": 5,
           "target_revenue": 164.47,
           "actual_units": 38,
@@ -1183,6 +1471,8 @@
         },
         {
           "sku": "MH-ST-434",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Ola 36\" Shelves",
           "target_units": 5,
           "target_revenue": 164.47,
           "actual_units": 2,
@@ -1191,6 +1481,8 @@
         },
         {
           "sku": "MH-ST-440",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Force Set of 3 - 36\"",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 4,
@@ -1199,6 +1491,8 @@
         },
         {
           "sku": "MH-ST-441",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Hamish Wall Mounted Shelf 24\"",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -1207,6 +1501,8 @@
         },
         {
           "sku": "MH-ST-442",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Hamish Wall Mounted Shelf 36\"",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 2,
@@ -1215,6 +1511,8 @@
         },
         {
           "sku": "MH-ST-443",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Hutch set of 2 - 24\"",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 5,
@@ -1223,6 +1521,8 @@
         },
         {
           "sku": "MH-ST-445",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Oliver Wall Mounted Shelf",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 6,
@@ -1231,6 +1531,8 @@
         },
         {
           "sku": "MH-ST-446",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Penny set of 2 - 36\"",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 2,
@@ -1239,6 +1541,8 @@
         },
         {
           "sku": "MH-TB-21000",
+          "category": "Desks",
+          "listing_name": "Bilbao Desk",
           "target_units": 4,
           "target_revenue": 1141.66,
           "actual_units": 7,
@@ -1247,6 +1551,8 @@
         },
         {
           "sku": "MH-TB-21001",
+          "category": "Desks",
+          "listing_name": "Bilbao Desk",
           "target_units": 2,
           "target_revenue": 590.78,
           "actual_units": 2,
@@ -1255,6 +1561,8 @@
         },
         {
           "sku": "MH-TB-21003",
+          "category": "TV Stands & Entertainment Centers",
+          "listing_name": "Rowley Media Unit",
           "target_units": 1,
           "target_revenue": 77.68,
           "actual_units": 1,
@@ -1263,6 +1571,8 @@
         },
         {
           "sku": "MH-TB-21006",
+          "category": "Nightstands",
+          "listing_name": "Rhonda Night Stand",
           "target_units": 14,
           "target_revenue": 1836.98,
           "actual_units": 20,
@@ -1271,6 +1581,8 @@
         },
         {
           "sku": "MH-TB-21024",
+          "category": "Nightstands",
+          "listing_name": "Brockwell Night Stand Large",
           "target_units": 5,
           "target_revenue": 1434.01,
           "actual_units": 7,
@@ -1279,6 +1591,8 @@
         },
         {
           "sku": "MH-TB-21025",
+          "category": "Nightstands",
+          "listing_name": "Brockwell Night Stand Small",
           "target_units": 17,
           "target_revenue": 2475.6,
           "actual_units": 25,
@@ -1287,6 +1601,8 @@
         },
         {
           "sku": "MH-TB-21036",
+          "category": "Desks",
+          "listing_name": "Champier Ladder Desk",
           "target_units": 8,
           "target_revenue": 2097.26,
           "actual_units": 6,
@@ -1295,6 +1611,8 @@
         },
         {
           "sku": "MH-TB-21037",
+          "category": "Desks",
+          "listing_name": "Champier Ladder Desk",
           "target_units": 2,
           "target_revenue": 459.96,
           "actual_units": 1,
@@ -1303,6 +1621,8 @@
         },
         {
           "sku": "MH-TB-21058",
+          "category": "End Tables",
+          "listing_name": "Melody End Table Black",
           "target_units": 13,
           "target_revenue": 856.89,
           "actual_units": 7,
@@ -1311,6 +1631,8 @@
         },
         {
           "sku": "MH-TB-21059",
+          "category": "End Tables",
+          "listing_name": "Melody End Table Gold",
           "target_units": 10,
           "target_revenue": 492.1,
           "actual_units": 10,
@@ -1319,6 +1641,8 @@
         },
         {
           "sku": "MH-TB-21060",
+          "category": "End Tables",
+          "listing_name": "Melody End Table Black",
           "target_units": 2,
           "target_revenue": 124.08,
           "actual_units": 4,
@@ -1327,6 +1651,8 @@
         },
         {
           "sku": "MH-TB-21065",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Small",
           "target_units": 16,
           "target_revenue": 505.44,
           "actual_units": 22,
@@ -1335,6 +1661,8 @@
         },
         {
           "sku": "MH-TB-21066",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Small",
           "target_units": 43,
           "target_revenue": 1340.56,
           "actual_units": 36,
@@ -1343,6 +1671,8 @@
         },
         {
           "sku": "MH-TB-21067",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Small",
           "target_units": 4,
           "target_revenue": 120.31,
           "actual_units": 3,
@@ -1351,6 +1681,8 @@
         },
         {
           "sku": "MH-TB-21068",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Large",
           "target_units": 43,
           "target_revenue": 1570.69,
           "actual_units": 28,
@@ -1359,6 +1691,8 @@
         },
         {
           "sku": "MH-TB-21069",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Large",
           "target_units": 48,
           "target_revenue": 1803.77,
           "actual_units": 73,
@@ -1367,6 +1701,8 @@
         },
         {
           "sku": "MH-TB-21070",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Large",
           "target_units": 24,
           "target_revenue": 911.95,
           "actual_units": 21,
@@ -1375,6 +1711,8 @@
         },
         {
           "sku": "MH-TB-21071",
+          "category": "End Tables",
+          "listing_name": "Electra End Table",
           "target_units": 25,
           "target_revenue": 963.34,
           "actual_units": 19,
@@ -1383,6 +1721,8 @@
         },
         {
           "sku": "MH-TB-21072",
+          "category": "End Tables",
+          "listing_name": "Electra End Table",
           "target_units": 15,
           "target_revenue": 390.6,
           "actual_units": 1,
@@ -1391,6 +1731,8 @@
         },
         {
           "sku": "MH-TB-21073",
+          "category": "End Tables",
+          "listing_name": "Electra End Table",
           "target_units": 15,
           "target_revenue": 402.36,
           "actual_units": 2,
@@ -1399,6 +1741,8 @@
         },
         {
           "sku": "MH-TB-21077",
+          "category": "End Tables",
+          "listing_name": "Judy End Table",
           "target_units": 30,
           "target_revenue": 1115.59,
           "actual_units": 68,
@@ -1407,6 +1751,8 @@
         },
         {
           "sku": "MH-TB-21078",
+          "category": "End Tables",
+          "listing_name": "Judy End Table",
           "target_units": 27,
           "target_revenue": 984.12,
           "actual_units": 25,
@@ -1415,6 +1761,8 @@
         },
         {
           "sku": "MH-TB-21079",
+          "category": "End Tables",
+          "listing_name": "Judy End Table",
           "target_units": 10,
           "target_revenue": 252.28,
           "actual_units": 2,
@@ -1423,6 +1771,8 @@
         },
         {
           "sku": "MH-TB-21082",
+          "category": "Nightstands",
+          "listing_name": "Idris Nightstand",
           "target_units": 30,
           "target_revenue": 3152.52,
           "actual_units": 24,
@@ -1431,6 +1781,8 @@
         },
         {
           "sku": "MH-TB-21083",
+          "category": "Nightstands",
+          "listing_name": "Idris Nightstand",
           "target_units": 22,
           "target_revenue": 2315.72,
           "actual_units": 29,
@@ -1439,6 +1791,8 @@
         },
         {
           "sku": "MH-TB-21085",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Marcel Coffee Table",
           "target_units": 60,
           "target_revenue": 9967.86,
           "actual_units": 47,
@@ -1447,6 +1801,8 @@
         },
         {
           "sku": "MH-TB-21086",
+          "category": "End Tables",
+          "listing_name": "Campbell End Table",
           "target_units": 60,
           "target_revenue": 3661.2,
           "actual_units": 39,
@@ -1455,6 +1811,8 @@
         },
         {
           "sku": "MH-TB-21087",
+          "category": "End Tables",
+          "listing_name": "Campbell End Table",
           "target_units": 35,
           "target_revenue": 2121.32,
           "actual_units": 39,
@@ -1463,6 +1821,8 @@
         },
         {
           "sku": "MH-TB-21088",
+          "category": "End Tables",
+          "listing_name": "Ellis End Table",
           "target_units": 108,
           "target_revenue": 6494.9,
           "actual_units": 101,
@@ -1471,6 +1831,8 @@
         },
         {
           "sku": "MH-TB-21089",
+          "category": "End Tables",
+          "listing_name": "Ellis End Table",
           "target_units": 23,
           "target_revenue": 1417.26,
           "actual_units": 7,
@@ -1479,6 +1841,8 @@
         },
         {
           "sku": "MH-TB-21090",
+          "category": "Nightstands",
+          "listing_name": "Oslo Nightstand 1 Drawer",
           "target_units": 13,
           "target_revenue": 2156.56,
           "actual_units": 31,
@@ -1487,6 +1851,8 @@
         },
         {
           "sku": "MH-TB-21091",
+          "category": "Nightstands",
+          "listing_name": "Oslo Nightstand 1 Drawer",
           "target_units": 13,
           "target_revenue": 2226.89,
           "actual_units": 34,
@@ -1495,6 +1861,8 @@
         },
         {
           "sku": "MH-TB-21098",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Oslo Console Table",
           "target_units": 9,
           "target_revenue": 1885.0,
           "actual_units": 8,
@@ -1503,6 +1871,8 @@
         },
         {
           "sku": "MH-TB-21099",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Oslo Console Table",
           "target_units": 7,
           "target_revenue": 1525.65,
           "actual_units": 4,
@@ -1511,6 +1881,8 @@
         },
         {
           "sku": "MH-TB-21101",
+          "category": "Dining Tables",
+          "listing_name": "Ancona Dining Table",
           "target_units": 5,
           "target_revenue": 1725.55,
           "actual_units": 3,
@@ -1519,6 +1891,8 @@
         },
         {
           "sku": "MH-TB-21102",
+          "category": "Dining Tables",
+          "listing_name": "Ancona Dining Table",
           "target_units": 1,
           "target_revenue": 172.55,
           "actual_units": 0,
@@ -1527,6 +1901,8 @@
         },
         {
           "sku": "MH-TB-21104",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Ancona Coffee Table",
           "target_units": 7,
           "target_revenue": 1598.82,
           "actual_units": 3,
@@ -1535,6 +1911,8 @@
         },
         {
           "sku": "MH-TB-21105",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Ancona Coffee Table",
           "target_units": 1,
           "target_revenue": 130.81,
           "actual_units": 4,
@@ -1543,6 +1921,8 @@
         },
         {
           "sku": "MH-TB-21107",
+          "category": "End Tables",
+          "listing_name": "Ancona End Tables",
           "target_units": 1,
           "target_revenue": 25.24,
           "actual_units": 1,
@@ -1551,6 +1931,8 @@
         },
         {
           "sku": "MH-TB-21110",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Ancona Console Table",
           "target_units": 6,
           "target_revenue": 970.38,
           "actual_units": 10,
@@ -1559,6 +1941,8 @@
         },
         {
           "sku": "MH-TB-21111",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Ancona Console Table",
           "target_units": 9,
           "target_revenue": 1411.46,
           "actual_units": 3,
@@ -1567,6 +1951,8 @@
         },
         {
           "sku": "MH-TB-21113",
+          "category": "TV Stands & Entertainment Centers",
+          "listing_name": "Ancona Media Unit",
           "target_units": 5,
           "target_revenue": 1029.44,
           "actual_units": 7,
@@ -1575,6 +1961,8 @@
         },
         {
           "sku": "MH-TB-21114",
+          "category": "TV Stands & Entertainment Centers",
+          "listing_name": "Ancona Media Unit",
           "target_units": 7,
           "target_revenue": 1372.58,
           "actual_units": 5,
@@ -1583,6 +1971,8 @@
         },
         {
           "sku": "MH-TB-21122",
+          "category": "End Tables",
+          "listing_name": "Campbell End Table",
           "target_units": 13,
           "target_revenue": 804.93,
           "actual_units": 8,
@@ -1591,6 +1981,8 @@
         },
         {
           "sku": "MH-TB-21123",
+          "category": "End Tables",
+          "listing_name": "Ellis End Table",
           "target_units": 22,
           "target_revenue": 1344.18,
           "actual_units": 18,
@@ -1599,6 +1991,8 @@
         },
         {
           "sku": "MH-TB-21124",
+          "category": "Nightstands",
+          "listing_name": "Idris Nightstand",
           "target_units": 49,
           "target_revenue": 5152.47,
           "actual_units": 38,
@@ -1607,6 +2001,8 @@
         },
         {
           "sku": "MH-TB-21125",
+          "category": "TV Stands & Entertainment Centers",
+          "listing_name": "Dale Media Unit",
           "target_units": 5,
           "target_revenue": 997.46,
           "actual_units": 0,
@@ -1615,6 +2011,8 @@
         },
         {
           "sku": "MH-TB-21129",
+          "category": "Nightstands",
+          "listing_name": "Evo Nightstand",
           "target_units": 4,
           "target_revenue": 338.3,
           "actual_units": 5,
@@ -1623,6 +2021,8 @@
         },
         {
           "sku": "MH-TB-21131",
+          "category": "End Tables",
+          "listing_name": "Vita End Table",
           "target_units": 5,
           "target_revenue": 390.81,
           "actual_units": 6,
@@ -1631,6 +2031,8 @@
         },
         {
           "sku": "MH-TB-21132",
+          "category": "End Tables",
+          "listing_name": "Vita End Table",
           "target_units": 35,
           "target_revenue": 2249.1,
           "actual_units": 16,
@@ -1639,6 +2041,8 @@
         },
         {
           "sku": "MH-TB-21133",
+          "category": "End Tables",
+          "listing_name": "Duchie End Table",
           "target_units": 5,
           "target_revenue": 265.27,
           "actual_units": 3,
@@ -1647,6 +2051,8 @@
         },
         {
           "sku": "MH-TB-21134",
+          "category": "End Tables",
+          "listing_name": "Duchie End Table",
           "target_units": 9,
           "target_revenue": 620.05,
           "actual_units": 12,
@@ -1655,6 +2061,8 @@
         },
         {
           "sku": "MH-TB-21135",
+          "category": "End Tables",
+          "listing_name": "Forbes End Table",
           "target_units": 10,
           "target_revenue": 546.42,
           "actual_units": 10,
@@ -1663,6 +2071,8 @@
         },
         {
           "sku": "MH-TB-21136",
+          "category": "End Tables",
+          "listing_name": "Forbes End Table",
           "target_units": 32,
           "target_revenue": 2179.3,
           "actual_units": 30,
@@ -1671,6 +2081,8 @@
         },
         {
           "sku": "MH-TB-21137",
+          "category": "End Tables",
+          "listing_name": "Viera End Table",
           "target_units": 29,
           "target_revenue": 2071.05,
           "actual_units": 13,
@@ -1679,6 +2091,8 @@
         },
         {
           "sku": "MH-TB-21138",
+          "category": "Nightstands",
+          "listing_name": "Kiana Nightstand",
           "target_units": 18,
           "target_revenue": 1817.48,
           "actual_units": 11,
@@ -1687,6 +2101,8 @@
         },
         {
           "sku": "MH-TB-21139",
+          "category": "Nightstands",
+          "listing_name": "Solie Nightstand",
           "target_units": 5,
           "target_revenue": 252.35,
           "actual_units": 0,
@@ -1695,6 +2111,8 @@
         },
         {
           "sku": "MH-TB-21140",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Kittie Coffee Table",
           "target_units": 5,
           "target_revenue": 682.5,
           "actual_units": 0,
@@ -1703,6 +2121,8 @@
         },
         {
           "sku": "MH-TB-21141",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Lori Coffee Table",
           "target_units": 1,
           "target_revenue": 110.45,
           "actual_units": 0,
@@ -1711,6 +2131,8 @@
         },
         {
           "sku": "MH-TB-21142",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Athena Coffee Table",
           "target_units": 5,
           "target_revenue": 1036.8,
           "actual_units": 3,
@@ -1719,6 +2141,8 @@
         },
         {
           "sku": "MH-TB-21143",
+          "category": "End Tables",
+          "listing_name": "Camille End Table",
           "target_units": 5,
           "target_revenue": 245.0,
           "actual_units": 0,
@@ -1727,6 +2151,8 @@
         },
         {
           "sku": "MH-TB-21145",
+          "category": "End Tables",
+          "listing_name": "Elisa End Table",
           "target_units": 7,
           "target_revenue": 477.93,
           "actual_units": 3,
@@ -1735,6 +2161,8 @@
         },
         {
           "sku": "MH-TB-21146",
+          "category": "End Tables",
+          "listing_name": "Elisa End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -1743,6 +2171,8 @@
         },
         {
           "sku": "MH-TB-21150",
+          "category": "End Tables",
+          "listing_name": "Daphne End Table",
           "target_units": 2,
           "target_revenue": 302.38,
           "actual_units": 2,
@@ -1751,6 +2181,8 @@
         },
         {
           "sku": "MH-TB-21151",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Lainey Coffee Table",
           "target_units": 5,
           "target_revenue": 770.0,
           "actual_units": 0,
@@ -1759,6 +2191,8 @@
         },
         {
           "sku": "MH-TB-21152",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Laurey Coffee Table",
           "target_units": 2,
           "target_revenue": 422.18,
           "actual_units": 8,
@@ -1767,6 +2201,8 @@
         },
         {
           "sku": "MH-TB-21155",
+          "category": "Nightstands",
+          "listing_name": "Brockwell Night Stand Small",
           "target_units": 5,
           "target_revenue": 551.84,
           "actual_units": 1,
@@ -1775,6 +2211,8 @@
         },
         {
           "sku": "MH-TB-21160",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Clayton Coffee Table",
           "target_units": 3,
           "target_revenue": 202.18,
           "actual_units": 0,
@@ -1783,6 +2221,8 @@
         },
         {
           "sku": "MH-TB-21164",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Marli Coffee Table",
           "target_units": 4,
           "target_revenue": 899.91,
           "actual_units": 6,
@@ -1791,6 +2231,8 @@
         },
         {
           "sku": "MH-TB-21165",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Marli Coffee Table",
           "target_units": 4,
           "target_revenue": 1007.39,
           "actual_units": 10,
@@ -1799,6 +2241,8 @@
         },
         {
           "sku": "MH-TB-21172",
+          "category": "End Tables",
+          "listing_name": "Glass & Metal End Table",
           "target_units": 1,
           "target_revenue": 3.44,
           "actual_units": 1,
@@ -1807,6 +2251,8 @@
         },
         {
           "sku": "MH-TB-21173",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Cherokee Coffee Table",
           "target_units": 4,
           "target_revenue": 859.02,
           "actual_units": 9,
@@ -1815,6 +2261,8 @@
         },
         {
           "sku": "MH-TB-21175",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Flintoff Coffee Table",
           "target_units": 4,
           "target_revenue": 1402.7,
           "actual_units": 2,
@@ -1823,6 +2271,8 @@
         },
         {
           "sku": "MH-TB-21176",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Carson Coffee Table",
           "target_units": 5,
           "target_revenue": 161.7,
           "actual_units": 3,
@@ -1831,6 +2281,8 @@
         },
         {
           "sku": "MH-TB-21177",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Fritz Coffee Table",
           "target_units": 5,
           "target_revenue": 927.5,
           "actual_units": 1,
@@ -1839,6 +2291,8 @@
         },
         {
           "sku": "MH-TB-21178",
+          "category": "End Tables",
+          "listing_name": "Fritz End Table",
           "target_units": 5,
           "target_revenue": 681.71,
           "actual_units": 1,
@@ -1847,6 +2301,8 @@
         },
         {
           "sku": "MH-TB-21182",
+          "category": "Nightstands",
+          "listing_name": "Aston Nightstand",
           "target_units": 5,
           "target_revenue": 894.11,
           "actual_units": 4,
@@ -1855,6 +2311,8 @@
         },
         {
           "sku": "MH-TB-21184",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Fritz Console Table",
           "target_units": 5,
           "target_revenue": 681.59,
           "actual_units": 3,
@@ -1863,6 +2321,8 @@
         },
         {
           "sku": "MH-TB-21185",
+          "category": "End Tables",
+          "listing_name": "Electra End Table",
           "target_units": 19,
           "target_revenue": 747.75,
           "actual_units": 8,
@@ -1871,6 +2331,8 @@
         },
         {
           "sku": "MH-TB-21186",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Marcel Coffee Table",
           "target_units": 4,
           "target_revenue": 601.36,
           "actual_units": 7,
@@ -1879,6 +2341,8 @@
         },
         {
           "sku": "MH-TB-21187",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Hattie Console Table",
           "target_units": 9,
           "target_revenue": 1432.66,
           "actual_units": 13,
@@ -1887,6 +2351,8 @@
         },
         {
           "sku": "MH-TB-21188",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Hattie Console Table",
           "target_units": 2,
           "target_revenue": 336.1,
           "actual_units": 3,
@@ -1895,6 +2361,8 @@
         },
         {
           "sku": "MH-TB-21189",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Hattie Coffee Table",
           "target_units": 5,
           "target_revenue": 945.0,
           "actual_units": 3,
@@ -1903,6 +2371,8 @@
         },
         {
           "sku": "MH-TB-21191",
+          "category": "End Tables",
+          "listing_name": "Hattie End Table",
           "target_units": 4,
           "target_revenue": 401.97,
           "actual_units": 0,
@@ -1911,6 +2381,8 @@
         },
         {
           "sku": "MH-TB-21195",
+          "category": "Nightstands",
+          "listing_name": "Samson Nightstand",
           "target_units": 6,
           "target_revenue": 901.51,
           "actual_units": 10,
@@ -1919,6 +2391,8 @@
         },
         {
           "sku": "MH-TB-21196",
+          "category": "End Tables",
+          "listing_name": "Viera End Table",
           "target_units": 15,
           "target_revenue": 1075.02,
           "actual_units": 23,
@@ -1927,6 +2401,8 @@
         },
         {
           "sku": "MH-TB-21197",
+          "category": "End Tables",
+          "listing_name": "Gino End Table",
           "target_units": 1,
           "target_revenue": 40.54,
           "actual_units": 0,
@@ -1935,6 +2411,8 @@
         },
         {
           "sku": "MH-TB-21198",
+          "category": "Nightstands",
+          "listing_name": "Bobby Nightstand",
           "target_units": 1,
           "target_revenue": 225.32,
           "actual_units": 0,
@@ -1943,6 +2421,8 @@
         },
         {
           "sku": "MH-TB-21199",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Rhonda Coffee Table",
           "target_units": 5,
           "target_revenue": 1115.04,
           "actual_units": 1,
@@ -1951,6 +2431,8 @@
         },
         {
           "sku": "MH-TB-21200",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Rhonda Console Table",
           "target_units": 2,
           "target_revenue": 319.6,
           "actual_units": 1,
@@ -1959,6 +2441,8 @@
         },
         {
           "sku": "MH-TB-21201",
+          "category": "End Tables",
+          "listing_name": "Warwick End Table",
           "target_units": 2,
           "target_revenue": 267.03,
           "actual_units": 2,
@@ -1967,6 +2451,8 @@
         },
         {
           "sku": "MH-TB-21202",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Warwick Coffee Table",
           "target_units": 3,
           "target_revenue": 1113.35,
           "actual_units": 1,
@@ -1975,6 +2461,8 @@
         },
         {
           "sku": "MH-TB-21203",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Warwick Console Table",
           "target_units": 7,
           "target_revenue": 1739.94,
           "actual_units": 1,
@@ -1983,6 +2471,8 @@
         },
         {
           "sku": "MH-TB-21204",
+          "category": "TV Stands & Entertainment Centers",
+          "listing_name": "Dale Media Unit",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -1991,6 +2481,8 @@
         },
         {
           "sku": "MH-TB-21205",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Lori Coffee Table",
           "target_units": 1,
           "target_revenue": 110.45,
           "actual_units": 0,
@@ -1999,6 +2491,8 @@
         },
         {
           "sku": "MH-TB-21206",
+          "category": "Floating Cabinet",
+          "listing_name": "Monsoon Floating Cabinet",
           "target_units": 1,
           "target_revenue": 107.99,
           "actual_units": 3,
@@ -2007,6 +2501,8 @@
         },
         {
           "sku": "MH-TB-21209",
+          "category": "Nightstands",
+          "listing_name": "Rufus Nightstand",
           "target_units": 5,
           "target_revenue": 752.46,
           "actual_units": 1,
@@ -2015,6 +2511,8 @@
         },
         {
           "sku": "MH-TB-21215",
+          "category": "Nightstands",
+          "listing_name": "Maggie Nightstand",
           "target_units": 5,
           "target_revenue": 822.46,
           "actual_units": 5,
@@ -2023,6 +2521,8 @@
         },
         {
           "sku": "MH-TB-21216",
+          "category": "Nightstands",
+          "listing_name": "Elsie Nightstand",
           "target_units": 2,
           "target_revenue": 448.09,
           "actual_units": 1,
@@ -2031,6 +2531,8 @@
         },
         {
           "sku": "MH-TB-21217",
+          "category": "Nightstands",
+          "listing_name": "Layla Nightstand",
           "target_units": 3,
           "target_revenue": 671.53,
           "actual_units": 7,
@@ -2039,6 +2541,8 @@
         },
         {
           "sku": "MH-TB-21218",
+          "category": "Nightstands",
+          "listing_name": "Rhonda Night Stand",
           "target_units": 3,
           "target_revenue": 441.79,
           "actual_units": 1,
@@ -2047,6 +2551,8 @@
         },
         {
           "sku": "MH-TB-21219",
+          "category": "Nightstands",
+          "listing_name": "Kiana Nightstand",
           "target_units": 21,
           "target_revenue": 2147.93,
           "actual_units": 18,
@@ -2055,6 +2561,8 @@
         },
         {
           "sku": "MH-TB-21220",
+          "category": "Nightstands",
+          "listing_name": "Solie Nightstand",
           "target_units": 17,
           "target_revenue": 1097.23,
           "actual_units": 14,
@@ -2063,6 +2571,8 @@
         },
         {
           "sku": "MH-TB-21222",
+          "category": "Dining Tables",
+          "listing_name": "Marcel Dining Table",
           "target_units": 2,
           "target_revenue": 670.95,
           "actual_units": 4,
@@ -2071,6 +2581,8 @@
         },
         {
           "sku": "MH-TB-21223",
+          "category": "Dining Tables",
+          "listing_name": "Marcel Dining Table",
           "target_units": 5,
           "target_revenue": 1050.0,
           "actual_units": 2,
@@ -2079,6 +2591,8 @@
         },
         {
           "sku": "MH-TB-21224",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Marcel Console Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 2,
@@ -2087,6 +2601,8 @@
         },
         {
           "sku": "MH-TB-21225",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Marcel Console Table",
           "target_units": 5,
           "target_revenue": 654.47,
           "actual_units": 1,
@@ -2095,6 +2611,8 @@
         },
         {
           "sku": "MH-TB-21226",
+          "category": "TV Stands & Entertainment Centers",
+          "listing_name": "Lennox Media Unit",
           "target_units": 2,
           "target_revenue": 1017.46,
           "actual_units": 0,
@@ -2103,6 +2621,8 @@
         },
         {
           "sku": "MH-TB-21227",
+          "category": "TV Stands & Entertainment Centers",
+          "listing_name": "Danza Media Unit",
           "target_units": 2,
           "target_revenue": 662.73,
           "actual_units": 3,
@@ -2111,6 +2631,8 @@
         },
         {
           "sku": "MH-TB-21228",
+          "category": "TV Stands & Entertainment Centers",
+          "listing_name": "Safi Open Shelves Media Unit",
           "target_units": 3,
           "target_revenue": 1329.68,
           "actual_units": 2,
@@ -2119,6 +2641,8 @@
         },
         {
           "sku": "MH-TB-21230",
+          "category": "End Tables",
+          "listing_name": "Lola End Table",
           "target_units": 5,
           "target_revenue": 248.46,
           "actual_units": 0,
@@ -2127,6 +2651,8 @@
         },
         {
           "sku": "MH-TB-21231",
+          "category": "End Tables",
+          "listing_name": "Spritz End Tables",
           "target_units": 5,
           "target_revenue": 216.97,
           "actual_units": 1,
@@ -2135,6 +2661,8 @@
         },
         {
           "sku": "MH-TB-21232",
+          "category": "End Tables",
+          "listing_name": "Spritz End Tables",
           "target_units": 3,
           "target_revenue": 152.16,
           "actual_units": 2,
@@ -2143,6 +2671,8 @@
         },
         {
           "sku": "MH-TB-21233",
+          "category": "End Tables",
+          "listing_name": "Spritz End Tables",
           "target_units": 1,
           "target_revenue": 11.2,
           "actual_units": 1,
@@ -2151,6 +2681,8 @@
         },
         {
           "sku": "MH-TB-21234",
+          "category": "End Tables",
+          "listing_name": "Olive End Table",
           "target_units": 5,
           "target_revenue": 276.46,
           "actual_units": 4,
@@ -2159,6 +2691,8 @@
         },
         {
           "sku": "MH-TB-21235",
+          "category": "End Tables",
+          "listing_name": "Olive End Table",
           "target_units": 5,
           "target_revenue": 276.46,
           "actual_units": 2,
@@ -2167,6 +2701,8 @@
         },
         {
           "sku": "MH-TB-21236",
+          "category": "End Tables",
+          "listing_name": "Nora End Table",
           "target_units": 23,
           "target_revenue": 1491.36,
           "actual_units": 6,
@@ -2175,6 +2711,8 @@
         },
         {
           "sku": "MH-TB-21237",
+          "category": "End Tables",
+          "listing_name": "Nora End Table",
           "target_units": 9,
           "target_revenue": 570.47,
           "actual_units": 5,
@@ -2183,6 +2721,8 @@
         },
         {
           "sku": "MH-TB-21238",
+          "category": "End Tables",
+          "listing_name": "Nora End Table",
           "target_units": 30,
           "target_revenue": 1976.03,
           "actual_units": 19,
@@ -2191,6 +2731,8 @@
         },
         {
           "sku": "MH-TB-21239",
+          "category": "End Tables",
+          "listing_name": "Ivy End Table",
           "target_units": 24,
           "target_revenue": 1502.3,
           "actual_units": 16,
@@ -2199,6 +2741,8 @@
         },
         {
           "sku": "MH-TB-21240",
+          "category": "End Tables",
+          "listing_name": "Ivy End Table",
           "target_units": 22,
           "target_revenue": 1398.69,
           "actual_units": 16,
@@ -2207,6 +2751,8 @@
         },
         {
           "sku": "MH-TB-21241",
+          "category": "End Tables",
+          "listing_name": "Ivy End Table",
           "target_units": 14,
           "target_revenue": 880.66,
           "actual_units": 5,
@@ -2215,6 +2761,8 @@
         },
         {
           "sku": "MH-TB-21243",
+          "category": "End Tables",
+          "listing_name": "Lenni End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -2223,6 +2771,8 @@
         },
         {
           "sku": "MH-TB-21244",
+          "category": "End Tables",
+          "listing_name": "Ethel End Table",
           "target_units": 2,
           "target_revenue": 94.24,
           "actual_units": 0,
@@ -2231,6 +2781,8 @@
         },
         {
           "sku": "MH-TB-21245",
+          "category": "End Tables",
+          "listing_name": "Alyssa End Table",
           "target_units": 3,
           "target_revenue": 208.64,
           "actual_units": 6,
@@ -2239,6 +2791,8 @@
         },
         {
           "sku": "MH-TB-21246",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Veta Iron & Glass Console Table",
           "target_units": 3,
           "target_revenue": 468.79,
           "actual_units": 6,
@@ -2247,6 +2801,8 @@
         },
         {
           "sku": "MH-TB-21247",
+          "category": "End Tables",
+          "listing_name": "Veta Iron & Glass End Table",
           "target_units": 6,
           "target_revenue": 590.13,
           "actual_units": 1,
@@ -2255,6 +2811,8 @@
         },
         {
           "sku": "MH-TB-21248",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Veta Iron & Glass Coffee Table",
           "target_units": 1,
           "target_revenue": 105.05,
           "actual_units": 6,
@@ -2263,6 +2821,8 @@
         },
         {
           "sku": "MH-TB-21249",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Remi Iron & Glass Console Table",
           "target_units": 5,
           "target_revenue": 1349.95,
           "actual_units": 6,
@@ -2271,6 +2831,8 @@
         },
         {
           "sku": "MH-TB-21252",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Cherokee Coffee Table",
           "target_units": 8,
           "target_revenue": 1847.66,
           "actual_units": 8,
@@ -2279,6 +2841,8 @@
         },
         {
           "sku": "MH-TB-21253",
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Flintoff Coffee Table",
           "target_units": 11,
           "target_revenue": 3682.1,
           "actual_units": 5,
@@ -2287,6 +2851,8 @@
         },
         {
           "sku": "MH-TB-21254",
+          "category": "End Tables",
+          "listing_name": "Betty End Table",
           "target_units": 5,
           "target_revenue": 229.7,
           "actual_units": 1,
@@ -2295,6 +2861,8 @@
         },
         {
           "sku": "MH-TB-21255",
+          "category": "End Tables",
+          "listing_name": "Betty Solid Mango Wood End Tables",
           "target_units": 4,
           "target_revenue": 188.97,
           "actual_units": 0,
@@ -2303,6 +2871,8 @@
         },
         {
           "sku": "MH-TB-21256",
+          "category": "End Tables",
+          "listing_name": "Bibi End Table",
           "target_units": 9,
           "target_revenue": 467.26,
           "actual_units": 6,
@@ -2311,6 +2881,8 @@
         },
         {
           "sku": "MH-TB-21258",
+          "category": null,
+          "listing_name": null,
           "target_units": 5,
           "target_revenue": 436.45,
           "actual_units": 0,
@@ -2319,6 +2891,8 @@
         },
         {
           "sku": "MH-TB-21259",
+          "category": "End Tables",
+          "listing_name": "Pablo End Table",
           "target_units": 5,
           "target_revenue": 278.96,
           "actual_units": 0,
@@ -2327,6 +2901,8 @@
         },
         {
           "sku": "MH-TB-21260",
+          "category": "End Tables",
+          "listing_name": "Pablo End Table",
           "target_units": 5,
           "target_revenue": 278.96,
           "actual_units": 3,
@@ -2335,6 +2911,8 @@
         },
         {
           "sku": "MH-TB-21261",
+          "category": "End Tables",
+          "listing_name": "Bali End Table",
           "target_units": 5,
           "target_revenue": 224.95,
           "actual_units": 3,
@@ -2343,6 +2921,8 @@
         },
         {
           "sku": "MH-TB-21262",
+          "category": "End Tables",
+          "listing_name": "Casa End Table",
           "target_units": 5,
           "target_revenue": 323.95,
           "actual_units": 0,
@@ -2351,6 +2931,8 @@
         },
         {
           "sku": "MH-TB-21263",
+          "category": "End Tables",
+          "listing_name": "Casa End Table",
           "target_units": 5,
           "target_revenue": 323.95,
           "actual_units": 0,
@@ -2359,6 +2941,8 @@
         },
         {
           "sku": "MH-TB-21264",
+          "category": "End Tables",
+          "listing_name": "Lohan End Table",
           "target_units": 1,
           "target_revenue": 66.53,
           "actual_units": 3,
@@ -2367,6 +2951,8 @@
         },
         {
           "sku": "MH-TB-21265",
+          "category": "End Tables",
+          "listing_name": "Olive End Table",
           "target_units": 1,
           "target_revenue": 63.63,
           "actual_units": 1,
@@ -2375,6 +2961,8 @@
         },
         {
           "sku": "MH-TB-21266",
+          "category": "End Tables",
+          "listing_name": "Pierre End Table",
           "target_units": 5,
           "target_revenue": 260.96,
           "actual_units": 0,
@@ -2383,6 +2971,8 @@
         },
         {
           "sku": "MH-TB-21267",
+          "category": "End Tables",
+          "listing_name": "Santorini End Table",
           "target_units": 5,
           "target_revenue": 323.95,
           "actual_units": 0,
@@ -2391,6 +2981,8 @@
         },
         {
           "sku": "MH-TB-21274",
+          "category": "End Tables",
+          "listing_name": "Iggy End Tables",
           "target_units": 1,
           "target_revenue": 75.59,
           "actual_units": 0,
@@ -2399,6 +2991,8 @@
         },
         {
           "sku": "MH-TB-21275",
+          "category": "End Tables",
+          "listing_name": "Ivory End Tables",
           "target_units": 9,
           "target_revenue": 541.89,
           "actual_units": 0,
@@ -2407,6 +3001,8 @@
         },
         {
           "sku": "MH-TB-21276",
+          "category": "Sofa & Console Tables",
+          "listing_name": "Marli Console Table",
           "target_units": 7,
           "target_revenue": 1313.61,
           "actual_units": 3,
@@ -2415,6 +3011,8 @@
         },
         {
           "sku": "MH-TB-21277",
+          "category": "TV Stands & Entertainment Centers",
+          "listing_name": "Marli Media Unit",
           "target_units": 3,
           "target_revenue": 807.52,
           "actual_units": 2,
@@ -2423,6 +3021,8 @@
         },
         {
           "sku": "MH-TB-21279",
+          "category": "End Tables",
+          "listing_name": "Duchie End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -2431,6 +3031,8 @@
         },
         {
           "sku": "MH-TB-21281",
+          "category": "End Tables",
+          "listing_name": "Forbes End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 6,
@@ -2439,6 +3041,8 @@
         },
         {
           "sku": "MH-TB-21282",
+          "category": "Nightstands",
+          "listing_name": "Idris Nightstand",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 4,
@@ -2447,6 +3051,8 @@
         },
         {
           "sku": "MH-TB-21283",
+          "category": "TV Stands & Entertainment Centers",
+          "listing_name": "Lennox Media Unit",
           "target_units": 5,
           "target_revenue": 1943.06,
           "actual_units": 1,
@@ -2455,6 +3061,8 @@
         },
         {
           "sku": "MH-TB-805",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Large",
           "target_units": 78,
           "target_revenue": 3827.3,
           "actual_units": 52,
@@ -2463,6 +3071,8 @@
         },
         {
           "sku": "MH-TB-809",
+          "category": "Desks",
+          "listing_name": "Bilbao Desk",
           "target_units": 3,
           "target_revenue": 751.09,
           "actual_units": 2,
@@ -2471,6 +3081,8 @@
         },
         {
           "sku": "MH-TB-811",
+          "category": "Desks",
+          "listing_name": "Champier Ladder Desk",
           "target_units": 6,
           "target_revenue": 1569.78,
           "actual_units": 3,
@@ -2479,6 +3091,8 @@
         },
         {
           "sku": "MH-TB-812",
+          "category": "TV Stands & Entertainment Centers",
+          "listing_name": "Rowley Media Unit",
           "target_units": 5,
           "target_revenue": 1505.0,
           "actual_units": 5,
@@ -2487,6 +3101,8 @@
         },
         {
           "sku": "MH-TB-819",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 52,
           "target_revenue": 1869.54,
           "actual_units": 47,
@@ -2495,6 +3111,8 @@
         },
         {
           "sku": "MH-TB-847",
+          "category": "End Tables",
+          "listing_name": "Melody End Table Gold",
           "target_units": 10,
           "target_revenue": 448.77,
           "actual_units": 19,
@@ -2503,6 +3121,8 @@
         },
         {
           "sku": "MH-TB-848",
+          "category": "End Tables",
+          "listing_name": "Melody End Table Black",
           "target_units": 16,
           "target_revenue": 1078.04,
           "actual_units": 12,
@@ -2511,6 +3131,8 @@
         },
         {
           "sku": "MH-TB-873",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Small",
           "target_units": 84,
           "target_revenue": 2696.65,
           "actual_units": 24,
@@ -2519,6 +3141,8 @@
         },
         {
           "sku": "MH-TB-874",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Small",
           "target_units": 277,
           "target_revenue": 9146.74,
           "actual_units": 197,
@@ -2527,6 +3151,8 @@
         },
         {
           "sku": "MH-TB-875",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Small",
           "target_units": 24,
           "target_revenue": 796.65,
           "actual_units": 12,
@@ -2535,6 +3161,8 @@
         },
         {
           "sku": "MH-TB-876",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Large",
           "target_units": 15,
           "target_revenue": 525.94,
           "actual_units": 13,
@@ -2543,6 +3171,8 @@
         },
         {
           "sku": "MH-TB-877",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Large",
           "target_units": 41,
           "target_revenue": 1509.5,
           "actual_units": 46,
@@ -2551,6 +3181,8 @@
         },
         {
           "sku": "MH-TB-878",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Large",
           "target_units": 5,
           "target_revenue": 194.6,
           "actual_units": 9,
@@ -2559,6 +3191,8 @@
         },
         {
           "sku": "MH-TB-893",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Large",
           "target_units": 32,
           "target_revenue": 1599.88,
           "actual_units": 35,
@@ -2567,6 +3201,8 @@
         },
         {
           "sku": "MH-TB-894",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Large",
           "target_units": 41,
           "target_revenue": 2069.18,
           "actual_units": 42,
@@ -2575,6 +3211,8 @@
         },
         {
           "sku": "MH-TB-895",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 49,
           "target_revenue": 1735.46,
           "actual_units": 40,
@@ -2583,6 +3221,8 @@
         },
         {
           "sku": "MH-TB-896",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 147,
           "target_revenue": 5497.99,
           "actual_units": 151,
@@ -2591,6 +3231,8 @@
         },
         {
           "sku": "MH-VS-31001",
+          "category": "Vase",
+          "listing_name": "Ashley Ecomix Vase",
           "target_units": 5,
           "target_revenue": 105.0,
           "actual_units": 1,
@@ -2599,6 +3241,8 @@
         },
         {
           "sku": "MH-VS-31002",
+          "category": "Vase",
+          "listing_name": "Marcel Terracotta Vase",
           "target_units": 5,
           "target_revenue": 105.0,
           "actual_units": 0,
@@ -2607,6 +3251,8 @@
         },
         {
           "sku": "MH-VS-31003",
+          "category": "Vase",
+          "listing_name": "Gable Terracotta Vase",
           "target_units": 5,
           "target_revenue": 140.0,
           "actual_units": 2,
@@ -2615,6 +3261,8 @@
         },
         {
           "sku": "MH-VS-31004",
+          "category": "Vase",
+          "listing_name": "Storm Terracotta Vase",
           "target_units": 5,
           "target_revenue": 87.5,
           "actual_units": 1,
@@ -2623,6 +3271,8 @@
         },
         {
           "sku": "MH-VS-31005",
+          "category": "Vase",
+          "listing_name": "Storm Terracotta Vase",
           "target_units": 5,
           "target_revenue": 87.5,
           "actual_units": 1,
@@ -2631,6 +3281,8 @@
         },
         {
           "sku": "MH-VS-31007",
+          "category": "Vase",
+          "listing_name": "Epsom Ecomix Vase",
           "target_units": 5,
           "target_revenue": 87.5,
           "actual_units": 1,
@@ -2639,6 +3291,8 @@
         },
         {
           "sku": "MH-VS-31008",
+          "category": "Vase",
+          "listing_name": "Belmont Terracotta Vase",
           "target_units": 5,
           "target_revenue": 87.5,
           "actual_units": 0,
@@ -2647,6 +3301,8 @@
         },
         {
           "sku": "MH-VS-31009",
+          "category": "Vase",
+          "listing_name": "Poker Terracotta Vase",
           "target_units": 5,
           "target_revenue": 87.5,
           "actual_units": 0,
@@ -2669,6 +3325,8 @@
       "skus": [
         {
           "sku": "MH-MD-13007WT",
+          "category": "Wall D\u00e9cor",
+          "listing_name": "Lassi Medallion Hand Carved",
           "target_units": 10,
           "target_revenue": 680.0,
           "actual_units": 3,
@@ -2677,6 +3335,8 @@
         },
         {
           "sku": "MH-TB-21065",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Small",
           "target_units": 5,
           "target_revenue": 375.0,
           "actual_units": 8,
@@ -2685,6 +3345,8 @@
         },
         {
           "sku": "MH-TB-21066",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Small",
           "target_units": 20,
           "target_revenue": 1500.0,
           "actual_units": 31,
@@ -2693,6 +3355,8 @@
         },
         {
           "sku": "MH-TB-21067",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Small",
           "target_units": 2,
           "target_revenue": 150.0,
           "actual_units": 0,
@@ -2701,6 +3365,8 @@
         },
         {
           "sku": "MH-TB-21068",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Large",
           "target_units": 5,
           "target_revenue": 415.0,
           "actual_units": 10,
@@ -2709,6 +3375,8 @@
         },
         {
           "sku": "MH-TB-21069",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Large",
           "target_units": 15,
           "target_revenue": 1245.0,
           "actual_units": 14,
@@ -2717,6 +3385,8 @@
         },
         {
           "sku": "MH-TB-21070",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Large",
           "target_units": 5,
           "target_revenue": 415.0,
           "actual_units": 4,
@@ -2725,6 +3395,8 @@
         },
         {
           "sku": "MH-TB-21072",
+          "category": "End Tables",
+          "listing_name": "Electra End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -2733,6 +3405,8 @@
         },
         {
           "sku": "MH-TB-21073",
+          "category": "End Tables",
+          "listing_name": "Electra End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 5,
@@ -2741,6 +3415,8 @@
         },
         {
           "sku": "MH-TB-21077",
+          "category": "End Tables",
+          "listing_name": "Judy End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 2,
@@ -2749,6 +3425,8 @@
         },
         {
           "sku": "MH-TB-21078",
+          "category": "End Tables",
+          "listing_name": "Judy End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 2,
@@ -2757,6 +3435,8 @@
         },
         {
           "sku": "MH-TB-21212",
+          "category": "End Tables",
+          "listing_name": "Ellis End Table",
           "target_units": 15,
           "target_revenue": 1800.0,
           "actual_units": 23,
@@ -2765,6 +3445,8 @@
         },
         {
           "sku": "MH-TB-21213",
+          "category": "End Tables",
+          "listing_name": "Campbell End Table",
           "target_units": 10,
           "target_revenue": 1200.0,
           "actual_units": 7,
@@ -2773,6 +3455,8 @@
         },
         {
           "sku": "MH-TB-21214",
+          "category": "End Tables",
+          "listing_name": "Ellis End Table",
           "target_units": 15,
           "target_revenue": 1800.0,
           "actual_units": 13,
@@ -2781,6 +3465,8 @@
         },
         {
           "sku": "MH-TB-21268",
+          "category": "End Tables",
+          "listing_name": "Firma End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 4,
@@ -2789,6 +3475,8 @@
         },
         {
           "sku": "MH-TB-21269",
+          "category": "End Tables",
+          "listing_name": "Firma End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 17,
@@ -2797,6 +3485,8 @@
         },
         {
           "sku": "MH-TB-21270",
+          "category": "End Tables",
+          "listing_name": "Alina End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 28,
@@ -2805,6 +3495,8 @@
         },
         {
           "sku": "MH-TB-21271",
+          "category": "End Tables",
+          "listing_name": "Alina End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 74,
@@ -2813,6 +3505,8 @@
         },
         {
           "sku": "MH-TB-21272",
+          "category": "End Tables",
+          "listing_name": "Jasmine End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 2,
@@ -2821,6 +3515,8 @@
         },
         {
           "sku": "MH-TB-21273",
+          "category": "End Tables",
+          "listing_name": "Jasmine End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 10,
@@ -2829,6 +3525,8 @@
         },
         {
           "sku": "MH-TB-805",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Large",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 7,
@@ -2837,6 +3535,8 @@
         },
         {
           "sku": "MH-TB-819",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 13,
           "target_revenue": 975.0,
           "actual_units": 20,
@@ -2845,6 +3545,8 @@
         },
         {
           "sku": "MH-TB-873",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Small",
           "target_units": 20,
           "target_revenue": 1600.0,
           "actual_units": 20,
@@ -2853,6 +3555,8 @@
         },
         {
           "sku": "MH-TB-874",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Small",
           "target_units": 80,
           "target_revenue": 6265.0,
           "actual_units": 81,
@@ -2861,6 +3565,8 @@
         },
         {
           "sku": "MH-TB-875",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Small",
           "target_units": 5,
           "target_revenue": 400.0,
           "actual_units": 1,
@@ -2869,6 +3575,8 @@
         },
         {
           "sku": "MH-TB-876",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Large",
           "target_units": 5,
           "target_revenue": 450.0,
           "actual_units": 10,
@@ -2877,6 +3585,8 @@
         },
         {
           "sku": "MH-TB-877",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Large",
           "target_units": 15,
           "target_revenue": 1350.0,
           "actual_units": 7,
@@ -2885,6 +3595,8 @@
         },
         {
           "sku": "MH-TB-878",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Large",
           "target_units": 5,
           "target_revenue": 450.0,
           "actual_units": 0,
@@ -2893,6 +3605,8 @@
         },
         {
           "sku": "MH-TB-893",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Large",
           "target_units": 2,
           "target_revenue": 200.0,
           "actual_units": 3,
@@ -2901,6 +3615,8 @@
         },
         {
           "sku": "MH-TB-894",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Large",
           "target_units": 10,
           "target_revenue": 1000.0,
           "actual_units": 18,
@@ -2909,6 +3625,8 @@
         },
         {
           "sku": "MH-TB-895",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 8,
           "target_revenue": 640.0,
           "actual_units": 9,
@@ -2917,6 +3635,8 @@
         },
         {
           "sku": "MH-TB-896",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 15,
           "target_revenue": 1200.0,
           "actual_units": 12,
@@ -2939,6 +3659,8 @@
       "skus": [
         {
           "sku": "MH-MD-13007WT",
+          "category": "Wall D\u00e9cor",
+          "listing_name": "Lassi Medallion Hand Carved",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 3,
@@ -2947,6 +3669,8 @@
         },
         {
           "sku": "MH-MD-13009WT",
+          "category": "Wall D\u00e9cor",
+          "listing_name": "Malito Medallion Hand Carved",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 2,
@@ -2955,6 +3679,8 @@
         },
         {
           "sku": "MH-TB-21077",
+          "category": "End Tables",
+          "listing_name": "Judy End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 2,
@@ -2963,6 +3689,8 @@
         },
         {
           "sku": "MH-TB-21079",
+          "category": "End Tables",
+          "listing_name": "Judy End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -2971,6 +3699,8 @@
         },
         {
           "sku": "MH-TB-21088",
+          "category": "End Tables",
+          "listing_name": "Ellis End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 2,
@@ -2979,6 +3709,8 @@
         },
         {
           "sku": "MH-TB-21089",
+          "category": "End Tables",
+          "listing_name": "Ellis End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -2987,6 +3719,8 @@
         },
         {
           "sku": "MH-TB-21185",
+          "category": "End Tables",
+          "listing_name": "Electra End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -2995,6 +3729,8 @@
         },
         {
           "sku": "MH-TB-21213",
+          "category": "End Tables",
+          "listing_name": "Campbell End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 2,
@@ -3003,6 +3739,8 @@
         },
         {
           "sku": "MH-TB-21270",
+          "category": "End Tables",
+          "listing_name": "Alina End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -3011,6 +3749,8 @@
         },
         {
           "sku": "MH-TB-21271",
+          "category": "End Tables",
+          "listing_name": "Alina End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 5,
@@ -3019,6 +3759,8 @@
         },
         {
           "sku": "MH-TB-21273",
+          "category": "End Tables",
+          "listing_name": "Jasmine End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -3027,6 +3769,8 @@
         },
         {
           "sku": "MH-TB-805",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Large",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
@@ -3035,6 +3779,8 @@
         },
         {
           "sku": "MH-TB-896",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 2,
