@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T12:20:29",
+  "generated_at": "2026-07-27T12:36:48",
   "month": 8,
   "year": 2026,
   "month_label": "August 2026",
@@ -651,8 +651,8 @@
         },
         {
           "sku": "MH-SH-218",
-          "category": null,
-          "listing_name": null,
+          "category": "Bookcases",
+          "listing_name": "Kenzie Solid Mango Wood Bookcase",
           "target_units": 2,
           "target_revenue": 389.28,
           "actual_units": 0,
@@ -661,8 +661,8 @@
         },
         {
           "sku": "MH-SH-219",
-          "category": null,
-          "listing_name": null,
+          "category": "Bookcases",
+          "listing_name": "Kenzie Solid Mango Wood Bookcase",
           "target_units": 2,
           "target_revenue": 389.28,
           "actual_units": 0,
@@ -671,8 +671,8 @@
         },
         {
           "sku": "MH-SH-220",
-          "category": null,
-          "listing_name": null,
+          "category": "Bookcases",
+          "listing_name": "Myra Solid Mango Wood Bookcase",
           "target_units": 2,
           "target_revenue": 433.48,
           "actual_units": 0,
@@ -681,8 +681,8 @@
         },
         {
           "sku": "MH-SH-221",
-          "category": null,
-          "listing_name": null,
+          "category": "Bookcases",
+          "listing_name": "Myra Solid Mango Wood Bookcase",
           "target_units": 2,
           "target_revenue": 433.48,
           "actual_units": 0,
@@ -691,8 +691,8 @@
         },
         {
           "sku": "MH-SH-222",
-          "category": null,
-          "listing_name": null,
+          "category": "Bookcases",
+          "listing_name": "Vida Solid Mango Wood & Mango Veneer Bookcase",
           "target_units": 2,
           "target_revenue": 382.48,
           "actual_units": 0,
@@ -701,8 +701,8 @@
         },
         {
           "sku": "MH-SH-223",
-          "category": null,
-          "listing_name": null,
+          "category": "Bookcases",
+          "listing_name": "Vida Solid Mango Wood & Mango Veneer Bookcase",
           "target_units": 2,
           "target_revenue": 382.48,
           "actual_units": 0,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T12:20:19",
+  "generated_at": "2026-07-27T12:36:41",
   "month": 7,
   "year": 2026,
   "month_label": "July 2026",
@@ -1519,8 +1519,8 @@
         },
         {
           "sku": "MH-ST-444",
-          "category": null,
-          "listing_name": null,
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Montague Wall Mounted Shelf",
           "target_units": 5,
           "target_revenue": 202.46,
           "actual_units": 3,
@@ -2909,8 +2909,8 @@
         },
         {
           "sku": "MH-TB-21258",
-          "category": null,
-          "listing_name": null,
+          "category": "End Tables",
+          "listing_name": "Hector MS Iron & Tempered Glass End Table",
           "target_units": 5,
           "target_revenue": 412.21,
           "actual_units": 2,
@@ -3049,8 +3049,8 @@
         },
         {
           "sku": "MH-TB-21278",
-          "category": null,
-          "listing_name": null,
+          "category": "End Tables",
+          "listing_name": "Warwick End Table",
           "target_units": 5,
           "target_revenue": 509.96,
           "actual_units": 2,
@@ -3099,8 +3099,8 @@
         },
         {
           "sku": "MH-TB-21296",
-          "category": null,
-          "listing_name": null,
+          "category": "End Tables",
+          "listing_name": "Lenni End Table",
           "target_units": 0,
           "target_revenue": 0.0,
           "actual_units": 1,
