@@ -501,6 +501,25 @@ function regionCardHtml(r) {
 
 let CURRENT_MANIFEST = null;
 
+// The month the dashboard should open on by default. The switch to a new
+// month happens on the 2nd: on the 1st we still show the previous month,
+// from the 2nd onward we show the current month. (Mirrors how the data
+// itself rolls over.)
+function effectiveCurrentMonth(now) {
+  let y = now.getFullYear(), m = now.getMonth() + 1; // 1-12
+  if (now.getDate() === 1) {
+    m -= 1;
+    if (m === 0) { m = 12; y -= 1; }
+  }
+  return { year: y, month: m };
+}
+
+function pickDefaultMonth(months, now) {
+  const eff = effectiveCurrentMonth(now);
+  const hit = months.find(m => m.year === eff.year && m.month === eff.month);
+  return hit || months[0];   // fall back to newest if that month isn't published
+}
+
 async function populateMonthSelect() {
   const resp = await fetch("data/manifest.json", { cache: "no-store" });
   if (!resp.ok) throw new Error("HTTP " + resp.status + " loading manifest.json");
@@ -510,7 +529,9 @@ async function populateMonthSelect() {
   sel.innerHTML = manifest.months.map(m =>
     `<option value="${m.year}-${String(m.month).padStart(2, "0")}">${m.label}</option>`
   ).join("");
-  return manifest.months[0];
+  const def = pickDefaultMonth(manifest.months, new Date());
+  sel.value = `${def.year}-${String(def.month).padStart(2, "0")}`;
+  return def;
 }
 
 function onMonthChange() {
