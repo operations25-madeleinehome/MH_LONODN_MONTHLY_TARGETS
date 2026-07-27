@@ -457,13 +457,28 @@ function toggleListing(idx, li) {
   renderChannels();
 }
 
-function overallHtml(totals) {
+// Daily-average pacing across all channels combined.
+// Current = actual so far / days elapsed (incl. today).
+// Required = revenue still needed / days remaining (incl. today).
+function currentDailyAvg(actual, daysElapsed) {
+  if (!daysElapsed || daysElapsed <= 0) return null;
+  return actual / daysElapsed;
+}
+function requiredDailyAvg(target, actual, daysElapsed, daysInMonth) {
+  const daysLeft = daysInMonth - daysElapsed;
+  if (daysLeft <= 0) return null;            // month over / final day — not applicable
+  return Math.max(0, target - actual) / daysLeft;
+}
+
+function overallHtml(totals, daysElapsed, daysInMonth) {
+  const curAvg = currentDailyAvg(totals.actual_revenue, daysElapsed);
+  const reqAvg = requiredDailyAvg(totals.target_revenue, totals.actual_revenue, daysElapsed, daysInMonth);
   return `
     <div class="stat-card"><div class="label">Target Revenue</div><div class="value">${fmtMoney(totals.target_revenue)}</div></div>
     <div class="stat-card"><div class="label">Actual Revenue</div><div class="value">${fmtMoney(totals.actual_revenue)}</div></div>
     <div class="stat-card"><div class="label">% to Target</div><div class="value">${totals.overall_pct === null ? "—" : totals.overall_pct.toFixed(0) + "%"}</div></div>
-    <div class="stat-card"><div class="label">Target Units</div><div class="value">${fmtNum(totals.target_units)}</div></div>
-    <div class="stat-card"><div class="label">Actual Units</div><div class="value">${fmtNum(totals.actual_units)}</div></div>
+    <div class="stat-card"><div class="label">Current Daily Avg</div><div class="value">${curAvg === null ? "—" : fmtMoney(curAvg)}</div></div>
+    <div class="stat-card"><div class="label">Required Daily Avg</div><div class="value">${reqAvg === null ? "—" : fmtMoney(reqAvg)}</div></div>
   `;
 }
 
@@ -520,7 +535,7 @@ async function loadMonth(year, month) {
     document.getElementById("regions").innerHTML = (data.regions || []).map(regionCardHtml).join("");
     document.getElementById("regionSection").style.display = "block";
 
-    document.getElementById("overall").innerHTML = overallHtml(totals);
+    document.getElementById("overall").innerHTML = overallHtml(totals, data.days_elapsed, data.days_in_month);
     document.getElementById("overallSection").style.display = "block";
 
     // Reset drill-down state for the newly loaded month, then render.
