@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-07-30T09:57:07",
+  "generated_at": "2026-07-31T06:31:52",
   "month": 7,
   "year": 2026,
   "month_label": "July 2026",
-  "days_elapsed": 30,
-  "days_completed": 29,
+  "days_elapsed": 31,
+  "days_completed": 30,
   "days_in_month": 31,
   "regions": [
     {
       "region": "MH EU",
       "target_revenue": 62976.06,
-      "actual_revenue": 47299.45,
+      "actual_revenue": 48782.91,
       "target_units": 1082,
-      "actual_units": 796,
-      "projected_revenue": 48876.09
+      "actual_units": 820,
+      "projected_revenue": 48782.91
     },
     {
       "region": "MH US",
       "target_revenue": 388393.05,
-      "actual_revenue": 381031.24,
+      "actual_revenue": 392263.52,
       "target_units": 4855,
-      "actual_units": 4745,
-      "projected_revenue": 393732.28
+      "actual_units": 4877,
+      "projected_revenue": 392263.52
     }
   ],
   "channels": [
@@ -30,9 +30,9 @@
       "region": "MH US",
       "target_units": 4575,
       "target_revenue": 364285.25,
-      "actual_units": 4411,
-      "actual_revenue": 358175.07,
-      "projected_revenue": 370114.24,
+      "actual_units": 4530,
+      "actual_revenue": 368464.84,
+      "projected_revenue": 368464.84,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -43,8 +43,8 @@
           "listing_name": "Marly Wall Mounted Shelf",
           "target_units": 50,
           "target_revenue": 1503.65,
-          "actual_units": 33,
-          "actual_revenue": 1015.37,
+          "actual_units": 37,
+          "actual_revenue": 1142.74,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e4/49/87/67/678749e4376de9165a96f621/MH-ST-107 - 3_4th Right Set.jpg"
         },
         {
@@ -53,8 +53,8 @@
           "listing_name": "Rhonda Bed",
           "target_units": 15,
           "target_revenue": 4717.5,
-          "actual_units": 22,
-          "actual_revenue": 7131.75,
+          "actual_units": 23,
+          "actual_revenue": 7455.5,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d3/1f/29/65/65291fd3d76d9211ec663bd0/MH-BD-11500 - 3_4th Right Set.jpg"
         },
         {
@@ -83,8 +83,8 @@
           "listing_name": "Marina Bed",
           "target_units": 2,
           "target_revenue": 542.77,
-          "actual_units": 2,
-          "actual_revenue": 523.38,
+          "actual_units": 3,
+          "actual_revenue": 755.99,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/3d/3c/84/64/64843c3d0fcbff429a6f2632/MH-BD-11520 - 3_4th Right Set.jpg"
         },
         {
@@ -93,8 +93,8 @@
           "listing_name": "Oslo Bed",
           "target_units": 4,
           "target_revenue": 1873.57,
-          "actual_units": 2,
-          "actual_revenue": 854.13,
+          "actual_units": 4,
+          "actual_revenue": 1680.71,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/6a/42/bb/65/65bb426abc4abd5f6cdd6154/MH-BD-11528 - 3_4th Right Set.jpg"
         },
         {
@@ -153,8 +153,8 @@
           "listing_name": "Rombass Bar Stool",
           "target_units": 40,
           "target_revenue": 2709.12,
-          "actual_units": 22,
-          "actual_revenue": 1403.51,
+          "actual_units": 24,
+          "actual_revenue": 1538.97,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/a4/d9/4b/62/624bd9a4061b04309fa3e7f7/MH-BS-901A - Floor_Wall Set.jpg"
         },
         {
@@ -163,8 +163,8 @@
           "listing_name": "Rombass Bar Stool",
           "target_units": 80,
           "target_revenue": 4976.24,
-          "actual_units": 75,
-          "actual_revenue": 4387.5,
+          "actual_units": 81,
+          "actual_revenue": 4737.3,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/91/bc/86/64/6486bc91d77fdf741e323e64/MH-BS-940 - Floor_Wall Set.jpg"
         },
         {
@@ -303,8 +303,8 @@
           "listing_name": "Ancona Desk",
           "target_units": 6,
           "target_revenue": 1785.0,
-          "actual_units": 6,
-          "actual_revenue": 2009.0,
+          "actual_units": 7,
+          "actual_revenue": 2350.25,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/60/10/f9/61/61f910606cd3ad79fba3b7f2/MH-DS-19014_3_4th Right Set.jpg"
         },
         {
@@ -343,8 +343,8 @@
           "listing_name": "Hattie Desk",
           "target_units": 4,
           "target_revenue": 884.37,
-          "actual_units": 7,
-          "actual_revenue": 1554.16,
+          "actual_units": 9,
+          "actual_revenue": 2009.35,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/5a/fe/ad/67/67adfe5aa33018d0f45bb039/MH-DS-19026 - 3_4th Right Set.jpg"
         },
         {
@@ -383,8 +383,8 @@
           "listing_name": "Kittie Desk",
           "target_units": 8,
           "target_revenue": 2244.0,
-          "actual_units": 11,
-          "actual_revenue": 2986.5,
+          "actual_units": 12,
+          "actual_revenue": 3267.0,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/b1/f8/ad/67/67adf8b11b6d957c9cf70d24/MH-DS-19030 - Drawer Zoomed Set.jpg"
         },
         {
@@ -413,8 +413,8 @@
           "listing_name": "Bianci Medallion Hand Carved",
           "target_units": 25,
           "target_revenue": 575.45,
-          "actual_units": 26,
-          "actual_revenue": 528.71,
+          "actual_units": 29,
+          "actual_revenue": 591.68,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/1c/80/98/62/6298801c153dab630a7c5614/MH-MD-13006WT - Color Variation Set.jpg"
         },
         {
@@ -423,8 +423,8 @@
           "listing_name": "Lassi Medallion Hand Carved",
           "target_units": 70,
           "target_revenue": 2122.96,
-          "actual_units": 66,
-          "actual_revenue": 1939.17,
+          "actual_units": 70,
+          "actual_revenue": 2067.61,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/83/86/94/62/62948683729f3c50497761c5/MH-MD-13007WT - Floor_Wall Set.jpg"
         },
         {
@@ -523,8 +523,8 @@
           "listing_name": "Harriet Accent Mirror",
           "target_units": 35,
           "target_revenue": 4111.45,
-          "actual_units": 20,
-          "actual_revenue": 2588.49,
+          "actual_units": 21,
+          "actual_revenue": 2709.41,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d8/26/f7/63/63f726d812652121969de030/MH-MR-687 - All Variation Set.jpg"
         },
         {
@@ -533,8 +533,8 @@
           "listing_name": "Harriet Accent Mirror",
           "target_units": 8,
           "target_revenue": 976.96,
-          "actual_units": 18,
-          "actual_revenue": 2491.9,
+          "actual_units": 19,
+          "actual_revenue": 2624.79,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e1/c5/30/65/6530c5e1568a36cb4e286fff/MH-MR-688 - All Variation Set.jpg"
         },
         {
@@ -693,8 +693,8 @@
           "listing_name": "Marly Wall Mounted Shelf",
           "target_units": 20,
           "target_revenue": 595.34,
-          "actual_units": 17,
-          "actual_revenue": 518.28,
+          "actual_units": 18,
+          "actual_revenue": 548.05,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/00/4c/87/67/67874c00bd5170611f171b7b/MH-ST-107BZ - 3_4th Right Set.jpg"
         },
         {
@@ -733,8 +733,8 @@
           "listing_name": "Jonas Wall Mounted Shelf",
           "target_units": 15,
           "target_revenue": 1619.25,
-          "actual_units": 24,
-          "actual_revenue": 2218.06,
+          "actual_units": 25,
+          "actual_revenue": 2306.96,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/0a/b2/1d/62/621db20a7c9f71fb330392b8/MH-ST-161_Front Set.jpg"
         },
         {
@@ -883,8 +883,8 @@
           "listing_name": "Harry Wall Mounted Shelf",
           "target_units": 3,
           "target_revenue": 62.83,
-          "actual_units": 5,
-          "actual_revenue": 74.8,
+          "actual_units": 7,
+          "actual_revenue": 104.72,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9d/f9/22/63/6322f99de09a813217e8936b/MH-ST-341 - All Variation Set.jpg"
         },
         {
@@ -923,8 +923,8 @@
           "listing_name": "Hutch set of 2 - 24\"",
           "target_units": 100,
           "target_revenue": 4799.95,
-          "actual_units": 40,
-          "actual_revenue": 1843.76,
+          "actual_units": 43,
+          "actual_revenue": 1979.29,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/03/09/22/66/6622090302c50decdb957d7e/MH-ST-351 - 3_4th Right Set.jpg"
         },
         {
@@ -933,8 +933,8 @@
           "listing_name": "Hutch set of 2 - 24\"",
           "target_units": 75,
           "target_revenue": 3635.66,
-          "actual_units": 27,
-          "actual_revenue": 1226.14,
+          "actual_units": 28,
+          "actual_revenue": 1263.21,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/4d/f9/53/68/6853f94d753542462cfd3a68/MH-ST-352 - Floor_Wall Set.jpg"
         },
         {
@@ -953,8 +953,8 @@
           "listing_name": "Force Set of 3 - 36\"",
           "target_units": 30,
           "target_revenue": 1712.83,
-          "actual_units": 18,
-          "actual_revenue": 997.5,
+          "actual_units": 19,
+          "actual_revenue": 1054.6,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/46/1f/33/66/66331f465eb3757d9274716e/MH-ST-354 - 3_4th Right Set.jpg"
         },
         {
@@ -1003,8 +1003,8 @@
           "listing_name": "Dale set of 4",
           "target_units": 100,
           "target_revenue": 6590.05,
-          "actual_units": 96,
-          "actual_revenue": 6512.19,
+          "actual_units": 97,
+          "actual_revenue": 6580.03,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/31/d4/31/66/6631d431a5cee699eb127dd7/MH-ST-362 - Floor_Wall Set.jpg"
         },
         {
@@ -1093,8 +1093,8 @@
           "listing_name": "Montague Wall Mounted Shelf",
           "target_units": 20,
           "target_revenue": 915.79,
-          "actual_units": 15,
-          "actual_revenue": 654.54,
+          "actual_units": 18,
+          "actual_revenue": 787.87,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/71/6c/72/66/66726c71f05ff64f927e6681/MH-ST-392 - Floor_Wall Set.jpg"
         },
         {
@@ -1553,8 +1553,8 @@
           "listing_name": "Penny set of 2 - 36\"",
           "target_units": 5,
           "target_revenue": 251.21,
-          "actual_units": 8,
-          "actual_revenue": 457.2,
+          "actual_units": 9,
+          "actual_revenue": 515.82,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/19/24/04/6a/6a04241956bbaf4e94194375/MH-ST-446 - Floor_Wall Set.jpg"
         },
         {
@@ -1653,8 +1653,8 @@
           "listing_name": "Tora End Table Small",
           "target_units": 20,
           "target_revenue": 583.44,
-          "actual_units": 24,
-          "actual_revenue": 668.91,
+          "actual_units": 25,
+          "actual_revenue": 695.51,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/df/c9/33/63/6333c9dfb681bf7b9ec5c19a/MH-TB-21065 - Floor_Wall Set.jpg"
         },
         {
@@ -1693,8 +1693,8 @@
           "listing_name": "Tora End Table Large",
           "target_units": 105,
           "target_revenue": 3696.74,
-          "actual_units": 107,
-          "actual_revenue": 3821.87,
+          "actual_units": 108,
+          "actual_revenue": 3858.12,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/2a/25/8c/65/658c252a5c5552038ac7aeab/MH-TB-21069 - All Variation Set.jpg"
         },
         {
@@ -1703,8 +1703,8 @@
           "listing_name": "Tora End Table Large",
           "target_units": 18,
           "target_revenue": 645.97,
-          "actual_units": 10,
-          "actual_revenue": 360.98,
+          "actual_units": 11,
+          "actual_revenue": 397.93,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9f/cc/33/63/6333cc9fcfa459f7138647a4/MH-TB-21070 - Floor_Wall Set.jpg"
         },
         {
@@ -1743,8 +1743,8 @@
           "listing_name": "Judy End Table",
           "target_units": 28,
           "target_revenue": 970.33,
-          "actual_units": 74,
-          "actual_revenue": 2837.51,
+          "actual_units": 77,
+          "actual_revenue": 2956.76,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/a9/2c/55/68/68552ca9675ff7d5ccadf2b1/MH-TB-21077 - Zoomed In Set_t2lmmn.jpg"
         },
         {
@@ -1753,8 +1753,8 @@
           "listing_name": "Judy End Table",
           "target_units": 35,
           "target_revenue": 1199.82,
-          "actual_units": 33,
-          "actual_revenue": 1211.93,
+          "actual_units": 34,
+          "actual_revenue": 1250.25,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/11/40/55/68/68554011675ff7d5ccadf5d0/MH-TB-21078 - Floor_Wall Set_ou24wx.jpg"
         },
         {
@@ -1773,8 +1773,8 @@
           "listing_name": "Idris Nightstand",
           "target_units": 25,
           "target_revenue": 2481.15,
-          "actual_units": 24,
-          "actual_revenue": 2515.6,
+          "actual_units": 26,
+          "actual_revenue": 2731.61,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/db/60/16/67/671660dbf1c070a3d88e41b0/MH-TB-21082 - Floor_Wall Set.jpg"
         },
         {
@@ -1783,8 +1783,8 @@
           "listing_name": "Idris Nightstand",
           "target_units": 20,
           "target_revenue": 2004.81,
-          "actual_units": 14,
-          "actual_revenue": 1459.97,
+          "actual_units": 18,
+          "actual_revenue": 1877.44,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/cf/5f/1e/65/651e5fcf66ac574014954051/MH-TB-21083 - Zoomed Out Set.jpg"
         },
         {
@@ -1793,8 +1793,8 @@
           "listing_name": "Marcel Coffee Table",
           "target_units": 55,
           "target_revenue": 8629.58,
-          "actual_units": 54,
-          "actual_revenue": 8880.62,
+          "actual_units": 56,
+          "actual_revenue": 9222.11,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/b7/45/3f/65/653f45b75014ba689e932566/MH-TB-21085 - All Variation Set.jpg"
         },
         {
@@ -1803,8 +1803,8 @@
           "listing_name": "Campbell End Table",
           "target_units": 60,
           "target_revenue": 3518.49,
-          "actual_units": 61,
-          "actual_revenue": 3507.46,
+          "actual_units": 63,
+          "actual_revenue": 3628.19,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/a0/a3/38/65/6538a3a09aa4901fd70cfbe8/MH-TB-21086 - All Variation Set.jpg"
         },
         {
@@ -1823,8 +1823,8 @@
           "listing_name": "Ellis End Table",
           "target_units": 120,
           "target_revenue": 6815.64,
-          "actual_units": 92,
-          "actual_revenue": 5117.78,
+          "actual_units": 94,
+          "actual_revenue": 5228.03,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e1/ff/23/65/6523ffe1b6815c33d11057ab/MH-TB-21088 - All Variation Set.jpg"
         },
         {
@@ -1833,8 +1833,8 @@
           "listing_name": "Ellis End Table",
           "target_units": 20,
           "target_revenue": 1141.38,
-          "actual_units": 12,
-          "actual_revenue": 671.4,
+          "actual_units": 14,
+          "actual_revenue": 782.18,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/6d/00/24/65/6524006d4c311df85c1abddd/MH-TB-21089 - All Variation Set.jpg"
         },
         {
@@ -1853,8 +1853,8 @@
           "listing_name": "Oslo Nightstand 1 Drawer",
           "target_units": 20,
           "target_revenue": 3247.0,
-          "actual_units": 12,
-          "actual_revenue": 2153.55,
+          "actual_units": 14,
+          "actual_revenue": 2516.45,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/b2/72/bb/65/65bb72b2468c78de5cbc81e6/MH-TB-21091 - Floor_Wall Set.jpg"
         },
         {
@@ -1973,8 +1973,8 @@
           "listing_name": "Ellis End Table",
           "target_units": 13,
           "target_revenue": 747.42,
-          "actual_units": 19,
-          "actual_revenue": 1253.4,
+          "actual_units": 22,
+          "actual_revenue": 1451.25,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/14/68/33/66/66336814c81f40fb63c48b22/MH-TB-21123 - Floor_and_Wall Set.jpg"
         },
         {
@@ -2003,8 +2003,8 @@
           "listing_name": "Evo Nightstand",
           "target_units": 8,
           "target_revenue": 630.5,
-          "actual_units": 22,
-          "actual_revenue": 1367.62,
+          "actual_units": 24,
+          "actual_revenue": 1506.7,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9a/f6/5f/66/665ff69ab6837d87ed5f70a9/MH-TB-21129 - Floor_Wall Set.jpg"
         },
         {
@@ -2013,8 +2013,8 @@
           "listing_name": "Gino End Table",
           "target_units": 3,
           "target_revenue": 292.77,
-          "actual_units": 10,
-          "actual_revenue": 964.42,
+          "actual_units": 11,
+          "actual_revenue": 1064.88,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/12/7b/c5/66/66c57b12acd42255e1a28b22/MH-TB-21130 - Floor_Wall Set.jpg"
         },
         {
@@ -2033,8 +2033,8 @@
           "listing_name": "Vita End Table",
           "target_units": 25,
           "target_revenue": 1517.25,
-          "actual_units": 40,
-          "actual_revenue": 2441.22,
+          "actual_units": 41,
+          "actual_revenue": 2503.69,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/a6/a2/cd/66/66cda2a61e23ce276ad3a204/MH-TB-21132 - Floor_Wall Set.jpg"
         },
         {
@@ -2053,8 +2053,8 @@
           "listing_name": "Duchie End Table",
           "target_units": 25,
           "target_revenue": 1659.2,
-          "actual_units": 28,
-          "actual_revenue": 1669.36,
+          "actual_units": 29,
+          "actual_revenue": 1735.73,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/cc/07/d8/66/66d807cc96e0c8e67be7d3e3/MH-TB-21134 - Floor_Wall Set.jpg"
         },
         {
@@ -2153,8 +2153,8 @@
           "listing_name": "Elisa End Table",
           "target_units": 8,
           "target_revenue": 509.25,
-          "actual_units": 1,
-          "actual_revenue": 54.3,
+          "actual_units": 2,
+          "actual_revenue": 108.59,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/12/c8/0f/67/670fc8122c59778a2ac28c95/MH-TB-21145 - 3_4th Right Set.jpg"
         },
         {
@@ -2203,8 +2203,8 @@
           "listing_name": "Laurey Coffee Table",
           "target_units": 5,
           "target_revenue": 913.75,
-          "actual_units": 4,
-          "actual_revenue": 575.13,
+          "actual_units": 5,
+          "actual_revenue": 725.63,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/37/1c/61/67/67611c372b50e55526e2ccff/MH-TB-21152 - Floor_Wall Set.jpg"
         },
         {
@@ -2253,8 +2253,8 @@
           "listing_name": "Marli Coffee Table",
           "target_units": 15,
           "target_revenue": 3338.97,
-          "actual_units": 20,
-          "actual_revenue": 4451.99,
+          "actual_units": 21,
+          "actual_revenue": 4687.68,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/27/73/03/67/670373271b8070aaa9bd28b0/MH-TB-21165 - Floor_Wall Set.jpg"
         },
         {
@@ -2283,8 +2283,8 @@
           "listing_name": "Flintoff Coffee Table",
           "target_units": 4,
           "target_revenue": 1190.0,
-          "actual_units": 1,
-          "actual_revenue": 288.75,
+          "actual_units": 2,
+          "actual_revenue": 568.75,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d9/58/97/67/679758d9e1481137aa00e77a/MH-TB-21175 - 3_4th Right Set.jpg"
         },
         {
@@ -2333,8 +2333,8 @@
           "listing_name": "Electra End Table",
           "target_units": 15,
           "target_revenue": 554.88,
-          "actual_units": 12,
-          "actual_revenue": 402.56,
+          "actual_units": 13,
+          "actual_revenue": 439.55,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/94/c5/4e/67/674ec594b61fa404a910de94/MH-TB-21185 - 3_4th Right Set.jpg"
         },
         {
@@ -2413,8 +2413,8 @@
           "listing_name": "Viera End Table",
           "target_units": 14,
           "target_revenue": 943.55,
-          "actual_units": 19,
-          "actual_revenue": 1425.22,
+          "actual_units": 20,
+          "actual_revenue": 1500.55,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/34/86/eb/67/67eb86349051282a25ae7c9d/MH-TB-21196 - Floor_Wall Set.jpg"
         },
         {
@@ -2463,8 +2463,8 @@
           "listing_name": "Warwick End Table",
           "target_units": 19,
           "target_revenue": 2196.24,
-          "actual_units": 3,
-          "actual_revenue": 322.97,
+          "actual_units": 4,
+          "actual_revenue": 418.16,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/6e/a3/89/68/6889a36ed5ef509639b37f67/MH-TB-21201 - Floor_Wall Set.jpg"
         },
         {
@@ -2533,8 +2533,8 @@
           "listing_name": "Rufus Nightstand",
           "target_units": 3,
           "target_revenue": 451.48,
-          "actual_units": 7,
-          "actual_revenue": 752.5,
+          "actual_units": 8,
+          "actual_revenue": 817.0,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/fd/03/af/68/68af03fddebc8162401bdd1d/MH-TB-21209 - Floor_Wall Set.jpg"
         },
         {
@@ -2553,8 +2553,8 @@
           "listing_name": "Maggie Nightstand",
           "target_units": 3,
           "target_revenue": 493.48,
-          "actual_units": 4,
-          "actual_revenue": 470.0,
+          "actual_units": 6,
+          "actual_revenue": 611.0,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/26/e8/ba/68/68bae826bf27b142b4399566/MH-TB-21215 - Floor_Wall Set.jpg"
         },
         {
@@ -2593,8 +2593,8 @@
           "listing_name": "Kiana Nightstand",
           "target_units": 25,
           "target_revenue": 2384.04,
-          "actual_units": 24,
-          "actual_revenue": 2324.58,
+          "actual_units": 26,
+          "actual_revenue": 2520.91,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/f8/09/af/68/68af09f862b3bbd568a1567f/MH-TB-21219 - Floor_Wall Set.jpg"
         },
         {
@@ -2603,8 +2603,8 @@
           "listing_name": "Solie Nightstand",
           "target_units": 13,
           "target_revenue": 796.7,
-          "actual_units": 12,
-          "actual_revenue": 825.55,
+          "actual_units": 14,
+          "actual_revenue": 966.15,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/6c/db/a5/68/68a5db6c6f160909d12639bc/MH-TB-21220 - Floor_Wall Set.jpg"
         },
         {
@@ -2613,8 +2613,8 @@
           "listing_name": "Marcel Dining Table",
           "target_units": 4,
           "target_revenue": 1161.75,
-          "actual_units": 2,
-          "actual_revenue": 562.08,
+          "actual_units": 3,
+          "actual_revenue": 843.97,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/87/65/39/69/69396587fdbaff80a205d553/MH-TB-21222 - Floor_Wall Set.jpg"
         },
         {
@@ -2763,8 +2763,8 @@
           "listing_name": "Nora End Table",
           "target_units": 39,
           "target_revenue": 2419.62,
-          "actual_units": 27,
-          "actual_revenue": 1728.08,
+          "actual_units": 28,
+          "actual_revenue": 1786.47,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/ec/54/03/69/690354ec231aba28f693865d/MH-TB-21238 - 3_4th Right Set (Zoomed In).jpg"
         },
         {
@@ -3023,8 +3023,8 @@
           "listing_name": "Santorini End Table",
           "target_units": 5,
           "target_revenue": 305.96,
-          "actual_units": 19,
-          "actual_revenue": 998.81,
+          "actual_units": 20,
+          "actual_revenue": 1049.2,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/ea/17/a5/69/69a517eab6e8c31dcc66e50b/MH-TB-21267 - Floor_Wall Set.jpg"
         },
         {
@@ -3053,8 +3053,8 @@
           "listing_name": "Marli Console Table",
           "target_units": 8,
           "target_revenue": 1516.33,
-          "actual_units": 2,
-          "actual_revenue": 384.66,
+          "actual_units": 3,
+          "actual_revenue": 557.48,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/87/b3/8e/69/698eb3876ce6cb56829b2e76/MH-TB-21276 - Floor_Wall Set.jpg"
         },
         {
@@ -3063,8 +3063,8 @@
           "listing_name": "Marli Media Unit",
           "target_units": 5,
           "target_revenue": 1398.21,
-          "actual_units": 4,
-          "actual_revenue": 1110.34,
+          "actual_units": 5,
+          "actual_revenue": 1373.53,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e0/dd/65/69/6965dde06aa27787a27a0b3d/MH-TB-21277 - Floor_Wall Set.jpg"
         },
         {
@@ -3113,8 +3113,8 @@
           "listing_name": "Lennox Media Unit",
           "target_units": 5,
           "target_revenue": 2202.14,
-          "actual_units": 4,
-          "actual_revenue": 1461.17,
+          "actual_units": 5,
+          "actual_revenue": 1849.78,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/00/70/fc/69/69fc700093d44f230c3725a4/MH-TB-21283 - Floor_Wall Set.jpg"
         },
         {
@@ -3133,8 +3133,8 @@
           "listing_name": "Chervey Tri Pin Side Table Large",
           "target_units": 90,
           "target_revenue": 4170.78,
-          "actual_units": 62,
-          "actual_revenue": 3111.12,
+          "actual_units": 64,
+          "actual_revenue": 3214.71,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/47/d8/e0/62/62e0d847148ec6b71021183a/MH-TB-805 - Color Variations Set.jpg"
         },
         {
@@ -3173,8 +3173,8 @@
           "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 57,
           "target_revenue": 1922.01,
-          "actual_units": 39,
-          "actual_revenue": 1331.12,
+          "actual_units": 43,
+          "actual_revenue": 1469.97,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/5c/da/e0/62/62e0da5c530023baaa1249d1/MH-TB-819 - Color Variations Set.jpg"
         },
         {
@@ -3193,8 +3193,8 @@
           "listing_name": "Melody End Table Black",
           "target_units": 10,
           "target_revenue": 622.2,
-          "actual_units": 10,
-          "actual_revenue": 697.23,
+          "actual_units": 11,
+          "actual_revenue": 768.6,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/c3/2a/83/62/62832ac3c09d542477217148/MH-TB-848 -  Floor _ wall.jpg"
         },
         {
@@ -3213,8 +3213,8 @@
           "listing_name": "Armstrong End Table Small",
           "target_units": 245,
           "target_revenue": 7653.19,
-          "actual_units": 221,
-          "actual_revenue": 6832.07,
+          "actual_units": 227,
+          "actual_revenue": 7026.84,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d4/95/82/65/658295d4250e8945cf7ab032/MH-TB-874 - All Variation Set.jpg"
         },
         {
@@ -3233,8 +3233,8 @@
           "listing_name": "Armstrong End Table Large",
           "target_units": 20,
           "target_revenue": 674.56,
-          "actual_units": 19,
-          "actual_revenue": 600.95,
+          "actual_units": 21,
+          "actual_revenue": 670.95,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/60/07/7e/63/637e0760a43fb3f21e0dd3ce/MH-TB-876 - Front Set.jpg"
         },
         {
@@ -3243,8 +3243,8 @@
           "listing_name": "Armstrong End Table Large",
           "target_units": 85,
           "target_revenue": 2937.68,
-          "actual_units": 44,
-          "actual_revenue": 1461.42,
+          "actual_units": 47,
+          "actual_revenue": 1559.01,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/87/96/82/65/658296875f6223ed7ed2cb41/MH-TB-877 - All Variation Set.jpg"
         },
         {
@@ -3263,8 +3263,8 @@
           "listing_name": "Chervey Tri Pin Side Table Large",
           "target_units": 35,
           "target_revenue": 1671.65,
-          "actual_units": 42,
-          "actual_revenue": 2250.4,
+          "actual_units": 43,
+          "actual_revenue": 2305.47,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/16/db/e0/62/62e0db16530023baaa1249f6/MH-TB-893 - Color Variations Set.jpg"
         },
         {
@@ -3283,8 +3283,8 @@
           "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 45,
           "target_revenue": 1502.46,
-          "actual_units": 28,
-          "actual_revenue": 943.5,
+          "actual_units": 29,
+          "actual_revenue": 977.87,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/35/dd/e0/62/62e0dd3533927e49dbf351da/MH-TB-895 - Color Variations Set.jpg"
         },
         {
@@ -3293,8 +3293,8 @@
           "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 150,
           "target_revenue": 5288.7,
-          "actual_units": 143,
-          "actual_revenue": 5098.26,
+          "actual_units": 148,
+          "actual_revenue": 5277.67,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9e/27/81/65/6581279e89f59f74cfc1daac/MH-TB-896 - All Variation Set.jpg"
         },
         {
@@ -3384,9 +3384,9 @@
       "region": "MH US",
       "target_units": 280,
       "target_revenue": 24107.8,
-      "actual_units": 334,
-      "actual_revenue": 22856.17,
-      "projected_revenue": 23618.04,
+      "actual_units": 347,
+      "actual_revenue": 23798.68,
+      "projected_revenue": 23798.68,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -3397,8 +3397,8 @@
           "listing_name": "Lassi Medallion Hand Carved",
           "target_units": 10,
           "target_revenue": 679.9,
-          "actual_units": 8,
-          "actual_revenue": 622.92,
+          "actual_units": 10,
+          "actual_revenue": 778.9,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/83/86/94/62/62948683729f3c50497761c5/MH-MD-13007WT - Floor_Wall Set.jpg"
         },
         {
@@ -3417,8 +3417,8 @@
           "listing_name": "Tora End Table Small",
           "target_units": 20,
           "target_revenue": 1499.8,
-          "actual_units": 24,
-          "actual_revenue": 1799.76,
+          "actual_units": 27,
+          "actual_revenue": 2024.73,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9d/24/8c/65/658c249d8eaab81f922941ea/MH-TB-21066 - All Variation Set.jpg"
         },
         {
@@ -3462,6 +3462,16 @@
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9f/cc/33/63/6333cc9fcfa459f7138647a4/MH-TB-21070 - Floor_Wall Set.jpg"
         },
         {
+          "sku": "MH-TB-21077",
+          "category": "End Tables",
+          "listing_name": "Judy End Table",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 1,
+          "actual_revenue": 84.99,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/a9/2c/55/68/68552ca9675ff7d5ccadf2b1/MH-TB-21077 - Zoomed In Set_t2lmmn.jpg"
+        },
+        {
           "sku": "MH-TB-21078",
           "category": "End Tables",
           "listing_name": "Judy End Table",
@@ -3477,8 +3487,8 @@
           "listing_name": "Ellis End Table",
           "target_units": 15,
           "target_revenue": 1799.85,
-          "actual_units": 8,
-          "actual_revenue": 959.92,
+          "actual_units": 9,
+          "actual_revenue": 1079.91,
           "image_url": null
         },
         {
@@ -3517,8 +3527,8 @@
           "listing_name": "Firma End Table",
           "target_units": 0,
           "target_revenue": 0.0,
-          "actual_units": 29,
-          "actual_revenue": 1447.49,
+          "actual_units": 30,
+          "actual_revenue": 1497.48,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/be/ee/9b/69/699beebec02365eae562ce24/MH-TB-21269 - Floor_Wall Set.jpg"
         },
         {
@@ -3537,8 +3547,8 @@
           "listing_name": "Alina End Table",
           "target_units": 0,
           "target_revenue": 0.0,
-          "actual_units": 72,
-          "actual_revenue": 3596.78,
+          "actual_units": 73,
+          "actual_revenue": 3646.77,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d0/3e/a1/69/69a13ed07cc6e3c9057b9e5c/MH-TB-21271 - Floor_Wall Set.jpg"
         },
         {
@@ -3547,8 +3557,8 @@
           "listing_name": "Jasmine End Table",
           "target_units": 0,
           "target_revenue": 0.0,
-          "actual_units": 3,
-          "actual_revenue": 149.97,
+          "actual_units": 4,
+          "actual_revenue": 199.96,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/21/0c/a9/69/69a90c21787fee2350add661/MH-TB-21272 - Floor_Wall Set.jpg"
         },
         {
@@ -3557,8 +3567,8 @@
           "listing_name": "Jasmine End Table",
           "target_units": 0,
           "target_revenue": 0.0,
-          "actual_units": 14,
-          "actual_revenue": 697.36,
+          "actual_units": 15,
+          "actual_revenue": 747.35,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/36/0d/a9/69/69a90d3611a26afc52e1ef52/MH-TB-21273 - Zoomed Out Set.jpg"
         },
         {
@@ -3597,8 +3607,8 @@
           "listing_name": "Armstrong End Table Small",
           "target_units": 80,
           "target_revenue": 6264.8,
-          "actual_units": 60,
-          "actual_revenue": 4680.96,
+          "actual_units": 62,
+          "actual_revenue": 4837.58,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d4/95/82/65/658295d4250e8945cf7ab032/MH-TB-874 - All Variation Set.jpg"
         },
         {
@@ -3688,9 +3698,9 @@
       "region": "MH EU",
       "target_units": 138,
       "target_revenue": 5606.19,
-      "actual_units": 154,
-      "actual_revenue": 5320.91,
-      "projected_revenue": 5498.27,
+      "actual_units": 158,
+      "actual_revenue": 5513.07,
+      "projected_revenue": 5513.07,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -3701,8 +3711,8 @@
           "listing_name": "Marly Wall Mounted Shelf",
           "target_units": 1,
           "target_revenue": 14.0,
-          "actual_units": 2,
-          "actual_revenue": 35.19,
+          "actual_units": 3,
+          "actual_revenue": 51.29,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e4/49/87/67/678749e4376de9165a96f621/MH-ST-107 - 3_4th Right Set.jpg"
         },
         {
@@ -4171,8 +4181,8 @@
           "listing_name": "Idris Nightstand",
           "target_units": 1,
           "target_revenue": 73.8,
-          "actual_units": 8,
-          "actual_revenue": 463.22,
+          "actual_units": 10,
+          "actual_revenue": 614.1,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9b/61/3c/66/663c619b55c680db00856106/MH-TB-21124 - Floor_Wall Set.jpg"
         },
         {
@@ -4521,8 +4531,8 @@
           "listing_name": "Armstrong End Table Small",
           "target_units": 3,
           "target_revenue": 73.87,
-          "actual_units": 13,
-          "actual_revenue": 309.15,
+          "actual_units": 14,
+          "actual_revenue": 334.33,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d2/05/7e/63/637e05d22c0c4142ad2d0ae4/MH-TB-873 - Zoomed In Set.jpg"
         },
         {
@@ -4592,9 +4602,9 @@
       "region": "MH EU",
       "target_units": 223,
       "target_revenue": 12506.08,
-      "actual_units": 131,
-      "actual_revenue": 9292.21,
-      "projected_revenue": 9601.95,
+      "actual_units": 136,
+      "actual_revenue": 9665.89,
+      "projected_revenue": 9665.89,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -4705,8 +4715,8 @@
           "listing_name": "Penny set of 2 - 36\"",
           "target_units": 4,
           "target_revenue": 233.96,
-          "actual_units": 4,
-          "actual_revenue": 297.11,
+          "actual_units": 5,
+          "actual_revenue": 375.3,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e4/79/17/66/661779e4692e72d7a973b5ea/MH-ST-374 - 3_4th Right Set.jpg"
         },
         {
@@ -4885,8 +4895,8 @@
           "listing_name": "Judy End Table",
           "target_units": 3,
           "target_revenue": 134.97,
-          "actual_units": 3,
-          "actual_revenue": 160.97,
+          "actual_units": 4,
+          "actual_revenue": 218.45,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/a9/2c/55/68/68552ca9675ff7d5ccadf2b1/MH-TB-21077 - Zoomed In Set_t2lmmn.jpg"
         },
         {
@@ -4945,8 +4955,8 @@
           "listing_name": "Ellis End Table",
           "target_units": 10,
           "target_revenue": 737.91,
-          "actual_units": 6,
-          "actual_revenue": 515.36,
+          "actual_units": 8,
+          "actual_revenue": 687.14,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e1/ff/23/65/6523ffe1b6815c33d11057ab/MH-TB-21088 - All Variation Set.jpg"
         },
         {
@@ -5375,8 +5385,8 @@
           "listing_name": "Chervey Tri Pin Side Table Large",
           "target_units": 4,
           "target_revenue": 215.96,
-          "actual_units": 2,
-          "actual_revenue": 132.46,
+          "actual_units": 3,
+          "actual_revenue": 198.69,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/47/d8/e0/62/62e0d847148ec6b71021183a/MH-TB-805 - Color Variations Set.jpg"
         },
         {
@@ -5466,9 +5476,9 @@
       "region": "MH EU",
       "target_units": 500,
       "target_revenue": 31130.0,
-      "actual_units": 275,
-      "actual_revenue": 18986.81,
-      "projected_revenue": 19619.7,
+      "actual_units": 283,
+      "actual_revenue": 19444.51,
+      "projected_revenue": 19444.51,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -5479,8 +5489,8 @@
           "listing_name": "Marly Wall Mounted Shelf",
           "target_units": 0,
           "target_revenue": 0.0,
-          "actual_units": 4,
-          "actual_revenue": 92.0,
+          "actual_units": 5,
+          "actual_revenue": 115.0,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e4/49/87/67/678749e4376de9165a96f621/MH-ST-107 - 3_4th Right Set.jpg"
         },
         {
@@ -5629,8 +5639,8 @@
           "listing_name": "Penny set of 2 - 36\"",
           "target_units": 9,
           "target_revenue": 584.91,
-          "actual_units": 0,
-          "actual_revenue": 0.0,
+          "actual_units": 1,
+          "actual_revenue": 74.75,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e4/79/17/66/661779e4692e72d7a973b5ea/MH-ST-374 - 3_4th Right Set.jpg"
         },
         {
@@ -5909,8 +5919,8 @@
           "listing_name": "Ellis End Table",
           "target_units": 9,
           "target_revenue": 746.91,
-          "actual_units": 5,
-          "actual_revenue": 477.25,
+          "actual_units": 6,
+          "actual_revenue": 572.7,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/14/68/33/66/66336814c81f40fb63c48b22/MH-TB-21123 - Floor_and_Wall Set.jpg"
         },
         {
@@ -6329,8 +6339,8 @@
           "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 20,
           "target_revenue": 919.8,
-          "actual_units": 12,
-          "actual_revenue": 634.8,
+          "actual_units": 13,
+          "actual_revenue": 687.7,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/5c/da/e0/62/62e0da5c530023baaa1249d1/MH-TB-819 - Color Variations Set.jpg"
         },
         {
@@ -6399,8 +6409,8 @@
           "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 14,
           "target_revenue": 643.86,
-          "actual_units": 11,
-          "actual_revenue": 581.9,
+          "actual_units": 15,
+          "actual_revenue": 793.5,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9e/27/81/65/6581279e89f59f74cfc1daac/MH-TB-896 - All Variation Set.jpg"
         }
       ]
@@ -6410,9 +6420,9 @@
       "region": "MH EU",
       "target_units": 221,
       "target_revenue": 13733.79,
-      "actual_units": 236,
-      "actual_revenue": 13699.52,
-      "projected_revenue": 14156.17,
+      "actual_units": 243,
+      "actual_revenue": 14159.44,
+      "projected_revenue": 14159.44,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -6443,8 +6453,8 @@
           "listing_name": "Rombass Bar Stool",
           "target_units": 12,
           "target_revenue": 767.88,
-          "actual_units": 23,
-          "actual_revenue": 1462.6,
+          "actual_units": 27,
+          "actual_revenue": 1720.15,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/91/bc/86/64/6486bc91d77fdf741e323e64/MH-BS-940 - Floor_Wall Set.jpg"
         },
         {
@@ -6803,8 +6813,8 @@
           "listing_name": "Ellis End Table",
           "target_units": 4,
           "target_revenue": 331.96,
-          "actual_units": 1,
-          "actual_revenue": 76.35,
+          "actual_units": 3,
+          "actual_revenue": 229.05,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/14/68/33/66/66336814c81f40fb63c48b22/MH-TB-21123 - Floor_and_Wall Set.jpg"
         },
         {
@@ -7283,8 +7293,8 @@
           "listing_name": "Chervey Tri Pin Side Table Small",
           "target_units": 6,
           "target_revenue": 275.94,
-          "actual_units": 7,
-          "actual_revenue": 294.26,
+          "actual_units": 8,
+          "actual_revenue": 343.93,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9e/27/81/65/6581279e89f59f74cfc1daac/MH-TB-896 - All Variation Set.jpg"
         }
       ]
