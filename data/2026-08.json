@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T11:23:23",
+  "generated_at": "2026-08-03T11:53:44",
   "month": 8,
   "year": 2026,
   "month_label": "August 2026",
@@ -18,10 +18,10 @@
     {
       "region": "MH US",
       "target_revenue": 396242.89,
-      "actual_revenue": 28659.87,
+      "actual_revenue": 29295.47,
       "target_units": 4739,
-      "actual_units": 367,
-      "projected_revenue": 296151.98
+      "actual_units": 371,
+      "projected_revenue": 302719.85
     }
   ],
   "channels": [
@@ -6985,6 +6985,60 @@
           "target_revenue": 105.78,
           "actual_units": 0,
           "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9e/27/81/65/6581279e89f59f74cfc1daac/MH-TB-896 - All Variation Set.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Other Sales Channels (US)",
+      "region": "MH US",
+      "target_units": 0,
+      "target_revenue": 0.0,
+      "actual_units": 4,
+      "actual_revenue": 635.6,
+      "projected_revenue": 6567.87,
+      "has_actual_file": true,
+      "has_target_data": false,
+      "target_source": "none",
+      "skus": [
+        {
+          "sku": "MH-BD-11500",
+          "category": "Beds",
+          "listing_name": "Rhonda Bed",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 1,
+          "actual_revenue": 510.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d3/1f/29/65/65291fd3d76d9211ec663bd0/MH-BD-11500 - 3_4th Right Set.jpg"
+        },
+        {
+          "sku": "MH-ST-107GD",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Marly Wall Mounted Shelf",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 1,
+          "actual_revenue": 35.99,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/76/4c/87/67/67874c76376de9165a96f634/MH-ST-107GD - 3_4th Right Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21066",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Small",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 1,
+          "actual_revenue": 40.61,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9d/24/8c/65/658c249d8eaab81f922941ea/MH-TB-21066 - All Variation Set.jpg"
+        },
+        {
+          "sku": "MH-TB-896",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Small",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 1,
+          "actual_revenue": 49.0,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9e/27/81/65/6581279e89f59f74cfc1daac/MH-TB-896 - All Variation Set.jpg"
         }
       ]
