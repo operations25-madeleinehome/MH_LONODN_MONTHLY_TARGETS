@@ -282,17 +282,25 @@ function closeLightbox() {
 
 const DETAILS_MISSING = "Details not provided";
 
-// Only SKUs that are part of the target plan appear in the drill-down.
-function presentInTargets(s) {
+// Which SKUs appear in a channel's drill-down.
+//  - Channels WITH per-SKU targets: only SKUs that are part of the target plan.
+//  - Actuals-only channels (no target at all, e.g. the MH US "Other Sales
+//    Channels" bucket): SKUs that actually sold.
+function skuIncluded(s, channel) {
+  const hasSkuTargets = channel && channel.target_source === "sku";
+  if (hasSkuTargets) return (s.target_revenue || 0) > 0 || (s.target_units || 0) > 0;
+  if (channel && channel.target_source === "none")
+    return (s.actual_revenue || 0) > 0 || (s.actual_units || 0) > 0;
   return (s.target_revenue || 0) > 0 || (s.target_units || 0) > 0;
 }
 
-// Group a channel's target SKUs into category -> listing -> SKUs, each level
-// carrying summed target/actual units & revenue, all sorted by target revenue
-// descending.
-function buildCategoryTree(skus) {
+// Group a channel's SKUs into category -> listing -> SKUs, each level carrying
+// summed target/actual units & revenue. Sorted by target revenue for target
+// channels, or by actual revenue for actuals-only channels.
+function buildCategoryTree(skus, channel) {
+  const byActual = channel && channel.target_source === "none";
   const cats = {};
-  (skus || []).filter(presentInTargets).forEach(s => {
+  (skus || []).filter(s => skuIncluded(s, channel)).forEach(s => {
     const catName = s.category || DETAILS_MISSING;
     const listingName = s.listing_name || DETAILS_MISSING;
     const cat = cats[catName] || (cats[catName] =
@@ -307,13 +315,14 @@ function buildCategoryTree(skus) {
     }
     lst.skus.push(s);
   });
-  const byTargetRev = (a, b) => (b.target_revenue || 0) - (a.target_revenue || 0);
+  const metric = it => byActual ? (it.actual_revenue || 0) : (it.target_revenue || 0);
+  const byMetric = (a, b) => metric(b) - metric(a);
   return Object.values(cats).map(cat => ({
     ...cat,
     listings: Object.values(cat.listings).map(lst => ({
-      ...lst, skus: lst.skus.slice().sort(byTargetRev),
-    })).sort(byTargetRev),
-  })).sort(byTargetRev);
+      ...lst, skus: lst.skus.slice().sort(byMetric),
+    })).sort(byMetric),
+  })).sort(byMetric);
 }
 
 // State: which channels are expanded, and (per channel) which category and
@@ -564,7 +573,7 @@ async function loadMonth(year, month) {
     // Reset drill-down state for the newly loaded month, then render.
     CH_STATE = {
       channels: channels,
-      trees: channels.map(c => buildCategoryTree(c.skus || [])),
+      trees: channels.map(c => buildCategoryTree(c.skus || [], c)),
       daysCompleted: data.days_completed != null ? data.days_completed : data.days_elapsed,
       daysInMonth: data.days_in_month,
     };

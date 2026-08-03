@@ -168,6 +168,19 @@ CATCHALL_PROFILES = [
             ),
         },
     },
+    {
+        # MH US catch-all: every MH US channel EXCEPT the ones with their own
+        # file (Wayfair US, Amazon US, Walmart) is collected here. No targets
+        # exist for this bucket -- it exists purely to show these channels'
+        # actual sales (with the usual category / SKU breakdown on the site).
+        "name": "Other Sales Channels (US)",
+        "file_stub": "MH US - Other Sales Channels",
+        "is_catchall": True,
+        "region": "MH US",
+        "always_exclude_channels": ["Wayfair US", "Amazon US", "Walmart"],
+        "target_columns": STANDARD_COLUMNS + ["Channel"],
+        "column_source_map": {"Channel": "Sales Channel"},
+    },
 ]
 
 ALL_PROFILES = CHANNEL_PROFILES + CATCHALL_PROFILES
@@ -486,14 +499,23 @@ def sync_channel(service, channel_cfg, drive_file, sheet_name, records):
 
     file_bytes = download_bytes(service, drive_file["id"])
     wb = openpyxl.load_workbook(file_bytes)  # formulas preserved (data_only not set)
-    if sheet_name not in wb.sheetnames:
-        raise ValueError(f"Sheet '{sheet_name}' not found in {drive_file['name']}")
-    ws = wb[sheet_name]
+
+    # Auto-create the month's sales sheet if it doesn't exist yet. This makes
+    # the month rollover hands-off: on the first run of a new month, the
+    # channel files (often copied over from the previous month) may not have a
+    # "Sales - <Month> <Year>" tab yet, so we add it rather than failing.
+    created_sheet = sheet_name not in wb.sheetnames
+    if created_sheet:
+        ws = wb.create_sheet(title=sheet_name)
+    else:
+        ws = wb[sheet_name]
 
     for i, col_name in enumerate(target_columns, start=1):
         ws.cell(row=1, column=i).value = col_name
 
     summary = sync_append_dedupe(ws, records, target_columns, formula_templates)
+    if created_sheet:
+        summary = f"created new sheet '{sheet_name}'; " + summary
 
     out_buf = io.BytesIO()
     wb.save(out_buf)

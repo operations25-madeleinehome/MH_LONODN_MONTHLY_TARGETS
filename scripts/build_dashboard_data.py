@@ -85,6 +85,9 @@ CHANNEL_REGISTRY = [
      "target_workbook": "MH EU", "target_sheet": "Debenhams"},  # no actual file synced yet
     {"name": "Other Sales Channels", "region": "MH EU", "file_stub": "Amazon UK",
      "target_workbook": "MH EU", "target_sheet": "Other Sales Channels"},
+    # MH US catch-all: actuals only, no target (SKU/category breakdown still shown).
+    {"name": "Other Sales Channels (US)", "region": "MH US", "file_stub": "MH US - Other Sales Channels",
+     "target_workbook": None, "target_sheet": None},
     # -- channels with no target sheet yet; actual-only until Q4 targets land
     {"name": "Shopify US", "region": "MH US", "file_stub": "Shopify US", "target_workbook": None, "target_sheet": None},
     {"name": "Home Depot", "region": "MH US", "file_stub": "Home Depot", "target_workbook": None, "target_sheet": None},
