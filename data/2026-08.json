@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T10:59:47",
+  "generated_at": "2026-08-03T11:05:32",
   "month": 8,
   "year": 2026,
   "month_label": "August 2026",
@@ -18,10 +18,10 @@
     {
       "region": "MH US",
       "target_revenue": 396242.89,
-      "actual_revenue": 28609.88,
+      "actual_revenue": 28659.87,
       "target_units": 4739,
-      "actual_units": 366,
-      "projected_revenue": 295635.42
+      "actual_units": 367,
+      "projected_revenue": 296151.98
     }
   ],
   "channels": [
@@ -7694,13 +7694,24 @@
       "region": "MH US",
       "target_units": 0,
       "target_revenue": 4000.0,
-      "actual_units": 0,
-      "actual_revenue": 0,
-      "projected_revenue": 0.0,
-      "has_actual_file": false,
+      "actual_units": 1,
+      "actual_revenue": 49.99,
+      "projected_revenue": 516.56,
+      "has_actual_file": true,
       "has_target_data": true,
       "target_source": "channel_only",
-      "skus": []
+      "skus": [
+        {
+          "sku": "MH-TB-21271",
+          "category": "End Tables",
+          "listing_name": "Alina End Table",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 1,
+          "actual_revenue": 49.99,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d0/3e/a1/69/69a13ed07cc6e3c9057b9e5c/MH-TB-21271 - Floor_Wall Set.jpg"
+        }
+      ]
     }
   ]
 }
