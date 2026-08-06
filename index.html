@@ -164,6 +164,11 @@
 </header>
 <div class="controls">
   <select id="monthSelect" onchange="onMonthChange()"></select>
+  <select id="regionSelect" onchange="onRegionChange()">
+    <option value="ALL">Select all</option>
+    <option value="MH US">MH US</option>
+    <option value="MH EU">MH EU</option>
+  </select>
 </div>
 <main>
   <div id="status">Loading dashboard data...</div>
@@ -495,9 +500,13 @@ function overallHtml(totals, daysCompleted, daysInMonth) {
 function regionCardHtml(r) {
   const p = pct(r.actual_revenue, r.target_revenue);
   const width = p === null ? 0 : Math.min(p, 100);
+  const pctLabel = p === null ? "—" : p.toFixed(0) + "%";
   return `
     <div class="region-card">
-      <div class="name">${r.region}</div>
+      <div style="display:flex; justify-content:space-between; align-items:baseline;">
+        <div class="name">${r.region}</div>
+        <div style="font-weight:700; font-size:16px; color:var(--accent);">${pctLabel} <span style="font-size:11px; font-weight:500; color:var(--text-muted);">to target</span></div>
+      </div>
       <div class="progress-track"><div class="progress-fill ${pctClass(p)}" style="width:${width}%"></div></div>
       <div class="progress-labels" style="margin-top:6px;">
         <span>${fmtMoney(r.actual_revenue)} actual</span>
@@ -550,6 +559,51 @@ function onMonthChange() {
   loadMonth(year, month);
 }
 
+let CURRENT_DATA = null;                 // the raw month JSON, kept for region re-filtering
+let CURRENT_CHANNELS_SORTED = [];        // all channels for the month, sorted
+let CURRENT_REGION = "ALL";              // "ALL" | "MH US" | "MH EU"
+
+function onRegionChange() {
+  CURRENT_REGION = document.getElementById("regionSelect").value;
+  applyRegionFilter();
+}
+
+// Render the region tiles, overall KPIs and channel list for the currently
+// selected region (or everything when "Select all").
+function applyRegionFilter() {
+  const data = CURRENT_DATA;
+  if (!data) return;
+  const region = CURRENT_REGION;
+  const channels = region === "ALL"
+    ? CURRENT_CHANNELS_SORTED
+    : CURRENT_CHANNELS_SORTED.filter(c => c.region === region);
+  const regions = region === "ALL"
+    ? (data.regions || [])
+    : (data.regions || []).filter(r => r.region === region);
+
+  const totals = computeOverall(channels);
+  const daysCompletedForAvg = data.days_completed != null ? data.days_completed : Math.max(0, (data.days_elapsed || 0) - 1);
+
+  document.getElementById("regions").innerHTML = regions.map(regionCardHtml).join("");
+  document.getElementById("regionSection").style.display = "block";
+
+  document.getElementById("overall").innerHTML = overallHtml(totals, daysCompletedForAvg, data.days_in_month);
+  document.getElementById("overallSection").style.display = "block";
+
+  // Reset drill-down state, then render the filtered channels.
+  CH_STATE = {
+    channels: channels,
+    trees: channels.map(c => buildCategoryTree(c.skus || [], c)),
+    daysCompleted: daysCompletedForAvg,
+    daysInMonth: data.days_in_month,
+  };
+  openChannels.clear();
+  for (const k in openCat) delete openCat[k];
+  for (const k in openListing) delete openListing[k];
+  renderChannels();
+  document.getElementById("channelSection").style.display = "block";
+}
+
 async function loadMonth(year, month) {
   const statusEl = document.getElementById("status");
   try {
@@ -560,28 +614,9 @@ async function loadMonth(year, month) {
     document.getElementById("subheader").textContent =
       `${data.month_label} — updated ${new Date(data.generated_at).toLocaleString()} · day ${data.days_elapsed} of ${data.days_in_month}`;
 
-    const channels = sortByAchievement(data.channels || []);
-    const totals = computeOverall(channels);
-
-    document.getElementById("regions").innerHTML = (data.regions || []).map(regionCardHtml).join("");
-    document.getElementById("regionSection").style.display = "block";
-
-    const daysCompletedForAvg = data.days_completed != null ? data.days_completed : Math.max(0, (data.days_elapsed || 0) - 1);
-    document.getElementById("overall").innerHTML = overallHtml(totals, daysCompletedForAvg, data.days_in_month);
-    document.getElementById("overallSection").style.display = "block";
-
-    // Reset drill-down state for the newly loaded month, then render.
-    CH_STATE = {
-      channels: channels,
-      trees: channels.map(c => buildCategoryTree(c.skus || [], c)),
-      daysCompleted: data.days_completed != null ? data.days_completed : data.days_elapsed,
-      daysInMonth: data.days_in_month,
-    };
-    openChannels.clear();
-    for (const k in openCat) delete openCat[k];
-    for (const k in openListing) delete openListing[k];
-    renderChannels();
-    document.getElementById("channelSection").style.display = "block";
+    CURRENT_DATA = data;
+    CURRENT_CHANNELS_SORTED = sortByAchievement(data.channels || []);
+    applyRegionFilter();
 
     statusEl.style.display = "none";
   } catch (err) {
