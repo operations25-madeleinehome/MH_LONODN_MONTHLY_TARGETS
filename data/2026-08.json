@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T06:32:25",
+  "generated_at": "2026-08-19T07:14:53",
   "month": 8,
   "year": 2026,
   "month_label": "August 2026",
@@ -10,18 +10,18 @@
     {
       "region": "MH EU",
       "target_revenue": 66149.66,
-      "actual_revenue": 29342.99,
+      "actual_revenue": 29368.28,
       "target_units": 905,
-      "actual_units": 495,
-      "projected_revenue": 47875.41
+      "actual_units": 496,
+      "projected_revenue": 47916.67
     },
     {
       "region": "MH US",
       "target_revenue": 396242.89,
-      "actual_revenue": 258422.56,
+      "actual_revenue": 258484.47,
       "target_units": 4739,
-      "actual_units": 3154,
-      "projected_revenue": 421636.8
+      "actual_units": 3156,
+      "projected_revenue": 421737.81
     }
   ],
   "channels": [
@@ -30,9 +30,9 @@
       "region": "MH US",
       "target_units": 4504,
       "target_revenue": 371913.89,
-      "actual_units": 2801,
-      "actual_revenue": 230115.45,
-      "projected_revenue": 375451.52,
+      "actual_units": 2803,
+      "actual_revenue": 230177.36,
+      "projected_revenue": 375552.53,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -43,8 +43,8 @@
           "listing_name": "Marly Wall Mounted Shelf",
           "target_units": 45,
           "target_revenue": 1353.29,
-          "actual_units": 30,
-          "actual_revenue": 951.68,
+          "actual_units": 32,
+          "actual_revenue": 1013.59,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e4/49/87/67/678749e4376de9165a96f621/MH-ST-107 - 3_4th Right Set.jpg"
         },
         {
@@ -4462,13 +4462,23 @@
       "region": "MH EU",
       "target_units": 204,
       "target_revenue": 13243.78,
-      "actual_units": 78,
-      "actual_revenue": 5110.85,
-      "projected_revenue": 8338.76,
+      "actual_units": 79,
+      "actual_revenue": 5136.14,
+      "projected_revenue": 8380.02,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
       "skus": [
+        {
+          "sku": "MH- ST-107",
+          "category": "Wall Mounted Shelves",
+          "listing_name": "Marly Wall Mounted Shelf",
+          "target_units": 0,
+          "target_revenue": 0.0,
+          "actual_units": 1,
+          "actual_revenue": 25.29,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e4/49/87/67/678749e4376de9165a96f621/MH-ST-107 - 3_4th Right Set.jpg"
+        },
         {
           "sku": "MH-BS-901A",
           "category": "Bar Stools",
