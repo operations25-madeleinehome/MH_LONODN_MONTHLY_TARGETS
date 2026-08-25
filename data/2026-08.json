@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T07:39:05",
+  "generated_at": "2026-08-25T08:06:08",
   "month": 8,
   "year": 2026,
   "month_label": "August 2026",
@@ -18,10 +18,10 @@
     {
       "region": "MH US",
       "target_revenue": 396242.89,
-      "actual_revenue": 340946.4,
+      "actual_revenue": 341043.0,
       "target_units": 4739,
-      "actual_units": 4127,
-      "projected_revenue": 422773.53
+      "actual_units": 4130,
+      "projected_revenue": 422893.31
     }
   ],
   "channels": [
@@ -30,9 +30,9 @@
       "region": "MH US",
       "target_units": 4504,
       "target_revenue": 371913.89,
-      "actual_units": 3657,
-      "actual_revenue": 304057.46,
-      "projected_revenue": 377031.25,
+      "actual_units": 3660,
+      "actual_revenue": 304154.06,
+      "projected_revenue": 377151.03,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -43,8 +43,8 @@
           "listing_name": "Marly Wall Mounted Shelf",
           "target_units": 45,
           "target_revenue": 1353.29,
-          "actual_units": 32,
-          "actual_revenue": 1013.59,
+          "actual_units": 35,
+          "actual_revenue": 1110.19,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e4/49/87/67/678749e4376de9165a96f621/MH-ST-107 - 3_4th Right Set.jpg"
         },
         {
