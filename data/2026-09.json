@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T10:18:59",
+  "generated_at": "2026-08-27T10:21:03",
   "month": 9,
   "year": 2026,
   "month_label": "September 2026",
@@ -17,9 +17,9 @@
     },
     {
       "region": "MH US",
-      "target_revenue": 388865.52,
+      "target_revenue": 417439.04,
       "actual_revenue": 0.0,
-      "target_units": 4542,
+      "target_units": 4930,
       "actual_units": 0,
       "projected_revenue": 0.0
     }
@@ -3212,15 +3212,286 @@
     {
       "name": "Amazon US",
       "region": "MH US",
-      "target_units": 0,
-      "target_revenue": 0.0,
+      "target_units": 388,
+      "target_revenue": 28573.52,
       "actual_units": 0,
-      "actual_revenue": 0,
+      "actual_revenue": 0.0,
       "projected_revenue": 0.0,
       "has_actual_file": true,
-      "has_target_data": false,
-      "target_source": "none",
-      "skus": []
+      "has_target_data": true,
+      "target_source": "sku",
+      "skus": [
+        {
+          "sku": "MH-MD-13007WT",
+          "category": "Wall D\u00e9cor",
+          "listing_name": "Lassi Medallion Hand Carved",
+          "target_units": 10,
+          "target_revenue": 679.9,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/83/86/94/62/62948683729f3c50497761c5/MH-MD-13007WT - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21065",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Small",
+          "target_units": 5,
+          "target_revenue": 374.95,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/df/c9/33/63/6333c9dfb681bf7b9ec5c19a/MH-TB-21065 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21066",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Small",
+          "target_units": 20,
+          "target_revenue": 1499.8,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9d/24/8c/65/658c249d8eaab81f922941ea/MH-TB-21066 - All Variation Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21067",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Small",
+          "target_units": 2,
+          "target_revenue": 149.98,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/02/cb/33/63/6333cb029545d0ce9653e612/MH-TB-21067 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21068",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Large",
+          "target_units": 5,
+          "target_revenue": 414.95,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/68/cb/33/63/6333cb68cfa459f71386479f/MH-TB-21068 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21069",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Large",
+          "target_units": 15,
+          "target_revenue": 1244.85,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/2a/25/8c/65/658c252a5c5552038ac7aeab/MH-TB-21069 - All Variation Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21070",
+          "category": "End Tables",
+          "listing_name": "Tora End Table Large",
+          "target_units": 5,
+          "target_revenue": 414.95,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9f/cc/33/63/6333cc9fcfa459f7138647a4/MH-TB-21070 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21212",
+          "category": "End Tables",
+          "listing_name": "Ellis End Table",
+          "target_units": 10,
+          "target_revenue": 1199.9,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": null
+        },
+        {
+          "sku": "MH-TB-21213",
+          "category": "End Tables",
+          "listing_name": "Campbell End Table",
+          "target_units": 10,
+          "target_revenue": 1199.9,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": null
+        },
+        {
+          "sku": "MH-TB-21214",
+          "category": "End Tables",
+          "listing_name": "Ellis End Table",
+          "target_units": 15,
+          "target_revenue": 1799.85,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": null
+        },
+        {
+          "sku": "MH-TB-21268",
+          "category": "End Tables",
+          "listing_name": "Firma End Table",
+          "target_units": 10,
+          "target_revenue": 499.9,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/96/ed/9b/69/699bed96bc29d1e0dde508f1/MH-TB-21268 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21269",
+          "category": "End Tables",
+          "listing_name": "Firma End Table",
+          "target_units": 35,
+          "target_revenue": 1749.65,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/be/ee/9b/69/699beebec02365eae562ce24/MH-TB-21269 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21270",
+          "category": "End Tables",
+          "listing_name": "Alina End Table",
+          "target_units": 25,
+          "target_revenue": 1249.75,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/49/3e/a1/69/69a13e49b063cf97b22338c5/MH-TB-21270 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21271",
+          "category": "End Tables",
+          "listing_name": "Alina End Table",
+          "target_units": 38,
+          "target_revenue": 1899.62,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d0/3e/a1/69/69a13ed07cc6e3c9057b9e5c/MH-TB-21271 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21272",
+          "category": "End Tables",
+          "listing_name": "Jasmine End Table",
+          "target_units": 10,
+          "target_revenue": 499.9,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/21/0c/a9/69/69a90c21787fee2350add661/MH-TB-21272 - Floor_Wall Set.jpg"
+        },
+        {
+          "sku": "MH-TB-21273",
+          "category": "End Tables",
+          "listing_name": "Jasmine End Table",
+          "target_units": 15,
+          "target_revenue": 749.85,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/36/0d/a9/69/69a90d3611a26afc52e1ef52/MH-TB-21273 - Zoomed Out Set.jpg"
+        },
+        {
+          "sku": "MH-TB-819",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Small",
+          "target_units": 13,
+          "target_revenue": 974.87,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/5c/da/e0/62/62e0da5c530023baaa1249d1/MH-TB-819 - Color Variations Set.jpg"
+        },
+        {
+          "sku": "MH-TB-873",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Small",
+          "target_units": 20,
+          "target_revenue": 1599.8,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d2/05/7e/63/637e05d22c0c4142ad2d0ae4/MH-TB-873 - Zoomed In Set.jpg"
+        },
+        {
+          "sku": "MH-TB-874",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Small",
+          "target_units": 70,
+          "target_revenue": 5481.7,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d4/95/82/65/658295d4250e8945cf7ab032/MH-TB-874 - All Variation Set.jpg"
+        },
+        {
+          "sku": "MH-TB-875",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Small",
+          "target_units": 5,
+          "target_revenue": 399.95,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/1b/07/7e/63/637e071b975e79f93764a12c/MH-TB-875 - Front Set.jpg"
+        },
+        {
+          "sku": "MH-TB-876",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Large",
+          "target_units": 5,
+          "target_revenue": 449.95,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/60/07/7e/63/637e0760a43fb3f21e0dd3ce/MH-TB-876 - Front Set.jpg"
+        },
+        {
+          "sku": "MH-TB-877",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Large",
+          "target_units": 15,
+          "target_revenue": 1349.85,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/87/96/82/65/658296875f6223ed7ed2cb41/MH-TB-877 - All Variation Set.jpg"
+        },
+        {
+          "sku": "MH-TB-878",
+          "category": "End Tables",
+          "listing_name": "Armstrong End Table Large",
+          "target_units": 5,
+          "target_revenue": 449.95,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/f7/07/7e/63/637e07f75d80abbd9918da29/MH-TB-878 - Front Set.jpg"
+        },
+        {
+          "sku": "MH-TB-893",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Large",
+          "target_units": 2,
+          "target_revenue": 199.98,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/16/db/e0/62/62e0db16530023baaa1249f6/MH-TB-893 - Color Variations Set.jpg"
+        },
+        {
+          "sku": "MH-TB-894",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Large",
+          "target_units": 10,
+          "target_revenue": 999.9,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/51/92/82/65/658292515f6223ed7ed2c981/MH-TB-894 - All Variations Set.jpg"
+        },
+        {
+          "sku": "MH-TB-895",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Small",
+          "target_units": 8,
+          "target_revenue": 639.92,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/35/dd/e0/62/62e0dd3533927e49dbf351da/MH-TB-895 - Color Variations Set.jpg"
+        },
+        {
+          "sku": "MH-TB-896",
+          "category": "End Tables",
+          "listing_name": "Chervey Tri Pin Side Table Small",
+          "target_units": 5,
+          "target_revenue": 399.95,
+          "actual_units": 0,
+          "actual_revenue": 0.0,
+          "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9e/27/81/65/6581279e89f59f74cfc1daac/MH-TB-896 - All Variation Set.jpg"
+        }
+      ]
     },
     {
       "name": "Wayfair EU",
