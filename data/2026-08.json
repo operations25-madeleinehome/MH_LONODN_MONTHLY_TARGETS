@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T12:39:41",
+  "generated_at": "2026-09-02T06:33:20",
   "month": 8,
   "year": 2026,
   "month_label": "August 2026",
@@ -10,18 +10,18 @@
     {
       "region": "MH EU",
       "target_revenue": 66149.66,
-      "actual_revenue": 52843.58,
+      "actual_revenue": 52934.42,
       "target_units": 905,
-      "actual_units": 905,
-      "projected_revenue": 52843.58
+      "actual_units": 906,
+      "projected_revenue": 52934.42
     },
     {
       "region": "MH US",
       "target_revenue": 396242.89,
-      "actual_revenue": 453815.65,
+      "actual_revenue": 454010.25,
       "target_units": 4739,
-      "actual_units": 5413,
-      "projected_revenue": 453815.65
+      "actual_units": 5419,
+      "projected_revenue": 454010.25
     }
   ],
   "channels": [
@@ -30,9 +30,9 @@
       "region": "MH US",
       "target_units": 4504,
       "target_revenue": 371913.89,
-      "actual_units": 4805,
-      "actual_revenue": 406077.31,
-      "projected_revenue": 406077.31,
+      "actual_units": 4811,
+      "actual_revenue": 406271.91,
+      "projected_revenue": 406271.91,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -1693,8 +1693,8 @@
           "listing_name": "Tora End Table Small",
           "target_units": 20,
           "target_revenue": 583.44,
-          "actual_units": 31,
-          "actual_revenue": 870.69,
+          "actual_units": 33,
+          "actual_revenue": 934.39,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/df/c9/33/63/6333c9dfb681bf7b9ec5c19a/MH-TB-21065 - Floor_Wall Set.jpg"
         },
         {
@@ -1703,8 +1703,8 @@
           "listing_name": "Tora End Table Small",
           "target_units": 40,
           "target_revenue": 1190.34,
-          "actual_units": 36,
-          "actual_revenue": 1212.43,
+          "actual_units": 38,
+          "actual_revenue": 1279.63,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/9d/24/8c/65/658c249d8eaab81f922941ea/MH-TB-21066 - All Variation Set.jpg"
         },
         {
@@ -3263,8 +3263,8 @@
           "listing_name": "Armstrong End Table Large",
           "target_units": 70,
           "target_revenue": 2419.27,
-          "actual_units": 74,
-          "actual_revenue": 2527.7,
+          "actual_units": 76,
+          "actual_revenue": 2591.4,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/87/96/82/65/658296875f6223ed7ed2cb41/MH-TB-877 - All Variation Set.jpg"
         },
         {
@@ -6340,9 +6340,9 @@
       "region": "MH EU",
       "target_units": 128,
       "target_revenue": 9354.4,
-      "actual_units": 211,
-      "actual_revenue": 12434.52,
-      "projected_revenue": 12434.52,
+      "actual_units": 212,
+      "actual_revenue": 12525.36,
+      "projected_revenue": 12525.36,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -6713,8 +6713,8 @@
           "listing_name": "Campbell End Table",
           "target_units": 2,
           "target_revenue": 183.98,
-          "actual_units": 0,
-          "actual_revenue": 0.0,
+          "actual_units": 1,
+          "actual_revenue": 90.84,
           "image_url": "https://files.plytix.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/37/ef/23/66/6623ef37926ca25796b40706/MH-TB-21122 - 3_4th Right Set.jpg"
         },
         {
