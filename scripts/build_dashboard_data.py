@@ -67,44 +67,67 @@ SKU_DETAILS_SHEET = "Sheet1"
 SIMULATED_TODAY = None
 
 # --- Channel registry ---------------------------------------------------
-# "file_stub": prefix used to find this channel's ACTUAL sales file in the
-#   month folder (same matching convention as Monthly_Target_Update_Code.py).
-# "target_sheet": sheet name to read for this channel's TARGET data, and
-#   which Targets workbook ("MH EU" or "MH US") it lives in. None if there's
-#   no target sheet for this channel yet.
+# From October 2026 the data is CONSOLIDATED into a handful of files:
+#   * actuals  -> one "MH US Sales"/"MH EU Sales" workbook per region, with one
+#                 sheet (tab) per channel named by "sales_sheet" below.
+#   * targets  -> one "MH US - Targets"/"MH EU - Targets" workbook per region,
+#                 with one sheet per channel (candidate names in "target_sheets").
+# For OLDER months (June-September 2026) the per-channel file layout is still
+# used; the build auto-detects and falls back via "file_stub" (old per-channel
+# actual file) + the old targets workbook names.
+#
+# Fields:
+#   "sales_sheet"    tab in the region Sales workbook (new layout). None = this
+#                    channel has no dedicated tab (it is rolled into the region's
+#                    "Other Sales Channels" sheet); kept only for old-month fallback.
+#   "file_stub"      old per-channel actual file prefix (fallback).
+#   "target_workbook" "MH US"/"MH EU"/None.
+#   "target_sheets"  candidate target tab names, tried in order (handles the
+#                    Wayfair EU/"Wayfair UK" rename across old vs new files).
 CHANNEL_REGISTRY = [
+    # -- MH US: dedicated tabs in "MH US Sales" / "MH US - Targets" --
     {"name": "Wayfair US", "region": "MH US", "file_stub": "Wayfair US",
-     "target_workbook": "MH US", "target_sheet": "Wayfair US"},
+     "sales_sheet": "Wayfair US", "target_workbook": "MH US", "target_sheets": ["Wayfair US"]},
     {"name": "Amazon US", "region": "MH US", "file_stub": "Amazon US",
-     "target_workbook": "MH US", "target_sheet": "Amazon US"},
-    {"name": "Wayfair EU", "region": "MH EU", "file_stub": "Wayfair EU",
-     "target_workbook": "MH EU", "target_sheet": "Wayfair UK"},  # same channel, different label
-    {"name": "Shopify UK", "region": "MH EU", "file_stub": "Shopify UK",
-     "target_workbook": "MH EU", "target_sheet": "Shopify UK"},  # matched with .strip()
-    {"name": "Debenhams", "region": "MH EU", "file_stub": "Debenhams",
-     "target_workbook": "MH EU", "target_sheet": "Debenhams"},  # no actual file synced yet
-    {"name": "Other Sales Channels", "region": "MH EU", "file_stub": "Amazon UK",
-     "target_workbook": "MH EU", "target_sheet": "Other Sales Channels"},
-    # MH US catch-all: actuals only, no target (SKU/category breakdown still shown).
+     "sales_sheet": "Amazon US", "target_workbook": "MH US", "target_sheets": ["Amazon US"]},
+    {"name": "Walmart", "region": "MH US", "file_stub": "Walmart",
+     "sales_sheet": "Walmart", "target_workbook": None, "target_sheets": []},
     {"name": "Other Sales Channels (US)", "region": "MH US", "file_stub": "MH US - Other Sales Channels",
-     "target_workbook": None, "target_sheet": None},
-    # -- channels with no target sheet yet; actual-only until Q4 targets land
-    {"name": "Shopify US", "region": "MH US", "file_stub": "Shopify US", "target_workbook": None, "target_sheet": None},
-    {"name": "Home Depot", "region": "MH US", "file_stub": "Home Depot", "target_workbook": None, "target_sheet": None},
-    {"name": "Amazon EU", "region": "MH EU", "file_stub": "Amazon EU", "target_workbook": None, "target_sheet": None},
-    {"name": "Overstock", "region": "MH US", "file_stub": "Overstock", "target_workbook": None, "target_sheet": None},
-    {"name": "E-Bay UK", "region": "MH EU", "file_stub": "E-Bay UK", "target_workbook": None, "target_sheet": None},
-    {"name": "Walmart", "region": "MH US", "file_stub": "Walmart", "target_workbook": None, "target_sheet": None},
-    {"name": "Range", "region": "MH EU", "file_stub": "Range", "target_workbook": None, "target_sheet": None},
-    {"name": "B&Q", "region": "MH EU", "file_stub": "B&Q", "target_workbook": None, "target_sheet": None},
-    {"name": "Faire UK", "region": "MH EU", "file_stub": "Faire UK", "target_workbook": None, "target_sheet": None},
-    {"name": "Lowes", "region": "MH US", "file_stub": "Lowes", "target_workbook": None, "target_sheet": None},
-    {"name": "Faire", "region": "MH US", "file_stub": "Faire", "target_workbook": None, "target_sheet": None},
-    {"name": "Houzz", "region": "MH US", "file_stub": "Houzz", "target_workbook": None, "target_sheet": None},
-    {"name": "Tesco", "region": "MH EU", "file_stub": "Tesco", "target_workbook": None, "target_sheet": None},
+     "sales_sheet": "Other Sales Channels", "target_workbook": None, "target_sheets": []},
+    # -- MH EU: dedicated tabs in "MH EU Sales" / "MH EU - Targets" --
+    {"name": "Wayfair EU", "region": "MH EU", "file_stub": "Wayfair EU",
+     "sales_sheet": "Wayfair EU", "target_workbook": "MH EU", "target_sheets": ["Wayfair EU", "Wayfair UK"]},
+    {"name": "Shopify UK", "region": "MH EU", "file_stub": "Shopify UK",
+     "sales_sheet": "Shopify UK", "target_workbook": "MH EU", "target_sheets": ["Shopify UK"]},
+    {"name": "Debenhams", "region": "MH EU", "file_stub": "Debenhams",
+     "sales_sheet": "Debenhams", "target_workbook": "MH EU", "target_sheets": ["Debenhams"]},
+    {"name": "Other Sales Channels", "region": "MH EU", "file_stub": "Amazon UK",
+     "sales_sheet": "Other Sales Channels", "target_workbook": "MH EU", "target_sheets": ["Other Sales Channels"]},
+    # -- Smaller channels: no dedicated tab in the new layout (rolled into the
+    #    region "Other Sales Channels" sheet). Kept only for OLD-month fallback. --
+    {"name": "Shopify US", "region": "MH US", "file_stub": "Shopify US", "sales_sheet": None, "target_workbook": None, "target_sheets": []},
+    {"name": "Home Depot", "region": "MH US", "file_stub": "Home Depot", "sales_sheet": None, "target_workbook": None, "target_sheets": []},
+    {"name": "Amazon EU", "region": "MH EU", "file_stub": "Amazon EU", "sales_sheet": None, "target_workbook": None, "target_sheets": []},
+    {"name": "Overstock", "region": "MH US", "file_stub": "Overstock", "sales_sheet": None, "target_workbook": None, "target_sheets": []},
+    {"name": "E-Bay UK", "region": "MH EU", "file_stub": "E-Bay UK", "sales_sheet": None, "target_workbook": None, "target_sheets": []},
+    {"name": "Range", "region": "MH EU", "file_stub": "Range", "sales_sheet": None, "target_workbook": None, "target_sheets": []},
+    {"name": "B&Q", "region": "MH EU", "file_stub": "B&Q", "sales_sheet": None, "target_workbook": None, "target_sheets": []},
+    {"name": "Faire UK", "region": "MH EU", "file_stub": "Faire UK", "sales_sheet": None, "target_workbook": None, "target_sheets": []},
+    {"name": "Lowes", "region": "MH US", "file_stub": "Lowes", "sales_sheet": None, "target_workbook": None, "target_sheets": []},
+    {"name": "Faire", "region": "MH US", "file_stub": "Faire", "sales_sheet": None, "target_workbook": None, "target_sheets": []},
+    {"name": "Houzz", "region": "MH US", "file_stub": "Houzz", "sales_sheet": None, "target_workbook": None, "target_sheets": []},
+    {"name": "Tesco", "region": "MH EU", "file_stub": "Tesco", "sales_sheet": None, "target_workbook": None, "target_sheets": []},
 ]
 
+# Consolidated layout (Oct 2026 onward): one Sales workbook + one Targets
+# workbook per region.
+SALES_WORKBOOK_STUBS = {"MH US": "MH US Sales", "MH EU": "MH EU Sales"}
 TARGET_WORKBOOK_STUBS = {
+    "MH EU": "MH EU - Targets",
+    "MH US": "MH US - Targets",
+}
+# Old per-region Targets workbook names (June-September 2026), used as fallback.
+TARGET_WORKBOOK_STUBS_OLD = {
     "MH EU": "MH EU - Revenue Targets",
     "MH US": "MH US - Wayfair & Amazon Monthly Targets",
 }
@@ -388,6 +411,32 @@ def load_sku_details():
         raw = json.load(f)
     return {normalize_sku(k): v for k, v in raw.items()}
 
+# --- consolidated-workbook helpers --------------------------------------
+
+def find_file_by_stub(files, stub):
+    """Match a file whose stem starts with '<stub> -', else just '<stub>'."""
+    return match_by_stub(files, stub) or next(
+        (x for x in files if Path(x["name"]).stem.lower().startswith(stub.lower())), None)
+
+def workbook_sheet_names(file_bytes):
+    file_bytes.seek(0)
+    wb = openpyxl.load_workbook(file_bytes, read_only=True)
+    try:
+        return list(wb.sheetnames)
+    finally:
+        wb.close()
+
+def resolve_sheet(names, candidates):
+    """Return the actual sheet name (from `names`) matching any candidate,
+    comparing case- and surrounding-space-insensitively (handles 'Shopify UK ')."""
+    norm = lambda s: str(s).strip().lower()
+    by_norm = {norm(n): n for n in names}
+    for c in candidates:
+        hit = by_norm.get(norm(c))
+        if hit is not None:
+            return hit
+    return None
+
 # =============================================================================
 # MAIN BUILD
 # =============================================================================
@@ -429,45 +478,74 @@ def build_dashboard_data(service, month, year, today=None, sku_images=None, sku_
             print(f"  -> couldn't read live SKU details ('{details_file['name']}'): {exc}; "
                   f"using bundled fallback")
 
-    # Download + parse the two Targets workbooks once (only sheets we need,
-    # looked up lazily per channel below).
-    target_workbook_bytes = {}
-    for label, stub in TARGET_WORKBOOK_STUBS.items():
-        f = match_by_stub(files_in_folder, stub) or next(
-            (x for x in files_in_folder if Path(x["name"]).stem.lower().startswith(stub.lower())), None
-        )
+    # --- Download the per-region workbooks once (consolidated layout, with
+    #     fallback to the old per-region Targets names). ---
+    # Region Sales workbooks (new layout): "MH US Sales" / "MH EU Sales".
+    region_sales_bytes, region_sales_names = {}, {}
+    for region, stub in SALES_WORKBOOK_STUBS.items():
+        f = find_file_by_stub(files_in_folder, stub)
         if f:
-            target_workbook_bytes[label] = download_bytes(service, f["id"])
+            b = download_bytes(service, f["id"])
+            region_sales_bytes[region] = b
+            region_sales_names[region] = workbook_sheet_names(b)
 
-    # Channel-only totals (no SKU breakdown), read once per workbook from the
-    # optional "Channel-Only Targets" sheet if it exists.
+    # Region Targets workbooks: new name first, then old name as fallback.
+    target_workbook_bytes, target_workbook_names = {}, {}
+    for region, stub in TARGET_WORKBOOK_STUBS.items():
+        f = find_file_by_stub(files_in_folder, stub) or find_file_by_stub(
+            files_in_folder, TARGET_WORKBOOK_STUBS_OLD[region])
+        if f:
+            b = download_bytes(service, f["id"])
+            target_workbook_bytes[region] = b
+            target_workbook_names[region] = workbook_sheet_names(b)
+
+    # Channel-only totals (no SKU breakdown), read once per region Targets
+    # workbook from the optional "Channel-Only Targets" sheet if it exists.
     channel_only_by_region = {}
-    for label, wb_bytes in target_workbook_bytes.items():
+    for region, wb_bytes in target_workbook_bytes.items():
         wb_bytes.seek(0)
-        channel_only_by_region[label] = parse_channel_only_targets(wb_bytes)
+        channel_only_by_region[region] = parse_channel_only_targets(wb_bytes)
 
     channels_out = []
     for profile in CHANNEL_REGISTRY:
-        actual_file = match_by_stub(files_in_folder, profile["file_stub"])
+        region = profile["region"]
+
+        # --- ACTUALS: new consolidated region Sales workbook (per-channel tab)
+        #     first; fall back to the old per-channel file's "Sales - <Month>". ---
         actual_by_sku = {}
-        if actual_file:
-            file_bytes = download_bytes(service, actual_file["id"])
-            actual_by_sku = parse_actuals_sheet(file_bytes, sheet_name)
+        has_actual_file = False
+        rb = region_sales_bytes.get(region)
+        sales_sheet = profile.get("sales_sheet")
+        if rb is not None and sales_sheet:
+            matched = resolve_sheet(region_sales_names.get(region, []), [sales_sheet])
+            if matched:
+                rb.seek(0)
+                actual_by_sku = parse_actuals_sheet(rb, matched)
+                has_actual_file = True
+        if not has_actual_file:
+            actual_file = match_by_stub(files_in_folder, profile["file_stub"])
+            if actual_file:
+                file_bytes = download_bytes(service, actual_file["id"])
+                actual_by_sku = parse_actuals_sheet(file_bytes, sheet_name)
+                has_actual_file = True
 
+        # --- TARGETS: region Targets workbook, trying candidate sheet names. ---
         target_by_sku = {}
-        if profile["target_workbook"] and profile["target_workbook"] in target_workbook_bytes:
-            wb_bytes = target_workbook_bytes[profile["target_workbook"]]
-            wb_bytes.seek(0)
-            target_by_sku = parse_target_sheet(wb_bytes, profile["target_sheet"])
+        if profile["target_workbook"] and region in target_workbook_bytes:
+            tsheet = resolve_sheet(target_workbook_names.get(region, []),
+                                   profile.get("target_sheets", []))
+            if tsheet:
+                tb = target_workbook_bytes[region]
+                tb.seek(0)
+                target_by_sku = parse_target_sheet(tb, tsheet)
 
-        # Fallback for channels with no SKU-level breakdown (e.g. Walmart):
-        # a single monthly total from the "Channel-Only Targets" sheet in
-        # this channel's own region's workbook.
-        channel_only = channel_only_by_region.get(profile["region"], {}).get(
+        # Fallback for channels with only a single monthly total (e.g. Walmart):
+        # the "Channel-Only Targets" sheet in this region's Targets workbook.
+        channel_only = channel_only_by_region.get(region, {}).get(
             (year, month, profile["name"].lower())
         )
 
-        if not actual_file and not target_by_sku and not channel_only:
+        if not has_actual_file and not target_by_sku and not channel_only:
             continue  # nothing to report for this channel this month
 
         all_skus = sorted(set(actual_by_sku) | set(target_by_sku))
@@ -512,7 +590,7 @@ def build_dashboard_data(service, month, year, today=None, sku_images=None, sku_
             "actual_units": sum(r["actual_units"] for r in sku_rows),
             "actual_revenue": actual_revenue,
             "projected_revenue": projected_revenue,
-            "has_actual_file": actual_file is not None,
+            "has_actual_file": has_actual_file,
             "has_target_data": target_source != "none",
             "target_source": target_source,
             "skus": sku_rows,

@@ -147,3 +147,33 @@ data into the per-channel Monthly Targets workbooks in Drive. This keeps
 running locally on your machine on its existing schedule — it's what feeds the
 data the GitHub Action later reads. It's included in this repo for reference
 only; it is not run by GitHub Actions.
+
+## Consolidated file structure (October 2026 onward)
+
+From **October 2026** the per-channel files are collapsed into **five files per
+month folder**. The scripts auto-detect the layout: if a month folder contains a
+consolidated Sales workbook, the new layout is used; otherwise the old
+per-channel files are read (so June–September 2026 keep working unchanged).
+
+The five files (named `... - <Month> <Year>.xlsx`):
+
+| File | Sheets (tabs) |
+|---|---|
+| **MH US - Targets** | Wayfair US, Amazon US |
+| **MH EU - Targets** | Wayfair EU *(renamed from "Wayfair UK")*, Shopify UK, Debenhams, Other Sales Channels |
+| **MH US Sales** | Wayfair US, Amazon US, Walmart, Other Sales Channels |
+| **MH EU Sales** | Wayfair EU, Shopify UK, Debenhams, Other Sales Channels |
+| **SKU Details and Priority** | (unchanged) |
+
+Notes:
+- The daily sync writes each channel's actual sales into its **tab** inside the
+  region's single Sales workbook (creating the tab automatically if missing).
+- Each region's **"Other Sales Channels"** tab is a catch-all: MH US collects
+  every MH US channel except Wayfair US / Amazon US / Walmart; MH EU collects
+  every MH EU channel except Wayfair EU / Shopify UK / Debenhams.
+- The MH EU "Other Sales Channels" catch-all no longer carries the old XLOOKUP
+  Category / SKU-Available formula columns (the dashboard gets category from the
+  SKU Details file), keeping the consolidated workbook clean.
+- To start a new month: create these 5 files in the month folder (empty Sales
+  workbooks are fine — the sync creates the per-channel tabs). Keep the sheet
+  (tab) names exactly as above so the scripts find them.

@@ -186,6 +186,56 @@ CATCHALL_PROFILES = [
 ALL_PROFILES = CHANNEL_PROFILES + CATCHALL_PROFILES
 
 # =============================================================================
+# CONSOLIDATED LAYOUT (October 2026 onward)
+# One Sales workbook per region ("MH US Sales" / "MH EU Sales"), with ONE sheet
+# (tab) per channel. The daily sync writes each channel's rows into its tab.
+# For older months (no consolidated Sales workbook present) the per-channel-file
+# layout above is used instead -- the sync auto-detects per month.
+# =============================================================================
+
+SALES_WORKBOOK_STUBS = {"MH US": "MH US Sales", "MH EU": "MH EU Sales"}
+
+# First (year, month) that uses the consolidated layout. For months >= this,
+# the sync writes the two region Sales workbooks (creating them in the month
+# folder if they don't exist yet). Earlier months keep the per-channel layout.
+CONSOLIDATED_FROM = (2026, 10)
+
+REGION_SALES_LAYOUT = {
+    "MH US": [
+        {"name": "Wayfair US", "sheet": "Wayfair US",
+         "filter": {"type": "channel_equals", "sales_channel": "Wayfair US"},
+         "target_columns": STANDARD_COLUMNS},
+        {"name": "Amazon US", "sheet": "Amazon US",
+         "filter": {"type": "channel_equals", "sales_channel": "Amazon US"},
+         "target_columns": STANDARD_COLUMNS},
+        {"name": "Walmart", "sheet": "Walmart",
+         "filter": {"type": "channel_equals", "sales_channel": "Walmart"},
+         "target_columns": STANDARD_COLUMNS},
+        {"name": "Other Sales Channels", "sheet": "Other Sales Channels",
+         "is_catchall": True, "region": "MH US",
+         "always_exclude_channels": ["Wayfair US", "Amazon US", "Walmart"],
+         "target_columns": STANDARD_COLUMNS + ["Channel"],
+         "column_source_map": {"Channel": "Sales Channel"}},
+    ],
+    "MH EU": [
+        {"name": "Wayfair EU", "sheet": "Wayfair EU",
+         "filter": {"type": "channel_equals", "sales_channel": "Wayfair EU"},
+         "target_columns": STANDARD_COLUMNS},
+        {"name": "Shopify UK", "sheet": "Shopify UK",
+         "filter": {"type": "channel_equals", "sales_channel": "Shopify UK"},
+         "target_columns": STANDARD_COLUMNS},
+        {"name": "Debenhams", "sheet": "Debenhams",
+         "filter": {"type": "channel_equals", "sales_channel": "Debenhams"},
+         "target_columns": STANDARD_COLUMNS},
+        {"name": "Other Sales Channels", "sheet": "Other Sales Channels",
+         "is_catchall": True, "region": "MH EU",
+         "always_exclude_channels": ["Wayfair EU", "Shopify UK", "Debenhams"],
+         "target_columns": STANDARD_COLUMNS + ["Channel"],
+         "column_source_map": {"Channel": "Sales Channel"}},
+    ],
+}
+
+# =============================================================================
 # DATE / PERIOD LOGIC -- unchanged pure functions
 # =============================================================================
 
@@ -438,6 +488,38 @@ def resolve_catchall_filter(catchall_cfg, channel_names_with_own_file):
         "exclude_channels": list(exclude),
     }
 
+def get_month_folder_files(service, month, year):
+    """Returns (folder_id, [files]) for the <year>/<month> folder, or (None, [])."""
+    year_folder = find_child_by_name(service, MONTHLY_TARGETS_FOLDER_ID, str(year))
+    if year_folder is None:
+        return None, []
+    month_folder = find_child_by_name(service, year_folder["id"], month_name(month, year))
+    if month_folder is None:
+        return None, []
+    return month_folder["id"], list_children(service, month_folder["id"])
+
+def find_file_by_stub(files, stub):
+    """First .xlsx whose stem starts with '<stub> -' (then just '<stub>')."""
+    stub_l = stub.lower()
+    xlsx = [f for f in files
+            if f.get("mimeType") != "application/vnd.google-apps.folder"
+            and f["name"].lower().endswith(".xlsx") and not f["name"].startswith("~$")]
+    exact = [f for f in xlsx if Path(f["name"]).stem.lower().startswith(stub_l + " -")]
+    if exact:
+        return exact[0]
+    pref = [f for f in xlsx if Path(f["name"]).stem.lower().startswith(stub_l)]
+    return pref[0] if pref else None
+
+def create_xlsx_in_folder(service, folder_id, name, buf):
+    """Create a new .xlsx in the given Drive folder from an in-memory buffer."""
+    buf.seek(0)
+    media = MediaIoBaseUpload(buf, mimetype=XLSX_MIMETYPE, resumable=False)
+    meta = {"name": name, "parents": [folder_id]}
+    return service.files().create(
+        body=meta, media_body=media, fields="id",
+        supportsAllDrives=True,
+    ).execute()
+
 # =============================================================================
 # SYNCING A SINGLE CHANNEL FILE (append-only, never clears existing rows)
 # =============================================================================
@@ -524,6 +606,64 @@ def sync_channel(service, channel_cfg, drive_file, sheet_name, records):
     upload_bytes(service, drive_file["id"], out_buf)
     return summary
 
+def sync_region_workbook(service, drive_file, folder_id, region, month, year,
+                         master_rows, master_headers, label, problems):
+    """Consolidated layout: open the region's single Sales workbook (creating the
+    file in the month folder if it doesn't exist yet), append each channel's rows
+    into its own sheet (creating the sheet if missing), then save + upload once.
+    Prints per-channel summaries and records any per-channel failures."""
+    layout = REGION_SALES_LAYOUT[region]
+    own_names = {c["name"] for c in layout if not c.get("is_catchall")}
+
+    creating_file = drive_file is None
+    if creating_file:
+        wb = openpyxl.Workbook()
+        _default_sheet = wb.active            # blank starter sheet, removed below
+    else:
+        wb = openpyxl.load_workbook(download_bytes(service, drive_file["id"]))  # formulas preserved
+        _default_sheet = None
+    summaries = []
+    for ch in layout:
+        try:
+            if ch.get("is_catchall"):
+                filter_cfg = resolve_catchall_filter(ch, own_names)
+                cfg = {**ch, "filter": filter_cfg}
+            else:
+                cfg = ch
+            records = project_channel_records(master_rows, master_headers, cfg)
+
+            target_columns = ch["target_columns"]
+            formula_templates = ch.get("formula_templates", {})
+            sheet = ch["sheet"]
+            created = sheet not in wb.sheetnames
+            ws = wb.create_sheet(title=sheet) if created else wb[sheet]
+            for i, col_name in enumerate(target_columns, start=1):
+                ws.cell(row=1, column=i).value = col_name
+            s = sync_append_dedupe(ws, records, target_columns, formula_templates)
+            if created:
+                s = f"created sheet '{sheet}'; " + s
+            summaries.append(f"  [{region} / {ch['name']}] {len(records)} matching row(s) -> {s}.")
+        except Exception as exc:
+            problems.append(f"[{label}] {region} / {ch['name']} FAILED: {exc}")
+
+    # Drop the blank starter sheet left over from a freshly created workbook.
+    if creating_file and _default_sheet is not None and _default_sheet.title in wb.sheetnames \
+            and _default_sheet.title not in [c["sheet"] for c in layout]:
+        wb.remove(_default_sheet)
+
+    out_buf = io.BytesIO()
+    wb.save(out_buf)
+    wb.close()
+    out_buf.seek(0)
+    if creating_file:
+        new_name = f"{SALES_WORKBOOK_STUBS[region]} - {month_name(month, year)} {year}.xlsx"
+        create_xlsx_in_folder(service, folder_id, new_name, out_buf)
+        print(f"  [{region}] created new workbook '{new_name}'")
+    else:
+        upload_bytes(service, drive_file["id"], out_buf)
+    for line in summaries:
+        print(line)
+
 # =============================================================================
 # ERROR EMAIL
 # =============================================================================
@@ -562,9 +702,35 @@ def send_error_email(problems):
 # =============================================================================
 
 def process_period(service, month, year, all_master_rows, master_headers, is_grace_catchup, problems):
+    """Dispatcher: a month whose folder has a consolidated region Sales workbook
+    uses the new layout; otherwise the old per-channel-file layout."""
     label = f"{month_name(month, year)} {year}" + (" (grace catch-up)" if is_grace_catchup else "")
     print(f"\n--- {label} ---")
 
+    folder_id, files = get_month_folder_files(service, month, year)
+    if folder_id is None:
+        print("  no folder for this month -- nothing to do.")
+        return
+
+    master_rows = [r for r in all_master_rows if (r["_month"], r["_year"]) == (month, year)]
+
+    # Consolidated layout for months >= the cutover, OR any older month whose
+    # folder already has a consolidated Sales workbook. Otherwise old layout.
+    region_sales = {region: find_file_by_stub(files, stub)
+                    for region, stub in SALES_WORKBOOK_STUBS.items()}
+    use_new = (year, month) >= CONSOLIDATED_FROM or any(region_sales.values())
+
+    if use_new:
+        # --- NEW consolidated layout (create the region workbook if missing) ---
+        for region in SALES_WORKBOOK_STUBS:
+            sync_region_workbook(service, region_sales.get(region), folder_id, region,
+                                 month, year, master_rows, master_headers, label, problems)
+        return
+
+    # --- OLD per-channel-file layout (historical months) ---
+    process_period_old(service, month, year, label, master_rows, master_headers, problems)
+
+def process_period_old(service, month, year, label, master_rows, master_headers, problems):
     matched, unmatched_names = discover_and_match(service, month, year)
 
     if not matched and not unmatched_names:
@@ -580,7 +746,6 @@ def process_period(service, month, year, all_master_rows, master_headers, is_gra
         pname for pname, (_f, profile) in matched.items() if not profile.get("is_catchall")
     }
 
-    master_rows = [r for r in all_master_rows if (r["_month"], r["_year"]) == (month, year)]
     sheet_name = sheet_name_for(month, year)
 
     for profile_name, (drive_file, profile) in matched.items():
