@@ -43,8 +43,14 @@
     margin: 0 auto;
     padding: 0 32px 8px;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .filter { display: flex; flex-direction: column; gap: 4px; }
+  .filter > label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .04em; color: var(--text-muted);
   }
   select {
     font-size: 13px;
@@ -54,6 +60,29 @@
     background: var(--card-bg);
     color: var(--text);
   }
+  /* custom multi-select */
+  .ms { position: relative; }
+  .ms-btn {
+    font-size: 13px; padding: 6px 10px; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--card-bg); color: var(--text);
+    cursor: pointer; min-width: 160px; text-align: left;
+    display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  }
+  .ms-btn::after { content: "▾"; color: var(--text-muted); font-size: 11px; }
+  .ms-panel {
+    position: absolute; top: calc(100% + 4px); left: 0; z-index: 50;
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.12); padding: 6px; min-width: 190px;
+    max-height: 300px; overflow-y: auto; display: none;
+  }
+  .ms.open .ms-panel { display: block; }
+  .ms-opt {
+    display: flex; align-items: center; gap: 8px; padding: 6px 8px;
+    font-size: 13px; border-radius: 6px; cursor: pointer; white-space: nowrap;
+  }
+  .ms-opt:hover { background: var(--accent-soft); }
+  .ms-opt input { accent-color: var(--accent); width: 15px; height: 15px; }
+  .ms-divider { height: 1px; background: var(--border); margin: 4px 2px; }
   main { max-width: 1150px; margin: 0 auto; padding: 0 32px 60px; }
   #status { color: var(--text-muted); font-size: 14px; padding: 40px 0; }
 
@@ -163,12 +192,28 @@
   </div>
 </header>
 <div class="controls">
-  <select id="monthSelect" onchange="onMonthChange()"></select>
-  <select id="regionSelect" onchange="onRegionChange()">
-    <option value="ALL">Select all</option>
-    <option value="MH US">MH US</option>
-    <option value="MH EU">MH EU</option>
-  </select>
+  <div class="filter">
+    <label>Year</label>
+    <div class="ms" id="yearMs">
+      <button type="button" class="ms-btn" id="yearMsBtn" onclick="toggleMs(event,'yearMs')">All years</button>
+      <div class="ms-panel" id="yearMsPanel"></div>
+    </div>
+  </div>
+  <div class="filter">
+    <label>Month</label>
+    <div class="ms" id="monthMs">
+      <button type="button" class="ms-btn" id="monthMsBtn" onclick="toggleMs(event,'monthMs')">All months</button>
+      <div class="ms-panel" id="monthMsPanel"></div>
+    </div>
+  </div>
+  <div class="filter">
+    <label>Region</label>
+    <select id="regionSelect" onchange="onRegionChange()">
+      <option value="ALL">Select all</option>
+      <option value="MH US">MH US</option>
+      <option value="MH EU">MH EU</option>
+    </select>
+  </div>
 </div>
 <main>
   <div id="status">Loading dashboard data...</div>
@@ -539,24 +584,73 @@ function pickDefaultMonth(months, now) {
   return hit || months[0];   // fall back to newest if that month isn't published
 }
 
-async function populateMonthSelect() {
-  const resp = await fetch("data/manifest.json", { cache: "no-store" });
-  if (!resp.ok) throw new Error("HTTP " + resp.status + " loading manifest.json");
-  const manifest = await resp.json();
-  CURRENT_MANIFEST = manifest;
-  const sel = document.getElementById("monthSelect");
-  sel.innerHTML = manifest.months.map(m =>
-    `<option value="${m.year}-${String(m.month).padStart(2, "0")}">${m.label}</option>`
-  ).join("");
-  const def = pickDefaultMonth(manifest.months, new Date());
-  sel.value = `${def.year}-${String(def.month).padStart(2, "0")}`;
-  return def;
+// ---------------------------------------------------------------------
+// Month + Year multi-select filters (Power BI style: the selection is the
+// cross-product of chosen years x chosen months, aggregated together).
+// ---------------------------------------------------------------------
+const MONTH_NAMES = ["January","February","March","April","May","June",
+  "July","August","September","October","November","December"];
+let MANIFEST_MONTHS = [];        // [{year, month, label}]
+let AVAILABLE_YEARS = [];        // ascending
+let AVAILABLE_MONTHS = [];       // month numbers present, Jan->Dec
+const selectedYears = new Set();
+const selectedMonths = new Set();
+
+function renderMsPanels() {
+  const mp = document.getElementById("monthMsPanel");
+  mp.innerHTML =
+    `<label class="ms-opt"><input type="checkbox" id="monthAll" onchange="toggleAllMs('month', this.checked)"> <b>All months</b></label>`
+    + `<div class="ms-divider"></div>`
+    + AVAILABLE_MONTHS.map(m =>
+        `<label class="ms-opt"><input type="checkbox" value="${m}" ${selectedMonths.has(m) ? "checked" : ""} onchange="onMsChange('month', ${m}, this.checked)"> ${MONTH_NAMES[m-1]}</label>`
+      ).join("");
+  const yp = document.getElementById("yearMsPanel");
+  yp.innerHTML =
+    `<label class="ms-opt"><input type="checkbox" id="yearAll" onchange="toggleAllMs('year', this.checked)"> <b>All years</b></label>`
+    + `<div class="ms-divider"></div>`
+    + AVAILABLE_YEARS.map(y =>
+        `<label class="ms-opt"><input type="checkbox" value="${y}" ${selectedYears.has(y) ? "checked" : ""} onchange="onMsChange('year', ${y}, this.checked)"> ${y}</label>`
+      ).join("");
+  updateMsButtons();
 }
 
-function onMonthChange() {
-  const val = document.getElementById("monthSelect").value;
-  const [year, month] = val.split("-");
-  loadMonth(year, month);
+function updateMsButtons() {
+  const mBtn = document.getElementById("monthMsBtn");
+  if (selectedMonths.size === 0) mBtn.textContent = "None";
+  else if (selectedMonths.size === 1) mBtn.textContent = MONTH_NAMES[[...selectedMonths][0]-1];
+  else if (selectedMonths.size === AVAILABLE_MONTHS.length) mBtn.textContent = "All months";
+  else mBtn.textContent = selectedMonths.size + " months";
+  const yBtn = document.getElementById("yearMsBtn");
+  if (selectedYears.size === 0) yBtn.textContent = "None";
+  else if (selectedYears.size === 1) yBtn.textContent = String([...selectedYears][0]);
+  else if (selectedYears.size === AVAILABLE_YEARS.length) yBtn.textContent = "All years";
+  else yBtn.textContent = selectedYears.size + " years";
+  const ma = document.getElementById("monthAll"); if (ma) ma.checked = selectedMonths.size === AVAILABLE_MONTHS.length;
+  const ya = document.getElementById("yearAll"); if (ya) ya.checked = selectedYears.size === AVAILABLE_YEARS.length;
+}
+
+function toggleMs(evt, id) {
+  evt.stopPropagation();
+  const el = document.getElementById(id);
+  const wasOpen = el.classList.contains("open");
+  document.querySelectorAll(".ms.open").forEach(x => x.classList.remove("open"));
+  if (!wasOpen) el.classList.add("open");
+}
+
+function onMsChange(kind, val, checked) {
+  const set = kind === "month" ? selectedMonths : selectedYears;
+  if (checked) set.add(val); else set.delete(val);
+  updateMsButtons();
+  loadSelection();
+}
+
+function toggleAllMs(kind, checked) {
+  const set = kind === "month" ? selectedMonths : selectedYears;
+  const all = kind === "month" ? AVAILABLE_MONTHS : AVAILABLE_YEARS;
+  set.clear();
+  if (checked) all.forEach(v => set.add(v));
+  renderMsPanels();
+  loadSelection();
 }
 
 let CURRENT_DATA = null;                 // the raw month JSON, kept for region re-filtering
@@ -604,37 +698,154 @@ function applyRegionFilter() {
   document.getElementById("channelSection").style.display = "block";
 }
 
-async function loadMonth(year, month) {
-  const statusEl = document.getElementById("status");
+const MONTH_CACHE = {};  // "YYYY-MM" -> parsed json (or null if missing)
+async function fetchMonth(year, month) {
+  const key = `${year}-${String(month).padStart(2, "0")}`;
+  if (key in MONTH_CACHE) return MONTH_CACHE[key];
   try {
-    const resp = await fetch(`data/${year}-${month}.json`, { cache: "no-store" });
-    if (!resp.ok) throw new Error("HTTP " + resp.status);
-    const data = await resp.json();
-
-    document.getElementById("subheader").textContent =
-      `${data.month_label} — updated ${new Date(data.generated_at).toLocaleString()} · day ${data.days_elapsed} of ${data.days_in_month}`;
-
-    CURRENT_DATA = data;
-    CURRENT_CHANNELS_SORTED = sortByAchievement(data.channels || []);
-    applyRegionFilter();
-
-    statusEl.style.display = "none";
-  } catch (err) {
-    statusEl.style.display = "block";
-    statusEl.textContent = "Couldn't load data for this month (" + err.message + ").";
+    const resp = await fetch(`data/${key}.json`, { cache: "no-store" });
+    MONTH_CACHE[key] = resp.ok ? await resp.json() : null;
+  } catch (e) {
+    MONTH_CACHE[key] = null;
   }
+  return MONTH_CACHE[key];
+}
+
+// Combine several months' data into one object of the same shape (Power BI
+// "total"): sum per-channel and per-SKU figures, re-roll regions, sum day
+// counts. A single month is returned as-is.
+function aggregateMonths(list) {
+  if (list.length === 1) return list[0];
+  const sourceRank = { sku: 3, channel_only: 2, none: 1 };
+  const chMap = new Map();  // name|||region -> channel
+  for (const data of list) {
+    for (const c of (data.channels || [])) {
+      const key = c.name + "|||" + c.region;
+      let agg = chMap.get(key);
+      if (!agg) {
+        agg = { name: c.name, region: c.region, target_units: 0, target_revenue: 0,
+                actual_units: 0, actual_revenue: 0, projected_revenue: 0,
+                has_actual_file: false, has_target_data: false,
+                target_source: "none", _rank: 0, _skus: new Map() };
+        chMap.set(key, agg);
+      }
+      agg.target_units += c.target_units || 0;
+      agg.target_revenue += c.target_revenue || 0;
+      agg.actual_units += c.actual_units || 0;
+      agg.actual_revenue += c.actual_revenue || 0;
+      agg.projected_revenue += c.projected_revenue || 0;
+      agg.has_actual_file = agg.has_actual_file || !!c.has_actual_file;
+      agg.has_target_data = agg.has_target_data || !!c.has_target_data;
+      const r = sourceRank[c.target_source] || 0;
+      if (r > agg._rank) { agg._rank = r; agg.target_source = c.target_source; }
+      for (const s of (c.skus || [])) {
+        let sa = agg._skus.get(s.sku);
+        if (!sa) {
+          sa = { sku: s.sku, category: s.category || null, listing_name: s.listing_name || null,
+                 target_units: 0, target_revenue: 0, actual_units: 0, actual_revenue: 0,
+                 image_url: s.image_url || null };
+          agg._skus.set(s.sku, sa);
+        }
+        sa.target_units += s.target_units || 0;
+        sa.target_revenue += s.target_revenue || 0;
+        sa.actual_units += s.actual_units || 0;
+        sa.actual_revenue += s.actual_revenue || 0;
+        if (!sa.category && s.category) sa.category = s.category;
+        if (!sa.listing_name && s.listing_name) sa.listing_name = s.listing_name;
+        if (!sa.image_url && s.image_url) sa.image_url = s.image_url;
+      }
+    }
+  }
+  const round2 = n => Math.round(n * 100) / 100;
+  const channels = [...chMap.values()].map(c => {
+    const skus = [...c._skus.values()].map(s => ({
+      sku: s.sku, category: s.category, listing_name: s.listing_name,
+      target_units: s.target_units, target_revenue: round2(s.target_revenue),
+      actual_units: s.actual_units, actual_revenue: round2(s.actual_revenue),
+      image_url: s.image_url,
+    }));
+    return { name: c.name, region: c.region, target_units: c.target_units,
+      target_revenue: round2(c.target_revenue), actual_units: c.actual_units,
+      actual_revenue: round2(c.actual_revenue), projected_revenue: round2(c.projected_revenue),
+      has_actual_file: c.has_actual_file, has_target_data: c.has_target_data,
+      target_source: c.target_source, skus };
+  });
+  // re-roll regions from channels
+  const regMap = new Map();
+  for (const c of channels) {
+    let r = regMap.get(c.region);
+    if (!r) { r = { region: c.region, target_revenue: 0, actual_revenue: 0,
+      target_units: 0, actual_units: 0, projected_revenue: 0 }; regMap.set(c.region, r); }
+    r.target_revenue += c.target_revenue; r.actual_revenue += c.actual_revenue;
+    r.target_units += c.target_units; r.actual_units += c.actual_units;
+    r.projected_revenue += c.projected_revenue;
+  }
+  const regions = [...regMap.values()].map(r => ({ ...r,
+    target_revenue: round2(r.target_revenue), actual_revenue: round2(r.actual_revenue),
+    projected_revenue: round2(r.projected_revenue) })).sort((a,b)=>a.region.localeCompare(b.region));
+  const sum = f => list.reduce((a, d) => a + (d[f] || 0), 0);
+  const labels = list.map(d => d.month_label);
+  const month_label = labels.length <= 3 ? labels.join(" + ") : labels.length + " periods";
+  const generated_at = list.map(d => d.generated_at).sort().slice(-1)[0];
+  return { generated_at, month_label, multi: true, periods: labels.length,
+    days_elapsed: sum("days_elapsed"), days_completed: sum("days_completed"),
+    days_in_month: sum("days_in_month"), regions, channels };
+}
+
+async function loadSelection() {
+  const statusEl = document.getElementById("status");
+  const pairs = MANIFEST_MONTHS.filter(m => selectedYears.has(m.year) && selectedMonths.has(m.month));
+  if (pairs.length === 0) {
+    ["regionSection","overallSection","channelSection"].forEach(id => document.getElementById(id).style.display = "none");
+    statusEl.style.display = "block";
+    statusEl.textContent = "No published data for the selected Month/Year combination.";
+    document.getElementById("subheader").textContent = "Select at least one month and one year.";
+    return;
+  }
+  pairs.sort((a, b) => a.year - b.year || a.month - b.month);
+  const datas = (await Promise.all(pairs.map(p => fetchMonth(p.year, p.month)))).filter(Boolean);
+  if (datas.length === 0) {
+    statusEl.style.display = "block";
+    statusEl.textContent = "Couldn't load data for the selected period(s).";
+    return;
+  }
+  const data = aggregateMonths(datas);
+  const updated = data.generated_at ? new Date(data.generated_at).toLocaleString() : "—";
+  document.getElementById("subheader").textContent = data.multi
+    ? `${data.month_label} — updated ${updated} · ${data.days_completed}/${data.days_in_month} days across ${data.periods} periods`
+    : `${data.month_label} — updated ${updated} · day ${data.days_elapsed} of ${data.days_in_month}`;
+
+  CURRENT_DATA = data;
+  CURRENT_CHANNELS_SORTED = sortByAchievement(data.channels || []);
+  applyRegionFilter();
+  statusEl.style.display = "none";
 }
 
 async function loadDashboard() {
   const statusEl = document.getElementById("status");
   try {
-    const first = await populateMonthSelect();
-    await loadMonth(first.year, String(first.month).padStart(2, "0"));
+    const resp = await fetch("data/manifest.json", { cache: "no-store" });
+    if (!resp.ok) throw new Error("HTTP " + resp.status + " loading manifest.json");
+    const manifest = await resp.json();
+    CURRENT_MANIFEST = manifest;
+    MANIFEST_MONTHS = manifest.months || [];
+    AVAILABLE_YEARS = [...new Set(MANIFEST_MONTHS.map(m => m.year))].sort((a, b) => a - b);
+    AVAILABLE_MONTHS = [...new Set(MANIFEST_MONTHS.map(m => m.month))].sort((a, b) => a - b);
+    // Default: the current effective month only.
+    const def = pickDefaultMonth(MANIFEST_MONTHS, new Date());
+    selectedYears.add(def.year);
+    selectedMonths.add(def.month);
+    renderMsPanels();
+    await loadSelection();
   } catch (err) {
     statusEl.textContent = "Couldn't load data/manifest.json (" + err.message + "). Make sure the dashboard workflow has run at least once.";
   }
 }
 
+// Close any open multi-select panel when clicking outside it.
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".ms")) document.querySelectorAll(".ms.open").forEach(x => x.classList.remove("open"));
+});
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
 
 loadDashboard();
