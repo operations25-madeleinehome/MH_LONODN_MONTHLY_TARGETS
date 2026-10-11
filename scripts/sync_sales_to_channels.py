@@ -194,11 +194,10 @@ ALL_PROFILES = CHANNEL_PROFILES + CATCHALL_PROFILES
 # =============================================================================
 
 SALES_WORKBOOK_STUBS = {"MH US": "MH US Sales", "MH EU": "MH EU Sales"}
-
-# First (year, month) that uses the consolidated layout. For months >= this,
-# the sync writes the two region Sales workbooks (creating them in the month
-# folder if they don't exist yet). Earlier months keep the per-channel layout.
-CONSOLIDATED_FROM = (2026, 10)
+# The consolidated layout activates for a month once BOTH region Sales workbooks
+# exist in its folder. The user creates those two files once per month (owned by
+# them); the sync only ever UPDATES them -- a service account cannot create files
+# in a My Drive folder (no storage quota).
 
 REGION_SALES_LAYOUT = {
     "MH US": [
@@ -440,6 +439,13 @@ IGNORED_FILE_STUBS = [
     "MH EU - Revenue Targets",
     "MH US - Wayfair & Amazon Monthly Targets",
     "SKU Details and Priority",
+    # Consolidated-layout files: never per-channel sales files, so the old
+    # layout must skip them quietly (no "unmatched file" emails during a
+    # partial / in-progress cutover).
+    "MH US Sales",
+    "MH EU Sales",
+    "MH US - Targets",
+    "MH EU - Targets",
 ]
 
 def is_ignored_file(name):
@@ -509,16 +515,6 @@ def find_file_by_stub(files, stub):
         return exact[0]
     pref = [f for f in xlsx if Path(f["name"]).stem.lower().startswith(stub_l)]
     return pref[0] if pref else None
-
-def create_xlsx_in_folder(service, folder_id, name, buf):
-    """Create a new .xlsx in the given Drive folder from an in-memory buffer."""
-    buf.seek(0)
-    media = MediaIoBaseUpload(buf, mimetype=XLSX_MIMETYPE, resumable=False)
-    meta = {"name": name, "parents": [folder_id]}
-    return service.files().create(
-        body=meta, media_body=media, fields="id",
-        supportsAllDrives=True,
-    ).execute()
 
 # =============================================================================
 # SYNCING A SINGLE CHANNEL FILE (append-only, never clears existing rows)
@@ -606,22 +602,17 @@ def sync_channel(service, channel_cfg, drive_file, sheet_name, records):
     upload_bytes(service, drive_file["id"], out_buf)
     return summary
 
-def sync_region_workbook(service, drive_file, folder_id, region, month, year,
-                         master_rows, master_headers, label, problems):
-    """Consolidated layout: open the region's single Sales workbook (creating the
-    file in the month folder if it doesn't exist yet), append each channel's rows
-    into its own sheet (creating the sheet if missing), then save + upload once.
+def sync_region_workbook(service, drive_file, region, master_rows, master_headers, label, problems):
+    """Consolidated layout: open the region's single (user-owned) Sales workbook,
+    append each channel's rows into its own sheet (creating the sheet if missing),
+    then save + upload once. The file must already exist -- a service account
+    cannot create files in a My Drive folder (no storage quota), so the workbook
+    is created once by the user and only ever UPDATED here.
     Prints per-channel summaries and records any per-channel failures."""
     layout = REGION_SALES_LAYOUT[region]
     own_names = {c["name"] for c in layout if not c.get("is_catchall")}
 
-    creating_file = drive_file is None
-    if creating_file:
-        wb = openpyxl.Workbook()
-        _default_sheet = wb.active            # blank starter sheet, removed below
-    else:
-        wb = openpyxl.load_workbook(download_bytes(service, drive_file["id"]))  # formulas preserved
-        _default_sheet = None
+    wb = openpyxl.load_workbook(download_bytes(service, drive_file["id"]))  # formulas preserved
     summaries = []
     for ch in layout:
         try:
@@ -646,21 +637,11 @@ def sync_region_workbook(service, drive_file, folder_id, region, month, year,
         except Exception as exc:
             problems.append(f"[{label}] {region} / {ch['name']} FAILED: {exc}")
 
-    # Drop the blank starter sheet left over from a freshly created workbook.
-    if creating_file and _default_sheet is not None and _default_sheet.title in wb.sheetnames \
-            and _default_sheet.title not in [c["sheet"] for c in layout]:
-        wb.remove(_default_sheet)
-
     out_buf = io.BytesIO()
     wb.save(out_buf)
     wb.close()
     out_buf.seek(0)
-    if creating_file:
-        new_name = f"{SALES_WORKBOOK_STUBS[region]} - {month_name(month, year)} {year}.xlsx"
-        create_xlsx_in_folder(service, folder_id, new_name, out_buf)
-        print(f"  [{region}] created new workbook '{new_name}'")
-    else:
-        upload_bytes(service, drive_file["id"], out_buf)
+    upload_bytes(service, drive_file["id"], out_buf)
     for line in summaries:
         print(line)
 
@@ -714,20 +695,27 @@ def process_period(service, month, year, all_master_rows, master_headers, is_gra
 
     master_rows = [r for r in all_master_rows if (r["_month"], r["_year"]) == (month, year)]
 
-    # Consolidated layout for months >= the cutover, OR any older month whose
-    # folder already has a consolidated Sales workbook. Otherwise old layout.
+    # Consolidated layout kicks in only once BOTH region Sales workbooks exist in
+    # the folder (the user creates them; a service account can't create files in
+    # My Drive). Until then -- including a partial setup -- we stay on the old
+    # per-channel layout so nothing goes stale.
     region_sales = {region: find_file_by_stub(files, stub)
                     for region, stub in SALES_WORKBOOK_STUBS.items()}
-    use_new = (year, month) >= CONSOLIDATED_FROM or any(region_sales.values())
+    present = {r for r, f in region_sales.items() if f}
 
-    if use_new:
-        # --- NEW consolidated layout (create the region workbook if missing) ---
+    if present == set(SALES_WORKBOOK_STUBS):
+        # --- NEW consolidated layout: update both region workbooks ---
         for region in SALES_WORKBOOK_STUBS:
-            sync_region_workbook(service, region_sales.get(region), folder_id, region,
-                                 month, year, master_rows, master_headers, label, problems)
+            sync_region_workbook(service, region_sales[region], region,
+                                 master_rows, master_headers, label, problems)
         return
 
-    # --- OLD per-channel-file layout (historical months) ---
+    if present:
+        missing = [r for r in SALES_WORKBOOK_STUBS if r not in present]
+        print(f"  Found consolidated Sales workbook(s) for {sorted(present)} but not "
+              f"{missing}; staying on the per-channel layout until both exist.")
+
+    # --- OLD per-channel-file layout (historical / not-yet-cut-over months) ---
     process_period_old(service, month, year, label, master_rows, master_headers, problems)
 
 def process_period_old(service, month, year, label, master_rows, master_headers, problems):

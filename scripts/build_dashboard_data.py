@@ -480,11 +480,15 @@ def build_dashboard_data(service, month, year, today=None, sku_images=None, sku_
 
     # --- Download the per-region workbooks once (consolidated layout, with
     #     fallback to the old per-region Targets names). ---
-    # Region Sales workbooks (new layout): "MH US Sales" / "MH EU Sales".
+    # Region Sales workbooks (new layout): "MH US Sales" / "MH EU Sales". Only
+    # used once BOTH regions' workbooks exist (matches the sync's cutover rule);
+    # otherwise fall back to the old per-channel files so a half-finished setup
+    # never shows empty data.
     region_sales_bytes, region_sales_names = {}, {}
-    for region, stub in SALES_WORKBOOK_STUBS.items():
-        f = find_file_by_stub(files_in_folder, stub)
-        if f:
+    region_sales_files = {region: find_file_by_stub(files_in_folder, stub)
+                          for region, stub in SALES_WORKBOOK_STUBS.items()}
+    if all(region_sales_files.values()):
+        for region, f in region_sales_files.items():
             b = download_bytes(service, f["id"])
             region_sales_bytes[region] = b
             region_sales_names[region] = workbook_sheet_names(b)
