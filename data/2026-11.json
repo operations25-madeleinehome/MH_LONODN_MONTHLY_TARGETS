@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T07:24:40",
+  "generated_at": "2026-10-28T07:50:39",
   "month": 11,
   "year": 2026,
   "month_label": "November 2026",
@@ -539,43 +539,43 @@
         },
         {
           "sku": "MH-SS-23000",
-          "category": null,
-          "listing_name": null,
+          "category": "Step Stool",
+          "listing_name": "Monty 2 Step Stool",
           "target_units": 3,
           "target_revenue": 156.0,
           "actual_units": 0,
           "actual_revenue": 0.0,
-          "image_url": null
+          "image_url": "https://plytix-files.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/dc/33/6c/6a/6a6c33dcc643b00c591f5383/MH-SS-23000 - Features Lifestyle (05).jpg"
         },
         {
           "sku": "MH-SS-23001",
-          "category": null,
-          "listing_name": null,
+          "category": "Step Stool",
+          "listing_name": "Monty 2 Step Stool",
           "target_units": 3,
           "target_revenue": 156.0,
           "actual_units": 0,
           "actual_revenue": 0.0,
-          "image_url": null
+          "image_url": "https://plytix-files.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/6e/34/6c/6a/6a6c346ea1d96f533a80d323/MH-SS-23001 - Features Lifestyle (05).jpg"
         },
         {
           "sku": "MH-SS-23002",
-          "category": null,
-          "listing_name": null,
+          "category": "Step Stool",
+          "listing_name": "Eze 2 Step Stool",
           "target_units": 3,
           "target_revenue": 171.92,
           "actual_units": 0,
           "actual_revenue": 0.0,
-          "image_url": null
+          "image_url": "https://plytix-files.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/d8/36/6c/6a/6a6c36d8deeed6635e9595a0/MH-SS-23002 - Lifestyle Features (05).jpg"
         },
         {
           "sku": "MH-SS-23003",
-          "category": null,
-          "listing_name": null,
+          "category": "Step Stool",
+          "listing_name": "Eze 2 Step Stool",
           "target_units": 3,
           "target_revenue": 171.92,
           "actual_units": 0,
           "actual_revenue": 0.0,
-          "image_url": null
+          "image_url": "https://plytix-files.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/36/37/6c/6a/6a6c373663747528a21b2f7b/MH-SS-23003 - Lifestyle Features (05).jpg"
         },
         {
           "sku": "MH-ST-107BZ",
@@ -2809,7 +2809,7 @@
         },
         {
           "sku": "MH-TB-21299",
-          "category": "Coffee Tables",
+          "category": "Coffee & Cocktail Tables",
           "listing_name": "Evo Mango Wood Coffee Table",
           "target_units": 3,
           "target_revenue": 526.5,
@@ -2819,7 +2819,7 @@
         },
         {
           "sku": "MH-TB-21300",
-          "category": "Coffee Tables",
+          "category": "Coffee & Cocktail Tables",
           "listing_name": "Lainey Mango Wood Coffee Table",
           "target_units": 3,
           "target_revenue": 594.0,
@@ -2829,63 +2829,63 @@
         },
         {
           "sku": "MH-TB-21302",
-          "category": null,
-          "listing_name": null,
+          "category": "Sofa & Console Tables",
+          "listing_name": "Marli Console Table",
           "target_units": 3,
           "target_revenue": 491.05,
           "actual_units": 0,
           "actual_revenue": 0.0,
-          "image_url": null
+          "image_url": "https://plytix-files.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/e4/98/82/6a/6a8298e44831678c284f029a/MH-TB-21302 - Zoomed In Set.jpg"
         },
         {
           "sku": "MH-TB-21303",
-          "category": null,
-          "listing_name": null,
+          "category": "TV Stands & Entertainment Centers",
+          "listing_name": "Marli Solid Media Unit",
           "target_units": 3,
           "target_revenue": 718.85,
           "actual_units": 0,
           "actual_revenue": 0.0,
-          "image_url": null
+          "image_url": "https://plytix-files.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/00/2b/7d/6a/6a7d2b00e513ae31e6dfa92b/MH-TB-21303 - Zoomed In Set.jpg"
         },
         {
           "sku": "MH-TB-21304",
-          "category": null,
-          "listing_name": null,
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Warwick Coffee Table",
           "target_units": 3,
           "target_revenue": 883.59,
           "actual_units": 0,
           "actual_revenue": 0.0,
-          "image_url": null
+          "image_url": "https://plytix-files.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/69/81/b2/6a/6ab2816906f56ea37c89004c/MH-TB-21304 - Zoomed In Set.jpg"
         },
         {
           "sku": "MH-TB-21305",
-          "category": null,
-          "listing_name": null,
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Hola Solid Coffee Table",
           "target_units": 3,
           "target_revenue": 610.87,
           "actual_units": 0,
           "actual_revenue": 0.0,
-          "image_url": null
+          "image_url": "https://plytix-files.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/22/b7/97/6a/6a97b7226daa20f8fcbaf0f2/MH-TB-21305 - Lifestyle Set (02).jpg"
         },
         {
           "sku": "MH-TB-21306",
-          "category": null,
-          "listing_name": null,
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Hola Solid Coffee Table",
           "target_units": 3,
           "target_revenue": 610.87,
           "actual_units": 0,
           "actual_revenue": 0.0,
-          "image_url": null
+          "image_url": "https://plytix-files.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/6b/32/aa/6a/6aaa326b9715b41771e95a38/MH-TB-21306 - Lifestyle Casual Set (05).jpg"
         },
         {
           "sku": "MH-TB-21318",
-          "category": null,
-          "listing_name": null,
+          "category": "Coffee & Cocktail Tables",
+          "listing_name": "Marcel Coffee Table",
           "target_units": 3,
           "target_revenue": 432.54,
           "actual_units": 0,
           "actual_revenue": 0.0,
-          "image_url": null
+          "image_url": "https://plytix-files.com/api/v1.1/file/public_files/pim/assets/86/94/b0/61/61b09486e3ec7695c3062107/images/1d/3d/88/6a/6a883d1d147fc50d97e563ce/MH-TB-21318 - Zoomed In Set.jpg"
         },
         {
           "sku": "MH-TB-805",
