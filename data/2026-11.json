@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-06T15:14:48",
+  "generated_at": "2026-11-07T06:32:07",
   "month": 11,
   "year": 2026,
   "month_label": "November 2026",
-  "days_elapsed": 6,
-  "days_completed": 5,
+  "days_elapsed": 7,
+  "days_completed": 6,
   "days_in_month": 30,
   "regions": [
     {
@@ -13,7 +13,7 @@
       "actual_revenue": 6957.88,
       "target_units": 1011,
       "actual_units": 117,
-      "projected_revenue": 34789.4
+      "projected_revenue": 29819.48
     },
     {
       "region": "MH US",
@@ -21,7 +21,7 @@
       "actual_revenue": 66765.76,
       "target_units": 5242,
       "actual_units": 750,
-      "projected_revenue": 333828.8
+      "projected_revenue": 286138.97
     }
   ],
   "channels": [
@@ -32,7 +32,7 @@
       "target_revenue": 437153.35,
       "actual_units": 692,
       "actual_revenue": 62545.62,
-      "projected_revenue": 312728.1,
+      "projected_revenue": 268052.66,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -3166,7 +3166,7 @@
       "target_revenue": 23763.0,
       "actual_units": 46,
       "actual_revenue": 3423.46,
-      "projected_revenue": 17117.3,
+      "projected_revenue": 14671.97,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -3350,7 +3350,7 @@
       "target_revenue": 4000.0,
       "actual_units": 1,
       "actual_revenue": 119.99,
-      "projected_revenue": 599.95,
+      "projected_revenue": 514.24,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "channel_only",
@@ -3374,7 +3374,7 @@
       "target_revenue": 0.0,
       "actual_units": 11,
       "actual_revenue": 676.69,
-      "projected_revenue": 3383.45,
+      "projected_revenue": 2900.1,
       "has_actual_file": true,
       "has_target_data": false,
       "target_source": "none",
@@ -3448,7 +3448,7 @@
       "target_revenue": 4719.59,
       "actual_units": 40,
       "actual_revenue": 1310.89,
-      "projected_revenue": 6554.45,
+      "projected_revenue": 5618.1,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -4242,7 +4242,7 @@
       "target_revenue": 13618.07,
       "actual_units": 17,
       "actual_revenue": 1265.53,
-      "projected_revenue": 6327.65,
+      "projected_revenue": 5423.7,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -5086,7 +5086,7 @@
       "target_revenue": 30677.59,
       "actual_units": 43,
       "actual_revenue": 3230.33,
-      "projected_revenue": 16151.65,
+      "projected_revenue": 13844.27,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
@@ -5980,7 +5980,7 @@
       "target_revenue": 11492.35,
       "actual_units": 17,
       "actual_revenue": 1151.13,
-      "projected_revenue": 5755.65,
+      "projected_revenue": 4933.41,
       "has_actual_file": true,
       "has_target_data": true,
       "target_source": "sku",
